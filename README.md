@@ -6,7 +6,7 @@
 3. Copier le ficher .env.example, le renommer en .env
   3.1 Changer l'APP_URL avec https://nom_du_domaine/caracara/public
   3.2 Mettre les informations de connexion à la base de données, et faire un `php artisan config:cache`
-4. Faire un php artisan migrate
+4. Faire un `php artisan migrate`
 
 ##Autres commandes utiles
 ```
