@@ -11,4 +11,8 @@ class Post extends Model
     use HasFactory, SoftDeletes;
 
     protected $fillable = ['url'];
+
+    public function tableaux(){
+        return $this->belongsToMany(Tableau::class);
+    }
 }

@@ -13,4 +13,8 @@ class Tableau extends Model
     public $table = 'tableaux';
 
     protected $fillable = ['nom', 'description', 'url_icone', 'prive'];
+
+    public function posts(){
+        return $this->belongsToMany(Post::class);
+    }
 }

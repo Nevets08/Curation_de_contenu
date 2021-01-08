@@ -13,6 +13,12 @@
         @else
             public
         @endif</p>
+        <p>Posts du tableau :</p>
+        <ul>
+        @foreach ($tableau->posts as $post)
+            <li><a href="{{ $post->url }}" target="_blank">ALORS ICI IL VA FALLOIR RECUPERER LE TITRE DU LIEN MWAHAHAAH</a></li>
+        @endforeach
+        </ul>
     @endforeach
 </body>
 </html>
