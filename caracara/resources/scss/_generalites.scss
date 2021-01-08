@@ -1,0 +1,14 @@
+.container {
+    max-width: 1280px;
+    margin: auto;
+}
+
+.hidden {
+    display: none;
+}
+
+.md {
+    @media (min-width: $breakpoint-tablet) {
+        display: block;
+    }
+}
