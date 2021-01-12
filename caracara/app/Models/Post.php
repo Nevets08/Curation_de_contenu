@@ -15,4 +15,8 @@ class Post extends Model
     public function tableaux(){
         return $this->belongsToMany(Tableau::class);
     }
+
+    public function user(){
+        return $this->belongsTo(User::class)->withDefault();
+    }
 }

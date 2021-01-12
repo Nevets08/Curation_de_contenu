@@ -16,7 +16,7 @@
         <p>Posts du tableau :</p>
         <ul>
         @foreach ($tableau->posts as $post)
-            <li><a href="{{ $post->url }}" target="_blank">ALORS ICI IL VA FALLOIR RECUPERER LE TITRE DU LIEN MWAHAHAAH</a></li>
+            <li><a href="{{ $post->url }}" target="_blank">{titre du lien}</a> (posté par {{ $post->user->name }})</li>
         @endforeach
         </ul>
     @endforeach
