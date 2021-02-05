@@ -20,5 +20,52 @@
         @endforeach
         </ul>
     @endforeach
+    
+    <h2>Ajouter un nouveau tableau</h2>
+    <form action="{{ route('tableau.store') }}" method="post" style="display: flex; flex-direction: column">
+        @csrf
+    
+        <label>
+            Nom du nouveau tableau :
+            <input type="text" placeholder="Nom du tableau"  name="nom" required >
+        </label>
+
+        <label>
+            Description :
+            <textarea name="description" cols="30" rows="10" placeholder="Description du tableau..." required></textarea>
+        </label>
+
+        <label>
+            Visibilité :
+            <label>
+                <input type="radio"  name="private" value="1" checked>
+                Privé
+            </label>
+            <label>
+                <input type="radio"  name="private" value="0">
+                Public
+            </label>
+        </label>
+
+        <p>(Ici faudra se débrouiller ne montrer ce qui suit uniquement si le tableau est privé)</p>
+        <label>
+            Qui voulez vous inviter ? (vous pouvez selectionner plusieurs personnes avec ctrl)
+            <select multiple name="user[]">
+                @foreach ($allUsers as $optionUser)
+                    <option
+                        value={{ $optionUser->id }}
+                        @if ( $optionUser->id === $user->id )
+                            selected
+                            style="display: none"
+                        @endif
+                    >
+                        {{ $optionUser->name }}
+                    </option>
+                @endforeach
+            </select>
+        </label>
+
+        <button type="submit">Ok</button>
+    </form>
 </body>
 </html>

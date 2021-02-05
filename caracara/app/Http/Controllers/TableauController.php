@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Tableau;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -15,7 +16,8 @@ class TableauController extends Controller
      */
     public function index()
     {
-        return view('tableau.index', ['tableaux' => Tableau::all()]);
+        $user = Auth::user();
+        return view('tableau.index', ['tableaux' => Tableau::all(), 'user' => $user, 'allUsers' => User::all()]);
     }
 
     /**
