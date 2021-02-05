@@ -18,7 +18,7 @@
         }
     </style>
 </head>
-<body class="">
+<body class="home">
 <header>
     <nav class="container">
         <div class="left_elements">
@@ -29,7 +29,7 @@
             <div class="search-bar">
                 <i class="fas fa-search" onclick="ClickSearchIcone()"></i>
                 <form id="search-form">
-                    <input id="search-toggle" type="search" placeholder="search">
+                    <input id="search-toggle" type="search" placeholder="Rechercher">
                 </form>
             </div>
 
@@ -68,6 +68,80 @@
 {{--                </div>--}}
 {{--            @endif--}}
 {{--        </div>--}}
+<div class="container site-global">
+    <aside>
+        <section>
+            <h2>Tableau privés</h2>
+            <div class="tableaux_miniatures">
+                <div>
+                    <img src="{{ asset('img/rectangle_vide.png') }}" alt="">
+                    <p>Lorem Ipsum</p>
+                </div>
+                <div>
+                    <img src="{{ asset('img/rectangle_vide.png') }}" alt="">
+                    <p>Lorem Ipsum</p>
+                </div>
+                <div>
+                    <img src="{{ asset('img/rectangle_vide.png') }}" alt="">
+                    <p>Lorem Ipsum</p>
+                </div>
+                <div>
+                    <img src="{{ asset('img/rectangle_vide.png') }}" alt="">
+                    <p>Lorem Ipsum</p>
+                </div>
+                <div>
+                    <img src="{{ asset('img/rectangle_vide.png') }}" alt="">
+                    <p>Lorem Ipsum</p>
+                </div>
+                <div>
+                    <img src="{{ asset('img/rectangle_vide.png') }}" alt="">
+                    <p>Lorem Ipsum</p>
+                </div>
+            </div>
+            <button>Créer</button>
+        </section>
+        <section>
+            <h2>Publications sauvegardées</h2>
+            <article class="article-save">
+                <img src="{{ asset('img/carre_vide.png') }}" alt="">
+                <p class="article-save-headline">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.</p>
+                <p class="article-save-infos">Par <a href="#">Nom Prénom</a> dans <a href="#">Anglais</a></p>
+            </article>
+        </section>
+    </aside>
+    <main>
+        <section>
+            <h2>Mes tableaux publics</h2>
+        </section>
+        <section>
+            <article class="article-card">
+                <div class="article-infos">
+                    <a href="#"><img class="article-auteur-image" src="{{ asset('img/Rond.png') }}" alt=""><p class="article-auteur">Nom Prénom</p></a>
+                    <p class="article-date">Il y a 1h</p>
+                </div>
+                <p class="article-headline">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor #incididunt ero labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco poriti laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <img class="article-image" src="{{ asset('img/Rectangle.png') }}" alt="">
+                <div class="article-footer">
+                    <div class="article-likes"><a href=""><img src="{{ asset('img/heart.png') }}" alt="">605</a></div>
+                    <div class="article-favoris"><a href=""><img src="{{ asset('img/down-arrow.png') }}" alt="">Ajouter aux favoris</a></div>
+                    <div class="article-Retweet"><a href=""><img src="{{ asset('img/retweet.png') }}" alt="">Retweet</a></div>
+                    <div class="article-partager">
+                        <a class="article-partager" href="#" onclick="tooglePartageDiv()">Partager</a>
+                        <div class="article-partager-liens">
+                            <a href="#">Facebook</a>
+                            <a href="#">Twitter</a>
+                            <a href="#">Email</a>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+    </main>
+</div>
+<footer>
+
+</footer>
 </body>
 
 <script>
@@ -81,6 +155,10 @@
 
     function ClickSearchIcone() {
         document.querySelector("#search-form").classList.toggle("showSearchBar");
+    }
+
+    function tooglePartageDiv() {
+        document.querySelector(".article-partager-liens").classList.toggle("show");
     }
 </script>
 

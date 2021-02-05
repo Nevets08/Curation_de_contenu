@@ -1,0 +1,74 @@
+.article-card {
+    @include cards;
+    .article-infos {
+        display: flex;
+        justify-content: space-between;
+        a {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            font-size: 2.2rem;
+            color: $main-color-dark;
+            font-weight: bold;
+            img {
+                margin-right: 10px;
+            }
+        }
+    }
+    p.article-headline {
+        margin: 15px 0;
+    }
+
+    .article-footer {
+        margin-top: 20px;
+        display: flex;
+        @media (max-width: $breakpoint-mini-mobile) {
+            flex-direction: column;
+        }
+        > div a {
+            display: flex;
+            margin: 0 10px;
+            justify-content: center;
+            font-size: 1.6rem;
+            align-items: center;
+            @media (max-width: $breakpoint-mini-mobile) {
+                margin: 10px 0;
+                justify-content: left;
+            }
+            img {
+                width: 20px;
+                margin-right: 7px;
+                height: min-content;
+            }
+        }
+        div.article-partager {
+            margin-left: auto;
+            position: relative;
+            @media (max-width: $breakpoint-mini-mobile) {
+                margin-left: 0;
+            }
+            a.article-partager {
+                font-size: 1.8rem;
+                font-weight: bold;
+            }
+            div.article-partager-liens {
+                display: none;
+                position: absolute;
+                background-color: $main-color-dark;
+                color: white;
+                padding: 5px;
+                bottom: 20px;
+                clip-path: polygon(0% 0%, 100% 0%, 100% 92%, 65% 92%, 51% 100%, 36% 92%, 0 92%);
+                @media (max-width: $breakpoint-tablet) {
+                    width: 100%;
+                }
+                &.show {
+                    display: block;
+                }
+                a:last-of-type {
+                    margin-bottom: 20px;
+                }
+            }
+        }
+    }
+}

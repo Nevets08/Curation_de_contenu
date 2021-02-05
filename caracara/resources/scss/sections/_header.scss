@@ -8,7 +8,7 @@ header {
         display: flex;
         flex-direction: row;
         align-items: center;
-        justify-content: space-around;
+        justify-content: space-between;
     }
 
     .right_elements {
@@ -22,15 +22,20 @@ header {
         @media (max-width: $breakpoint-tablet) {
             max-width: 200px;
         }
+        @media (max-width: $breakpoint-mobile) {
+            max-width: 130px;
+        }
     }
 
     .search-bar {
         position: relative;
         margin-right: 30px;
+        min-width: 30px;
         i {
             position: absolute;
             top: calc(50% - 16px / 2);
             left: 20px;
+            font-size: 1.5rem;
         }
 
         form {
@@ -41,6 +46,8 @@ header {
                 left: 0;
                 right: 0;
                 z-index: 10;
+                background-color: $main-color-light;
+                padding: 10px;
                 &.showSearchBar {
                     display: block;
                 }
@@ -53,13 +60,13 @@ header {
             input#search-toggle {
                 background-color: #e5e7eb;
                 border-radius: 50px;
-                padding-top: 0.75rem;
-                padding-bottom: 0.75rem;
-                padding-right: 1rem;
-                padding-left: 3rem;
-
+                padding: 1.2rem 1.6rem 1.2rem 4.8rem;
+                @media (max-width: $breakpoint-tablet) {
+                    background-color: white;
+                }
                 &::placeholder {
                     color: black;
+                    font-size: 2rem;
                 }
             }
         }
@@ -75,6 +82,13 @@ header {
             i {
                 font-size: 35px;
                 margin-right: 15px;
+            }
+
+            span {
+                font-size: 2.4rem;
+                color: $main-color-dark;
+                text-transform: capitalize;
+                font-weight: bold;
             }
 
             &:after {

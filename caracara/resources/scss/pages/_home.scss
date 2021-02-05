@@ -1,0 +1,5 @@
+body.home div.site-global {
+    section:first-of-type {
+        @include cards;
+    }
+}

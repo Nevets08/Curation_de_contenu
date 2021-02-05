@@ -1,0 +1,19 @@
+.article-save {
+    min-height: 110px;
+    img {
+        width: 100px;
+        float: left;
+        margin-right: 20px;
+    }
+    .article-save-headline {
+        font-size: 1.6rem;
+    }
+    .article-save-infos{
+        margin-top: 10px;
+        font-size: 1.6rem;
+        font-weight: bold;
+        a {
+            border-bottom: 2px solid $main-color-dark;
+        }
+    }
+}

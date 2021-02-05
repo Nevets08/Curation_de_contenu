@@ -2,7 +2,7 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-$fa-font-path: "/fonts";
+//$fa-font-path: "/fonts";
 @import "~@fortawesome/fontawesome-free/scss/fontawesome";
 @import "~@fortawesome/fontawesome-free/scss/solid";
 @import "~@fortawesome/fontawesome-free/scss/brands";
@@ -17,7 +17,10 @@ $fa-font-path: "/fonts";
 
 //Sections
 @import "sections/header";
+@import "sections/liste_tableaux_prives";
+@import "sections/liste_articles_sauvegardes";
 
-
+//Composants
+@import "components/article-cards";
 
 
