@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Tableau;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TableauController extends Controller
 {
@@ -46,7 +47,8 @@ class TableauController extends Controller
      */
     public function show(Tableau $tableau)
     {
-        //
+        $user = Auth::user();
+        return view('tableau.show', ['tableau' => $tableau, 'user' => $user, 'allTableaux' => Tableau::all()]);
     }
 
     /**

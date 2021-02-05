@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PostRequest;
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
@@ -33,9 +35,19 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PostRequest $request)
     {
-        //
+        
+        $data = $request->validated();
+
+        $post = new Post();
+        $post->fill($data);
+        $post->user()->associate($data['user_id']); //un à plusieurs
+        $post->save();
+        $post->tableaux()->attach($data['tableau']); //plusieurs à plusieurs
+
+        $user = Auth::user();
+        return redirect()->route('tableau.show', ['tableau' => $data['created_from'], 'user' => $user]);
     }
 
     /**
