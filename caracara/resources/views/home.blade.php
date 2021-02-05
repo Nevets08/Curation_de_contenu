@@ -116,7 +116,7 @@
         <section>
             <article class="article-card">
                 <div class="article-infos">
-                    <a href="#"><img class="article-auteur-image" src="{{ asset('img/Rond.png') }}" alt=""><p class="article-auteur">Nom Prénom</p></a>
+                    <p class="article-auteur"><a href="#"><img class="article-auteur-image" src="{{ asset('img/Rond.png') }}" alt="">Nom Prénom</a>&nbspdans&nbsp<a href="#">Anglais</a></p>
                     <p class="article-date">Il y a 1h</p>
                 </div>
                 <p class="article-headline">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor #incididunt ero labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco poriti laboris nisi ut aliquip ex ea commodo consequat.</p>

@@ -38,3 +38,7 @@ $breakpoint-mini-mobile: 325px;
         padding: 10px;
     }
 }
+
+@mixin borderBottomLinks {
+    border-bottom: 2px solid #12142c;
+}

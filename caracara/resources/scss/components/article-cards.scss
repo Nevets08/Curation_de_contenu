@@ -3,6 +3,17 @@
     .article-infos {
         display: flex;
         justify-content: space-between;
+        p.article-auteur {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            font-size: 2.2rem;
+            color: #12142c;
+            font-weight: bold;
+            a:not(:first-of-type) {
+                @include borderBottomLinks;
+            }
+        }
         a {
             display: flex;
             flex-direction: row;
