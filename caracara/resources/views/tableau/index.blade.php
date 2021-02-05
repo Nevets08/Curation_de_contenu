@@ -33,17 +33,17 @@
 
         <label>
             Description :
-            <textarea name="description" cols="30" rows="10" placeholder="Description du tableau..." required></textarea>
+            <textarea name="description" cols="30" rows="10" placeholder="Description du tableau..."></textarea>
         </label>
 
         <label>
             Visibilité :
             <label>
-                <input type="radio"  name="private" value="1" checked>
+                <input type="radio"  name="prive" value="1" checked>
                 Privé
             </label>
             <label>
-                <input type="radio"  name="private" value="0">
+                <input type="radio"  name="prive" value="0">
                 Public
             </label>
         </label>
@@ -56,7 +56,7 @@
                     <option
                         value={{ $optionUser->id }}
                         @if ( $optionUser->id === $user->id )
-                            selected
+                            disabled
                             style="display: none"
                         @endif
                     >
@@ -65,6 +65,10 @@
                 @endforeach
             </select>
         </label>
+
+        <div style="display: none">
+            <input name="user_id" value="@if($user) {{$user->id}} @endif">
+        </div>
 
         <button type="submit">Ok</button>
     </form>

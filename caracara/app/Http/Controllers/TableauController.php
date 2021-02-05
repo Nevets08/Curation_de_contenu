@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\TableauRequest;
 use App\Models\Tableau;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -36,9 +37,19 @@ class TableauController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(TableauRequest $request)
     {
-        //
+        $data = $request->validated();
+
+        $tableau = new Tableau();
+        $tableau->fill($data);
+        $tableau->user()->associate($data['user_id']); //un à plusieurs
+        $tableau->save();
+
+        $tableau->users()->attach($data['user']); //plusieurs à plusieurs
+
+        $user = Auth::user();
+        return redirect()->route('tableau.show', ['tableau' => $tableau, 'user' => $user, 'allTableaux' => Tableau::all()]);
     }
 
     /**
