@@ -60,10 +60,14 @@ class User extends Authenticatable
     ];
 
     /**
-     * Ce que j'ajoute moi : la relation avec les posts
+     * Ce que j'ajoute moi : la relation avec les posts (et tableaux)
      *
      */
     public function posts(){
         return $this->hasMany(Post::class);
+    }
+
+    public function tableaux(){
+        return $this->belongsToMany(Tableau::class);
     }
 }
