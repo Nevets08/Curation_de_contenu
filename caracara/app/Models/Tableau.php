@@ -18,7 +18,13 @@ class Tableau extends Model
         return $this->belongsToMany(Post::class);
     }
 
+    //Les lecteurs/contributeurs
     public function users(){
         return $this->belongsToMany(User::class);
+    }
+
+    //Le créateur
+    public function user(){
+        return $this->belongsTo(User::class)->withDefault();
     }
 }

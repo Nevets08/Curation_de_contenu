@@ -8,6 +8,7 @@
     @foreach ($tableaux as $tableau)
         <h1>{{ $tableau->nom }}</h1>
         <p>{{ $tableau->description }}</p>
+        <p>Tableau créé par {{ $tableau->user->name }}</p>
         <p>Ce tableau est @if ($tableau->prive)
             privé
         @else
@@ -20,7 +21,7 @@
         @endforeach
         </ul>
     @endforeach
-    
+
     <h2>Ajouter un nouveau tableau</h2>
     <form action="{{ route('tableau.store') }}" method="post" style="display: flex; flex-direction: column">
         @csrf

@@ -67,7 +67,13 @@ class User extends Authenticatable
         return $this->hasMany(Post::class);
     }
 
+    //Relation plusieurs à plusieurs avec les tableaux, pour savoir si on est lecteur ou contributeur
     public function tableaux(){
         return $this->belongsToMany(Tableau::class);
+    }
+
+    //Relation un à plusieurs : les tableaux dont nous sommes le créateur
+    public function tableauxCrees(){
+        return $this->hasMany(Nom::class);
     }
 }
