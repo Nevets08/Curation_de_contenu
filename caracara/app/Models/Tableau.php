@@ -20,7 +20,7 @@ class Tableau extends Model
 
     //Les lecteurs/contributeurs
     public function users(){
-        return $this->belongsToMany(User::class);
+        return $this->belongsToMany(User::class)->withPivot('contributeur');
     }
 
     //Le créateur

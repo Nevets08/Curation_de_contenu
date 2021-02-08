@@ -6,20 +6,22 @@
 </head>
 <body>
     @foreach ($tableaux as $tableau)
-        <h1>{{ $tableau->nom }}</h1>
-        <p>{{ $tableau->description }}</p>
-        <p>Tableau créé par {{ $tableau->user->name }}</p>
-        <p>Ce tableau est @if ($tableau->prive)
-            privé
-        @else
-            public
-        @endif</p>
-        <p>Posts du tableau :</p>
-        <ul>
-        @foreach ($tableau->posts as $post)
-            <li><a href="{{ $post->url }}" target="_blank">{titre du lien}</a> (posté par {{ $post->user->name }})</li>
-        @endforeach
-        </ul>
+        @can('view', $tableau){{--Si on a bien accès au tableau--}}
+                <h1><a href="tableau/{{$tableau->id}}">{{ $tableau->nom }}</a></h1>
+                <p>{{ $tableau->description }}</p>
+                <p>Tableau créé par {{ $tableau->user->name }}</p>
+                <p>Ce tableau est @if ($tableau->prive)
+                    privé
+                @else
+                    public
+                @endif</p>
+                <p>Posts du tableau :</p>
+                <ul>
+                    @foreach ($tableau->posts as $post)
+                        <li><a href="{{ $post->url }}" target="_blank">{titre du lien}</a> (posté par {{ $post->user->name }})</li>
+                    @endforeach
+                </ul>
+        @endcan
     @endforeach
 
     <h2>Ajouter un nouveau tableau</h2>
