@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Caracara - Vos tableaux privés</title>
+    <title>Caracara - Vos publications sauvegardées</title>
     <link rel="stylesheet" href="{{ asset(mix('css/app.css')) }}" />
 </head>
 
@@ -29,48 +29,18 @@
                 </ul>
             </nav>
             <div class="members">
-                <h3>membres du tableau</h3>
-                <div class="border"></div>
-
-                <div class="members-line">
-                    <img src="https://via.placeholder.com/45x45" alt="">
-                    <img src="https://via.placeholder.com/45x45" alt="">
-                    <img src="https://via.placeholder.com/45x45" alt="">
-                    <img src="https://via.placeholder.com/45x45" alt="">
-                    <img src="https://via.placeholder.com/45x45" alt="">
-                </div>
-
-                <div class="members-line">
-                    <img src="https://via.placeholder.com/45x45" alt="">
-                    <img src="https://via.placeholder.com/45x45" alt="">
-                    <img src="https://via.placeholder.com/45x45" alt="">
-                    <img src="https://via.placeholder.com/45x45" alt="">
-                    <img src="https://via.placeholder.com/45x45" alt="">
-                </div>
-
-                <div class="members-line">
-                    <img src="https://via.placeholder.com/45x45" alt="">
-                    <img src="https://via.placeholder.com/45x45" alt="">
-                    <img src="https://via.placeholder.com/45x45" alt="">
-                    <img src="https://via.placeholder.com/45x45" alt="">
-                    <div class="more-members">
-                        <span>+7</span>
-                    </div>
-                </div>
-
-                <a href=""><i class="fas fa-users"></i> Liste des membres</a>
             </div>
         </aside>
 
         <main>
             <div class="title">
-                <h1>Vos tableaux privés</h1>
-                <a href=""><i class="fas fa-sliders-h"></i></a>
+                <h1>Vos publications sauvegardées</h1>
+                <a href=""><i class="far fa-save"></i></a>
             </div>
 
             <div class="breadcrumb">
                 <a href="{{ route('home') }}">Accueil</a>
-                <span>/ Vos tableaux privés</span>
+                <span>/ Vos publications sauvegardées</span>
             </div>
 
             <div class="posts">
@@ -91,15 +61,17 @@
                         </div>
                         <span>Il y a 1h</span>
                     </div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor #incididunt ero
-                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco poriti
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                        #incididunt ero
+                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                        ullamco poriti
                         laboris nisi ut aliquip ex ea commodo consequat.</p>
                     <img class="content-post" src="https://via.placeholder.com/800x150" alt="">
 
                     <div class="footer-post">
                         <div class="left-footer-post">
                             <a href=""><i class="far fa-heart"></i> 605</a>
-                            <a href=""><i class="fas fa-bookmark"></i> Ajouter aux favoris</a>
+                            <a href=""><i class="far fa-trash-alt"></i></i> Supprimer des favoris</a>
                             <a href=""><i class="fas fa-retweet"></i> Retweet</a>
                         </div>
                         <div class="right-footer-post">
@@ -116,15 +88,17 @@
                         </div>
                         <span>Il y a 1h</span>
                     </div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor #incididunt ero
-                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco poriti
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                        #incididunt ero
+                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                        ullamco poriti
                         laboris nisi ut aliquip ex ea commodo consequat.</p>
                     <img class="content-post" src="https://via.placeholder.com/800x150" alt="">
 
                     <div class="footer-post">
                         <div class="left-footer-post">
                             <a href=""><i class="far fa-heart"></i> 605</a>
-                            <a href=""><i class="fas fa-bookmark"></i> Ajouter aux favoris</a>
+                            <a href=""><i class="far fa-trash-alt"></i></i> Supprimer des favoris</a>
                             <a href=""><i class="fas fa-retweet"></i> Retweet</a>
                         </div>
                         <div class="right-footer-post">
@@ -141,15 +115,17 @@
                         </div>
                         <span>Il y a 1h</span>
                     </div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor #incididunt ero
-                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco poriti
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                        #incididunt ero
+                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                        ullamco poriti
                         laboris nisi ut aliquip ex ea commodo consequat.</p>
                     <img class="content-post" src="https://via.placeholder.com/800x150" alt="">
 
                     <div class="footer-post">
                         <div class="left-footer-post">
                             <a href=""><i class="far fa-heart"></i> 605</a>
-                            <a href=""><i class="fas fa-bookmark"></i> Ajouter aux favoris</a>
+                            <a href=""><i class="far fa-trash-alt"></i></i> Supprimer des favoris</a>
                             <a href=""><i class="fas fa-retweet"></i> Retweet</a>
                         </div>
                         <div class="right-footer-post">
@@ -166,15 +142,17 @@
                         </div>
                         <span>Il y a 1h</span>
                     </div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor #incididunt ero
-                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco poriti
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                        #incididunt ero
+                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                        ullamco poriti
                         laboris nisi ut aliquip ex ea commodo consequat.</p>
                     <img class="content-post" src="https://via.placeholder.com/800x150" alt="">
 
                     <div class="footer-post">
                         <div class="left-footer-post">
                             <a href=""><i class="far fa-heart"></i> 605</a>
-                            <a href=""><i class="fas fa-bookmark"></i> Ajouter aux favoris</a>
+                            <a href=""><i class="far fa-trash-alt"></i></i> Supprimer des favoris</a>
                             <a href=""><i class="fas fa-retweet"></i> Retweet</a>
                         </div>
                         <div class="right-footer-post">
@@ -191,15 +169,17 @@
                         </div>
                         <span>Il y a 1h</span>
                     </div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor #incididunt ero
-                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco poriti
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                        #incididunt ero
+                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                        ullamco poriti
                         laboris nisi ut aliquip ex ea commodo consequat.</p>
                     <img class="content-post" src="https://via.placeholder.com/800x150" alt="">
 
                     <div class="footer-post">
                         <div class="left-footer-post">
                             <a href=""><i class="far fa-heart"></i> 605</a>
-                            <a href=""><i class="fas fa-bookmark"></i> Ajouter aux favoris</a>
+                            <a href=""><i class="far fa-trash-alt"></i></i> Supprimer des favoris</a>
                             <a href=""><i class="fas fa-retweet"></i> Retweet</a>
                         </div>
                         <div class="right-footer-post">

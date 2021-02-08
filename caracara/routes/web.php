@@ -19,7 +19,11 @@ Route::get('/', function () {
 
 Route::get('/private_posts', function () {
     return view('private_posts');
-});
+})->name('private_posts');
+
+Route::get('/saved_posts', function () {
+    return view('saved_posts');
+})->name('saved_posts');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
