@@ -37,6 +37,11 @@
         </label>
 
         <label>
+            Icône :
+            <input type="file" name="icone" accept="image/png, image/jpeg" disabled> <!-- disabled car ça marche pas, vous m'avez saoulé -->
+        </label>
+
+        <label>
             Visibilité :
             <label>
                 <input type="radio"  name="prive" value="1" checked>

@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Http\Requests\TableauRequest;
 use App\Models\Tableau;
 use App\Models\User;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class TableauController extends Controller
 {
@@ -41,12 +43,25 @@ class TableauController extends Controller
     {
         $data = $request->validated();
 
+        //Pour stocker l'image CA MARCHE PAS
+        if(array_key_exists ( 'icone' , $data )){
+            //quand on a une icône ça passe bien la dedans. après... ?
+            $extension = $data['icone']->extension();
+            $name = Str::random(25);
+            $data['icone']->storeAs('/public/icones', $name.".".$extension);
+            $url = Storage::url($name.".".$extension);
+            $data['url_icone'] = $url;
+            unset($data['icone']);
+        }
+
         $tableau = new Tableau();
         $tableau->fill($data);
         $tableau->user()->associate($data['user_id']); //un à plusieurs
         $tableau->save();
 
-        $tableau->users()->attach($data['user']); //plusieurs à plusieurs
+        if(array_key_exists ( 'user' , $data )){
+            $tableau->users()->attach($data['user']); //plusieurs à plusieurs
+        }
 
         $user = Auth::user();
         return redirect()->route('tableau.show', ['tableau' => $tableau, 'user' => $user, 'allTableaux' => Tableau::all()]);
