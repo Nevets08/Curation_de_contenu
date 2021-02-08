@@ -1,0 +1,44 @@
+.slick-arrow {
+    top: 35%;
+    z-index: 5;
+
+    &:before, &:after {
+        color: $main-color-dark;
+        font-size: 25px;
+    }
+
+    &.slick-next {
+        right: -8px;
+    }
+
+    &.slick-prev {
+        left: -8px;
+    }
+}
+
+.slick-list {
+    z-index: 0;
+}
+
+.slider:not(.slider_articles_miniatures) {
+    div.slick-slide > div {
+        width: 50px;
+        overflow: hidden;
+    }
+    img {
+        width: 50px
+    }
+    p {
+        white-space: nowrap;
+    }
+}
+
+.slider_articles_miniatures{
+    .slick-list {
+        padding: 0 10% 0 0;
+    }
+    .slick-arrow {
+        top: 48%;
+    }
+}
+

@@ -1,3 +1,4 @@
+$white: white;
 $grey-medium: #F8F8F8;
 
 $main-color-light: #94CAD1;
@@ -26,6 +27,19 @@ $breakpoint-mini-mobile: 325px;
     border-radius: 50px;
     padding: 5px 20px;
     margin-top: 15px;
+}
+
+@mixin buttonBefore {
+    &:before {
+        content: "+";
+        display: inline-block;
+        font-size: 3rem;
+        font-weight: bold;
+        height: 20px;
+        margin-top: -12px;
+        margin-left: -5px;
+        margin-right: 5px;
+    }
 }
 
 @mixin cards {

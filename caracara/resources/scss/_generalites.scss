@@ -41,6 +41,12 @@ p {
     }
 }
 
+h1 {
+    font-size: 3rem;
+    color: $main-color-dark;
+    margin-bottom: 15px;
+}
+
 h2 {
     font-size: 2.2rem;
     text-transform: uppercase;
@@ -55,13 +61,16 @@ p {
 }
 
 body.home div.site-global {
+    position: relative;
+    overflow-x: hidden;
     display: flex;
     margin-top: 50px;
     @media (max-width: $breakpoint-tablet) {
         margin-top: 20px;
     }
+
     aside {
-        width: 33%;
+        width: 25%;
         margin-right: 50px;
         @media (max-width: $breakpoint-tablet) {
             display: none;
@@ -74,12 +83,27 @@ body.home div.site-global {
     }
 
     main {
-        width: calc(100% - 33% - 50px);
+        width: calc(100% - 25% - 50px);
         @media (max-width: $breakpoint-tablet) {
             width: 100%;
         }
     }
 }
 
-
+section h2 {
+    position: relative;
+    padding-bottom: 10px;
+    &:after {
+        position: absolute;
+        content: "";
+        border-bottom: 1px solid $main-color;
+        bottom: 0;
+        left: -20px;
+        right: -20px;
+        @media (max-width: $breakpoint-tablet) {
+            left: -10px;
+            right: -10px;
+        }
+    }
+}
 

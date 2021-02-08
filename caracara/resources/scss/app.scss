@@ -2,6 +2,9 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+@import '~slick-carousel/slick/slick.scss';
+@import '~slick-carousel/slick/slick-theme.scss';
+
 //$fa-font-path: "/fonts";
 @import "~@fortawesome/fontawesome-free/scss/fontawesome";
 @import "~@fortawesome/fontawesome-free/scss/solid";
@@ -14,6 +17,7 @@
 
 //Pages
 @import "pages/home";
+@import "pages/profile";
 
 //Sections
 @import "sections/header";
@@ -22,5 +26,17 @@
 
 //Composants
 @import "components/article-cards";
+@import "components/carousel";
+@import "components/sidebar";
 
 
+//Livewire change
+.text-xs, .form-input {
+    font-size: 1.4rem;
+}
+.text-sm {
+    font-size: 1.6rem;
+}
+.text-lg {
+    font-size: 2rem;
+}

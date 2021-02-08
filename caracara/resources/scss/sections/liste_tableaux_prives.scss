@@ -20,15 +20,6 @@
     + button {
         @include button;
         display: flex;
-        &:before {
-            content: "+";
-            display: inline-block;
-            font-size: 3rem;
-            font-weight: bold;
-            height: 20px;
-            margin-top: -12px;
-            margin-left: -5px;
-            margin-right: 5px;
-        }
+        @include buttonBefore;
     }
 }

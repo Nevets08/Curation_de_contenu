@@ -1,42 +1,63 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-            <meta charset="utf-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1">
-            <meta name="csrf-token" content="{{ csrf_token() }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-            <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Caracara') }}</title>
 
-            <!-- Fonts -->
-            <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
+    <!-- Styles -->
+    <link rel="stylesheet" href="{{ asset(mix('css/app.css'))}}">
 
-            <!-- Styles -->
-            <link rel="stylesheet" href="{{ asset(mix('css/app.css'))}}">
+    <!-- Scripts -->
+    <script src="{{ asset(mix('js/app.js')) }}" defer></script>
+</head>
 
-            @livewireStyles
-
-            <!-- Scripts -->
-            <script src="{{ asset(mix('js/app.js')) }}" defer></script>
-    </head>
-    <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
-            @livewire('navigation-dropdown')
-
-            <!-- Page Heading -->
-            <header class="bg-white shadow">
-                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                    {{ $header }}
-                </div>
-            </header>
-
-            <!-- Page Content -->
-            <main>
-                {{ $slot }}
-            </main>
+<body class="home">
+<header>
+    <nav class="container">
+        <div class="left_elements">
+            <a href="{{ route('home') }}"><img class="logo" src="{{ asset('img/Logo.png') }}" alt="Logo de notre site."></a>
         </div>
 
-        @stack('modals')
+        <div class="right_elements">
+            <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <form id="search-form">
+                    <input id="search-toggle" type="search" placeholder="Rechercher">
+                </form>
+            </div>
 
-        @livewireScripts
-    </body>
+            <div class="user">
+                <button id="userButton">
+                    <img src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}"><span
+                        class="hidden md">{{ Auth::user()->name }}</span>
+                </button>
+
+                <div id="userMenu">
+                    <ul>
+                        <li><a href="{{ route('profile.show') }}">Mon compte</a></li>
+                        <li>
+                            <hr>
+                        </li>
+                        <li><a href="#">Ajouter un article</a></li>
+                        <li><a href="#">Créer un tableau</a></li>
+                        <li>
+                            <hr>
+                        </li>
+                        <li><a href="{{ route('logout') }}">Déconnexion</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<div class="container site-global">
+    <!-- Page Content -->
+    {{ $slot }}
+</div>
+@livewireScripts
+</body>
 </html>
