@@ -62,17 +62,30 @@
                 </form>
             @endcan
 
-            @if ($user == $tableau->user)
-                <h3>Gérer les membres</h3>
-                <ul>
-                    @foreach ($tableau->users as $user)
-                        <li>{{ $user->name }}</li>
-                    @endforeach
-                </ul>
-            @endif
-            
-            @if ($tableau->prive)
-                <h3>Quitter le tableau</h3>
+            @if($user == $tableau->user)
+                @if($tableau->prive)
+                    <h3>Gérer les membres</h3>
+                    <ul>
+                        @foreach ($tableau->users as $user)
+                            <li>{{ $user->name }} ( @if ($user->pivot->contributeur)
+                                contributeur
+                            @else
+                                lecteur
+                            @endif )</li>
+                        @endforeach
+                    </ul>
+                @endif
+                
+                <h3>Supprimer le tableau</h3>
+                <form action="{{ route('tableau.destroy', $tableau) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit">X</button>
+                </form>
+            @else
+                @if($tableau->prive)
+                    <h3>Quitter le tableau</h3>
+                @endif
             @endif
         
     @else

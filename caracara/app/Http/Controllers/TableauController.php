@@ -110,6 +110,7 @@ class TableauController extends Controller
      */
     public function destroy(Tableau $tableau)
     {
-        //
+        $tableau->delete();
+        return redirect()->route('tableau.index');
     }
 }
