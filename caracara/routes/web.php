@@ -25,6 +25,10 @@ Route::get('/saved_posts', function () {
     return view('saved_posts');
 })->name('saved_posts');
 
+Route::get('/search', function () {
+    return view('search');
+})->name('search');
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');

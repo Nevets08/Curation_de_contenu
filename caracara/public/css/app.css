@@ -6169,6 +6169,10 @@ readers do not read off random characters that represent icons */
   padding: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin-left: 8%;
   margin-right: 8%;
@@ -6336,6 +6340,10 @@ main .breadcrumb a {
   color: #000;
 }
 
+main .posts a {
+  color: #000;
+}
+
 main .posts .posts-infos {
   font-size: 18px;
 }
@@ -6400,9 +6408,82 @@ main .posts .post .footer-post a {
   margin-right: 10px;
 }
 
+textarea:focus,
+input:focus,
+button {
+  outline: none;
+}
+
+.form-search .inputs {
+  margin-bottom: 20px;
+}
+
+.form-search label {
+  font-size: 20px;
+  margin-bottom: 50px;
+}
+
+.form-search input {
+  border: none;
+  border-bottom: 2px solid #000;
+}
+
+.form-search input,
+.form-search select {
+  width: 50%;
+  margin-top: 10px;
+}
+
+.form-search button {
+  background-color: #000;
+  color: #fff;
+  border-radius: 20px;
+  font-size: 20px;
+  width: 30%;
+}
+
+.result-container {
+  margin-top: 40px;
+}
+
+.result-container .post {
+  display: flex;
+  align-items: center;
+}
+
+.result-container .post .left-post {
+  margin-right: 20px;
+}
+
+.result-container .post .right-post .title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.result-container .post .right-post .title i {
+  color: #94cad1;
+}
+
+.new-search {
+  display: flex;
+  align-items: baseline;
+  margin-top: 20px;
+}
+
+.new-search i {
+  margin-left: 10px;
+  font-size: 20px;
+  color: #000;
+}
+
 @media screen and (max-width: 992px) {
   aside {
     display: none;
+  }
+
+  .form-search input,
+.form-search select {
+    width: 100%;
   }
 
   .menu-right-fixed {
@@ -6415,6 +6496,16 @@ main .posts .post .footer-post a {
 }
 
 @media screen and (max-width: 576px) {
+  .post {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .post .left-post img {
+    margin-top: 10px;
+    margin-bottom: 25px;
+  }
+
   .actions {
     display: flex;
     flex-direction: column;

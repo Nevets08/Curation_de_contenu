@@ -15,6 +15,10 @@
     padding: 0;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin-left: 8%;
     margin-right: 8%;
@@ -181,6 +185,9 @@ main {
     }
 
     .posts {
+        a {
+            color: #000;
+        }
         .posts-infos {
             font-size: 18px;
 
@@ -247,9 +254,89 @@ main {
     }
 }
 
+// Recherche
+
+textarea:focus,
+input:focus,
+button {
+    outline: none;
+}
+
+.form-search {
+    .inputs {
+        margin-bottom: 20px;
+    }
+
+    label {
+        font-size: 20px;
+        margin-bottom: 50px;
+    }
+
+    input {
+        border: none;
+        border-bottom: 2px solid #000;
+    }
+
+    input,
+    select {
+        width: 50%;
+        margin-top: 10px;
+    }
+
+    button {
+        background-color: #000;
+        color: #fff;
+        border-radius: 20px;
+        font-size: 20px;
+        width: 30%;
+    }
+}
+
+.result-container {
+    margin-top: 40px;
+
+    .post {
+        display: flex;
+        align-items: center;
+
+        .left-post {
+            margin-right: 20px;
+        }
+
+        .right-post {
+            .title {
+                display: flex;
+                justify-content: space-between;
+                i {
+                    color: #94cad1;
+                }
+            }
+        }
+    }
+}
+
+.new-search {
+    display: flex;
+    align-items: baseline;
+    margin-top: 20px;
+
+    i {
+        margin-left: 10px;
+        font-size: 20px;
+        color: #000;
+    }
+}
+
 @media screen and (max-width: 992px) {
     aside {
         display: none;
+    }
+
+    .form-search {
+        input,
+        select {
+            width: 100%;
+        }
     }
 
     .menu-right-fixed {
@@ -262,6 +349,17 @@ main {
 }
 
 @media screen and (max-width: 576px) {
+    .post {
+        display: flex;
+        flex-direction: column;
+        .left-post {
+            img {
+                margin-top: 10px;
+                margin-bottom: 25px;
+            }
+        }
+    }
+
     .actions {
         display: flex;
         flex-direction: column;
