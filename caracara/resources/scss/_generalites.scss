@@ -45,6 +45,7 @@ h1 {
     font-size: 3rem;
     color: $main-color-dark;
     margin-bottom: 15px;
+    line-height: 3rem;
 }
 
 h2 {
@@ -60,7 +61,7 @@ p {
     color: $main-color-dark;
 }
 
-body.home div.site-global {
+div.site-global {
     position: relative;
     overflow-x: hidden;
     display: flex;

@@ -9,7 +9,7 @@ function ClickUserButton() {
     if (window.matchMedia("(min-width: 768px)").matches) {
         document.querySelector("#userMenu").classList.toggle("showUserMenu");
     } else {
-        window.location.href = "{{ route('login') }}";
+        window.location.href = "/caracara/public/user/profile";
     }
 }
 
@@ -38,7 +38,10 @@ const button_edit_profile = document.querySelector(".infos_button_edit");
 
 userButton.addEventListener("click", ClickUserButton);
 icone_search.addEventListener("click", ClickSearchIcone);
-button_edit_profile.addEventListener("click", DisplaySideBar);
+if (button_edit_profile !== null) {
+    button_edit_profile.addEventListener("click", DisplaySideBar);
+}
+
 
 $(document).ready(function() {
 

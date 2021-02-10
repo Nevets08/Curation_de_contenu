@@ -1,5 +1,4 @@
-<x-app-layout>
-
+<x-app-layout title="home">
     <aside>
         <section>
             <h2>Tableau privés</h2>
@@ -76,9 +75,9 @@
                 <p class="article-headline">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor #incididunt ero labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco poriti laboris nisi ut aliquip ex ea commodo consequat.</p>
                 <img class="article-image" src="{{ asset('img/Rectangle.png') }}" alt="">
                 <div class="article-footer">
-                    <div class="article-likes"><a href=""><img src="{{ asset('img/heart.png') }}" alt="">605</a></div>
-                    <div class="article-favoris"><a href=""><img src="{{ asset('img/down-arrow.png') }}" alt="">Ajouter aux favoris</a></div>
-                    <div class="article-Retweet"><a href=""><img src="{{ asset('img/retweet.png') }}" alt="">Retweet</a></div>
+                    <div class="article-likes"><a href=""><i style="margin-right: 5px;" class="far fa-heart"></i>605</a></div>
+                    <div class="article-favoris"><a href=""><i style="margin-right: 5px;" class="far fa-bookmark"></i>Ajouter aux favoris</a></div>
+                    <div class="article-Retweet"><a href=""><i style="margin-right: 5px;" class="fas fa-retweet"></i>Retweet</a></div>
                     <div class="article-partager">
                         <a class="article-partager" href="#" onclick="tooglePartageDiv()">Partager</a>
                         <div class="article-partager-liens">

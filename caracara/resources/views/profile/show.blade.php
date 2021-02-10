@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-app-layout title="profil">
     <aside>
         <section>
             <h2>MENU</h2>
@@ -15,11 +15,10 @@
         <section class="infos">
             <div class="infos_top">
                 <h1 class="infos_nom">Nom Prénom</h1>
-                <p class="infos_professions">Professeur d'anglais</p>
                 <a class="infos_button_edit" href="#">Modifier</a>
             </div>
             <p><a href="#">Accueil</a> / Profil</p>
-            <img src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}">
+            <img style="object-fit: contain" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}">
             <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia. Excepteur sint occaecat
                 cupidatat non proident, sunt in culpa qui officia. Excepteur sint occaecat cupidatat non proident, sunt
                 in culpa qui officia.</p>
@@ -267,10 +266,6 @@
 
                 <x-jet-section-border/>
             @endif
-
-            <div class="mt-10 sm:mt-0">
-                @livewire('profile.delete-user-form')
-            </div>
         </div>
     </main>
 </x-app-layout>

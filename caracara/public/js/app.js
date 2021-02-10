@@ -35244,7 +35244,7 @@ function ClickUserButton() {
   if (window.matchMedia("(min-width: 768px)").matches) {
     document.querySelector("#userMenu").classList.toggle("showUserMenu");
   } else {
-    window.location.href = "{{ route('login') }}";
+    window.location.href = "/caracara/public/user/profile";
   }
 }
 
@@ -35272,7 +35272,11 @@ var icone_search = document.querySelector("header .fa-search");
 var button_edit_profile = document.querySelector(".infos_button_edit");
 userButton.addEventListener("click", ClickUserButton);
 icone_search.addEventListener("click", ClickSearchIcone);
-button_edit_profile.addEventListener("click", DisplaySideBar);
+
+if (button_edit_profile !== null) {
+  button_edit_profile.addEventListener("click", DisplaySideBar);
+}
+
 $(document).ready(function () {
   $('.tableaux_publics').slick({
     infinite: false,
@@ -35372,15 +35376,27 @@ window.$ = window.jQuery = $ = __webpack_require__(/*! jquery */ "./node_modules
 
 /***/ }),
 
+/***/ "./resources/scss/appGuest.scss":
+/*!**************************************!*\
+  !*** ./resources/scss/appGuest.scss ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ 0:
-/*!*************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/scss/app.scss ***!
-  \*************************************************************/
+/*!********************************************************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/scss/app.scss ./resources/scss/appGuest.scss ***!
+  \********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! /var/www/vhosts/christ.etu.mmi-unistra.fr/projet-tutore.christ.etu.mmi-unistra.fr/caracara/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /var/www/vhosts/christ.etu.mmi-unistra.fr/projet-tutore.christ.etu.mmi-unistra.fr/caracara/resources/scss/app.scss */"./resources/scss/app.scss");
+__webpack_require__(/*! /var/www/vhosts/christ.etu.mmi-unistra.fr/projet-tutore.christ.etu.mmi-unistra.fr/caracara/resources/scss/app.scss */"./resources/scss/app.scss");
+module.exports = __webpack_require__(/*! /var/www/vhosts/christ.etu.mmi-unistra.fr/projet-tutore.christ.etu.mmi-unistra.fr/caracara/resources/scss/appGuest.scss */"./resources/scss/appGuest.scss");
 
 
 /***/ })
