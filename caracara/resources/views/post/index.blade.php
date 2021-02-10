@@ -5,10 +5,23 @@
     <title>Posts</title>
 </head>
 <body>
-    <ul>
     @foreach ($posts as $post)
-        <li><a href="{{ $post->url }}" target="_blank">ALORS ICI IL VA FALLOIR RECUPERER LE TITRE DU LIEN MWAHAHAAH</a></li>
+        <div style="margin: 50px">
+            <a href="{{ $post->url }}" target="_blank">{titre du lien}</a>
+            <p>Post créé par {{ $post->user->name }}</p>
+            <p>Post présent sur les tableaux :</p>
+            <ul>
+                @foreach ($post->tableaux as $tab)
+                    <li>{{ $tab->nom }}</li>
+                @endforeach
+            </ul>
+            <p>Supprimer le post</p>
+                <form action="{{ route('post.destroy', $post) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit">X</button>
+                </form>
+        </div>
     @endforeach
-    </ul>
 </body>
 </html>
