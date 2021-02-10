@@ -29,7 +29,7 @@ class TableauRequest extends FormRequest
             'prive' => 'boolean|required',
             'icone' => 'nullable|mimes:jpeg,png,jpg|max:1024', //1MB max
             'user_id' => 'required|exists:users,id', //Relation un à plusieurs
-            'user.*' => 'exists:users,id' //Relation plusieurs à plusieurs
+            'user.*' => 'nullable|exists:users,id' //Relation plusieurs à plusieurs
         ];
     }
 }
