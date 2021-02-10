@@ -15,6 +15,8 @@
                     <li>{{ $tab->nom }}</li>
                 @endforeach
             </ul>
+            <p>Likes : {{ $post->likes->count() }}</p>
+            <p>Reposts : {{ $post->tableaux->count()-1 }}</p>
             <p>Supprimer le post</p>
                 <form action="{{ route('post.destroy', $post) }}" method="POST">
                     @csrf

@@ -63,7 +63,7 @@ class User extends Authenticatable
      * Ce que j'ajoute moi : la relation avec les posts (et tableaux)
      *
      */
-    public function posts(){
+    public function posts(){ //Posts créés
         return $this->hasMany(Post::class);
     }
 
@@ -75,5 +75,9 @@ class User extends Authenticatable
     //Relation un à plusieurs : les tableaux dont nous sommes le créateur
     public function tableauxCrees(){
         return $this->hasMany(Nom::class);
+    }
+
+    public function likes(){ //Posts likés
+        return $this->belongsToMany(Post::class);
     }
 }
