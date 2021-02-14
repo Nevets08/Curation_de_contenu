@@ -203,8 +203,8 @@
                 </div>
 
                 <div class="posts">
-                    <a href="">
-                        <div class="post">
+                    <div class="post">
+                        <a href="">
                             <div class="left-post">
                                 <img src="https://via.placeholder.com/150x150" alt="">
                             </div>
@@ -228,8 +228,8 @@
                                     ullam quidem repudiandae aut.
                                 </p>
                             </div>
-                        </div>
-                    </a>
+                        </a>
+                    </div>
                 </div>
 
                 <div class="new-search">
