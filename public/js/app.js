@@ -3795,6 +3795,18 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 __webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/alpine.js");
 
+var membersButton = document.querySelector("aside .members button");
+var modal = document.querySelector(".background-modal");
+membersButton.addEventListener("click", function () {
+  modal.classList.add("active-modal");
+  modal.classList.remove("inactive-modal");
+});
+var closeModal = document.getElementById("close-modal-button");
+closeModal.addEventListener("click", function () {
+  modal.classList.remove("active-modal");
+  modal.classList.add("inactive-modal");
+});
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
