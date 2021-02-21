@@ -6169,6 +6169,10 @@ readers do not read off random characters that represent icons */
   padding: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin-left: 8%;
   margin-right: 8%;
@@ -6180,6 +6184,23 @@ li {
 
 a {
   text-decoration: none;
+}
+
+button {
+  background-color: #94cad1;
+  color: #000;
+  padding: 10px 20px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  display: inline-block;
+  margin-top: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.8;
 }
 
 .menu-right-fixed {
@@ -6276,18 +6297,7 @@ aside .members .border {
   margin-bottom: 20px;
 }
 
-aside .members a {
-  background-color: #94cad1;
-  color: #000;
-  padding: 10px 20px;
-  border-radius: 20px;
-  display: flex;
-  align-items: center;
-  display: inline-block;
-  margin-top: 10px;
-}
-
-aside .members a i {
+aside .members i {
   margin-right: 10px;
 }
 
@@ -6333,6 +6343,10 @@ main .breadcrumb {
 
 main .breadcrumb a {
   text-decoration: underline;
+  color: #000;
+}
+
+main .posts a {
   color: #000;
 }
 
@@ -6400,9 +6414,186 @@ main .posts .post .footer-post a {
   margin-right: 10px;
 }
 
+textarea:focus,
+input:focus,
+button {
+  outline: none;
+}
+
+.form-search .inputs {
+  margin-bottom: 20px;
+}
+
+.form-search label {
+  font-size: 20px;
+  margin-bottom: 50px;
+}
+
+.form-search input {
+  border: none;
+  border-bottom: 2px solid #000;
+}
+
+.form-search input,
+.form-search select {
+  width: 50%;
+  margin-top: 10px;
+}
+
+.form-search button {
+  background-color: #000;
+  color: #fff;
+  border-radius: 20px;
+  font-size: 20px;
+  width: 30%;
+}
+
+.result-container {
+  margin-top: 40px;
+}
+
+.result-container .post {
+  display: flex;
+  align-items: center;
+}
+
+.result-container .post .left-post {
+  margin-right: 20px;
+}
+
+.result-container .post .right-post .title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.result-container .post .right-post .title i {
+  color: #94cad1;
+}
+
+.new-search {
+  display: flex;
+  align-items: baseline;
+  margin-top: 20px;
+}
+
+.new-search i {
+  margin-left: 10px;
+  font-size: 20px;
+  color: #000;
+}
+
+.active-modal {
+  display: flex;
+}
+
+.inactive-modal {
+  display: none;
+}
+
+.background-modal {
+  justify-content: center;
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+  padding-top: 5%;
+}
+
+.background-modal .modal-members {
+  display: flex;
+  overflow-y: scroll;
+  justify-content: center;
+  background-color: #fff;
+  border-radius: 10px;
+  border: 3px solid #94cad1;
+  padding: 20px 40px;
+  -webkit-animation-name: animatetop;
+          animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+          animation-duration: 0.4s;
+  margin-bottom: 10%;
+}
+
+.background-modal .modal-members .modal-content .buttons {
+  margin-top: 10px;
+}
+
+.background-modal .modal-members .modal-content .buttons i {
+  margin-right: 10px;
+}
+
+.background-modal .modal-members .modal-content #close-modal-button {
+  margin-bottom: 10px;
+}
+
+.background-modal .modal-members .modal-content .members-show {
+  margin-top: 30px;
+}
+
+.background-modal .modal-members .modal-content .members-show .member {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #94cad1;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+.background-modal .modal-members .modal-content .members-show .member i {
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.background-modal .modal-members .modal-content .members-show .member img {
+  border-radius: 100%;
+  width: 60px;
+}
+
+.background-modal .modal-members .modal-content .members-show .member .infos-member .roles {
+  display: flex;
+}
+
+.background-modal .modal-members .modal-content .members-show .member .infos-member .roles a {
+  color: #000;
+  text-decoration: underline;
+  margin-left: 3px;
+}
+
+@-webkit-keyframes animatetop {
+  from {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes animatetop {
+  from {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
 @media screen and (max-width: 992px) {
   aside {
     display: none;
+  }
+
+  .form-search input,
+.form-search select {
+    width: 100%;
   }
 
   .menu-right-fixed {
@@ -6415,6 +6606,16 @@ main .posts .post .footer-post a {
 }
 
 @media screen and (max-width: 576px) {
+  .post {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .post .left-post img {
+    margin-top: 10px;
+    margin-bottom: 25px;
+  }
+
   .actions {
     display: flex;
     flex-direction: column;
