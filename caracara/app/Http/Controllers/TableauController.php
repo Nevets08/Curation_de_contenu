@@ -99,9 +99,13 @@ class TableauController extends Controller
      */
     public function update(TableauRequest $request, Tableau $tableau)
     {
+        //OK ALORS J'AI COMPRIS PK CA BUG
+        //En fait dans le validate si des trucs sont required, il faut qu'ils y soient.
+
         $data = $request->validated();
 
         //Pour stocker l'image CA MARCHE PAS
+        /*
         if(array_key_exists ( 'icone' , $data )){
             //quand on a une icône ça passe bien la dedans. après... ?
             $extension = $data['icone']->extension();
@@ -111,17 +115,17 @@ class TableauController extends Controller
             $data['url_icone'] = $url;
             unset($data['icone']);
         }
+        */
 
         $tableau->fill($data);
-        $tableau->user()->associate($data['user_id']); //un à plusieurs
         $tableau->save();
 
-        if(array_key_exists ( 'user' , $data )){
+        if(array_key_exists ( 'user' , $data ))
             $tableau->users()->attach($data['user']); //plusieurs à plusieurs (attach pour ajouter et non-pas remplacer)
-        }
 
         $user = Auth::user();
         return redirect()->route('tableau.show', ['tableau' => $tableau, 'user' => $user, 'allTableaux' => Tableau::all()]);
+        // die('it works');
     }
 
     /**
