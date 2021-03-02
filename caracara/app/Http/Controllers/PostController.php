@@ -16,7 +16,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        return view('post.index', ['posts' => Post::orderBy('created_at', 'desc')->get()]);
+        $user = Auth::user();
+        return view('post.index', ['posts' => Post::orderBy('created_at', 'desc')->get(), 'user' => $user]);
     }
 
     /**
@@ -79,9 +80,19 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
+    public function update(Request $request, Post $post) //En fait pour l'instant ça sert juste à ajouter un like
     {
-        //
+        $data = $request->validate([
+            'user' => 'required|exists:users,id',
+            'like' => 'required|boolean'
+        ]);
+        if($data['like'])
+            $post->likes()->attach($data['user']);
+        else
+            $post->likes()->detach($data['user']);
+
+        $user = Auth::user();
+        return redirect()->route('post.index', ['posts' => Post::orderBy('created_at', 'desc')->get(), 'user' => $user]);
     }
 
     /**

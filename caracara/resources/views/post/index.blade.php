@@ -16,6 +16,36 @@
                         <li>{{ $tab->nom }}</li>
                     @endforeach
                 </ul>
+ 
+                {{-- variable qui me permet de vérifier si l'utilisateur a déjà liké le post --}}
+                @php
+                    $userHasLiked = false;
+                    foreach ($post->likes as $item){
+                        if (isset($item->id) && $item->id === $user->id)
+                            $userHasLiked = true;
+                    }
+                @endphp
+
+                @if (!$userHasLiked)
+                    <form action="{{ route('post.update', $post) }}" method="post">
+                        @csrf
+                        @method('PUT')
+                        <input type="hidden" name="user" value="{{$user->id}}">
+                        <input type="hidden" name="like" value="1">
+
+                        <button type="submit">Like :)</button>
+                    </form>
+                @else
+                    <form action="{{ route('post.update', $post) }}" method="post">
+                        @csrf
+                        @method('PUT')
+                        <input type="hidden" name="user" value="{{$user->id}}">
+                        <input type="hidden" name="like" value="0">
+
+                        <button type="submit">Unlike :(</button>
+                    </form>
+                @endif
+                
                 <p>Likes : {{ $post->likes->count() }}</p>
                 <p>Reposts : {{ $post->tableaux->count()-1 }}</p>
                 <p>Supprimer le post</p>
