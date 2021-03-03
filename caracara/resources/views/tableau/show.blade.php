@@ -130,6 +130,28 @@
                                 <button type="submit">Valider</button>
                             </form>
                 @endif
+
+                <h3>Modifier le tableau</h3>
+                <form action="{{ route('tableau.update', $tableau) }}" method="post">
+                    @csrf
+                    @method('PUT')
+                    <label>
+                        Nom du  tableau :
+                        <input type="text" placeholder="Nom du tableau"  name="nom" required value="{{$tableau->nom}}">
+                    </label>
+            
+                    <label>
+                        Description :
+                        <textarea name="description" cols="30" rows="10" placeholder="Description du tableau...">{{$tableau->description}}</textarea>
+                    </label>
+            
+                    <label>
+                        Icône :
+                        <input type="file" name="icone" accept="image/png, image/jpeg" disabled> <!-- disabled car ça marche pas, vous m'avez saoulé -->
+                    </label>
+
+                    <button type="submit">Modifier</button>
+                </form>
                 
                 <h3>Supprimer le tableau</h3>
                 <form action="{{ route('tableau.destroy', $tableau) }}" method="POST">
