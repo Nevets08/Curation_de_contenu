@@ -68,11 +68,38 @@
                         <h4>Liste des membres</h4>
                             <ul>
                                 @foreach ($tableau->users as $user)
-                                    <li>{{ $user->name }} ( @if ($user->pivot->contributeur)
-                                        contributeur
-                                    @else
-                                        lecteur
-                                    @endif )</li>
+                                    <li>
+                                        {{ $user->name }}
+                                        @if ($user->pivot->contributeur)
+                                            (contributeur)
+                                            <form action="{{ route('tableau.update', $tableau) }}" method="post">
+                                                @csrf
+                                                @method('PUT')
+                                                <input type="hidden" name="userToUpdate" value="{{$user->id}}">
+                                                <input type="hidden" name="contributeur" value="0">
+                        
+                                                <button type="submit">Nommer lecteur</button>
+                                            </form>
+                                        @else
+                                            (lecteur)
+                                            <form action="{{ route('tableau.update', $tableau) }}" method="post">
+                                                @csrf
+                                                @method('PUT')
+                                                <input type="hidden" name="userToUpdate" value="{{$user->id}}">
+                                                <input type="hidden" name="contributeur" value="1">
+                        
+                                                <button type="submit">Nommer contributeur</button>
+                                            </form>
+                                        @endif
+                                        <form action="{{ route('tableau.update', $tableau) }}" method="post">
+                                            @csrf
+                                            @method('PUT')
+                                            <input type="hidden" name="userToUpdate" value="{{$user->id}}">
+                                            <input type="hidden" name="quit" value="1">
+                    
+                                            <button type="submit">Ca dégage</button>
+                                        </form>
+                                    </li>
                                 @endforeach
                             </ul>
                         
@@ -112,7 +139,14 @@
                 </form>
             @else
                 @if($tableau->prive)
-                    <h3>Quitter le tableau</h3>
+                    <form action="{{ route('tableau.update', $tableau) }}" method="post">
+                        @csrf
+                        @method('PUT')
+                        <input type="hidden" name="userToUpdate" value="{{$user->id}}">
+                        <input type="hidden" name="quit" value="1">
+
+                        <button type="submit">Quitter le tableau</button>
+                    </form>
                 @endif
             @endif
         
