@@ -17,7 +17,7 @@
                     @endforeach
                 </ul>
  
-                {{-- variable qui me permet de vérifier si l'utilisateur a déjà liké le post --}}
+                {{-- likes --}}
                 @php
                     $userHasLiked = false;
                     foreach ($post->likes as $item){
@@ -25,7 +25,6 @@
                             $userHasLiked = true;
                     }
                 @endphp
-
                 @if (!$userHasLiked)
                     <form action="{{ route('post.update', $post) }}" method="post">
                         @csrf
@@ -45,9 +44,37 @@
                         <button type="submit">Unlike :(</button>
                     </form>
                 @endif
-                
                 <p>Likes : {{ $post->likes->count() }}</p>
+
+                {{-- Reposts --}}
+                <form action="{{ route('post.update', $post) }}" method="post">
+                    @csrf
+                    @method('PUT')
+
+                    <label>
+                        A quel(s) tableau(x) souhaitez-vous l'ajouter ? (vous pouvez selectionner plusieurs tableaux avec ctrl)
+                        <select multiple required name="tableau[]">
+                            @foreach ($allTableaux as $tab)
+                                @can('addPost', $tab)
+                                    <option
+                                        value={{ $tab->id }}
+                                        @foreach ($post->tableaux as $postTab)
+                                            @if ($tab->id === $postTab->id)
+                                                hidden disabled
+                                            @endif
+                                        @endforeach
+                                    >
+                                        {{ $tab->nom }}
+                                    </option>
+                                @endcan
+                            @endforeach
+                        </select>
+                    </label>
+
+                    <button type="submit">Reposter</button>
+                </form>
                 <p>Reposts : {{ $post->tableaux->count()-1 }}</p>
+
                 <p>Supprimer le post</p>
                     <form action="{{ route('post.destroy', $post) }}" method="POST">
                         @csrf

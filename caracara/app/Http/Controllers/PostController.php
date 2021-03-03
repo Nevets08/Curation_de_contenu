@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\PostRequest;
 use App\Models\Post;
+use App\Models\Tableau;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -17,7 +18,7 @@ class PostController extends Controller
     public function index()
     {
         $user = Auth::user();
-        return view('post.index', ['posts' => Post::orderBy('created_at', 'desc')->get(), 'user' => $user]);
+        return view('post.index', ['posts' => Post::orderBy('created_at', 'desc')->get(), 'allTableaux' => Tableau::all(), 'user' => $user]);
     }
 
     /**
@@ -83,13 +84,22 @@ class PostController extends Controller
     public function update(Request $request, Post $post) //En fait pour l'instant ça sert juste à ajouter un like
     {
         $data = $request->validate([
-            'user' => 'required|exists:users,id',
-            'like' => 'required|boolean'
+            'user' => 'sometimes|required | exists:users,id',
+            'like' => 'sometimes|required | boolean',
+            'tableau.*' => 'exists:tableaux,id'
         ]);
-        if($data['like'])
-            $post->likes()->attach($data['user']);
-        else
-            $post->likes()->detach($data['user']);
+
+        //Likes
+        if(array_key_exists('like', $data)){
+            if($data['like'])
+                $post->likes()->attach($data['user']);
+            else
+                $post->likes()->detach($data['user']);
+        }
+
+        //Reposts
+        if(array_key_exists('tableau', $data))
+            $post->tableaux()->attach($data['tableau']);
 
         $user = Auth::user();
         return redirect()->route('post.index', ['posts' => Post::orderBy('created_at', 'desc')->get(), 'user' => $user]);
