@@ -25,7 +25,7 @@
     @endforeach
 
     <h2>Ajouter un nouveau tableau</h2>
-    <form action="{{ route('tableau.store') }}" method="post" style="display: flex; flex-direction: column">
+    <form action="{{ route('tableau.store') }}" method="post" style="display: flex; flex-direction: column" enctype="multipart/form-data">
         @csrf
     
         <label>
@@ -40,7 +40,7 @@
 
         <label>
             Icône :
-            <input type="file" name="icone" accept="image/png, image/jpeg" disabled> <!-- disabled car ça marche pas, vous m'avez saoulé -->
+            <input type="file" name="icone" accept="image/png, image/jpeg">
         </label>
 
         <label>

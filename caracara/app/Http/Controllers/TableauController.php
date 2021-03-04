@@ -43,13 +43,16 @@ class TableauController extends Controller
     {
         $data = $request->validated();
 
-        //Pour stocker l'image CA MARCHE PAS
-        if(array_key_exists ( 'icone' , $data )){
-            //quand on a une icône ça passe bien la dedans. après... ?
+        //Pour stocker l'image
+        if($data['icone'] !== null){
             $extension = $data['icone']->extension();
             $name = Str::random(25);
             $data['icone']->storeAs('/public/icones', $name.".".$extension);
-            $url = Storage::url($name.".".$extension);
+
+            //ATTENTION !!! ALERTE CODE PAS PROPRE (mais qui marche donc pour l'instant je touche pas)
+            $url = 'https://laravel.bukal.etu.mmi-unistra.fr/Curation_de_contenu/caracara/storage/app/public/icones/'.$name.".".$extension; //ATTENTION ICI IL FAUDRA CHANGER LE CHEMIN !!!
+            //ATTENTION !!!
+            
             $data['url_icone'] = $url;
             unset($data['icone']);
         }

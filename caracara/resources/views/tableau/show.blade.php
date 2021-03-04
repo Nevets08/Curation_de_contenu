@@ -10,6 +10,10 @@
     @can ('view', $tableau) {{--Si on a bien accès au tableau--}}
 
         <h1>{{ $tableau->nom }}</h1>
+        <p>
+            Icone du tableau :
+            <img style="max-height: 50px; max-width: 50px;" src="{{$tableau->url_icone}}">
+        </p>
         <p>{{ $tableau->description }}</p>
         <p>Tableau créé par {{ $tableau->user->name }}</p>
         <p>Ce tableau est @if ($tableau->prive)
