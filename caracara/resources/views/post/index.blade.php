@@ -8,7 +8,27 @@
     @foreach ($posts as $post)
         @can('view', $post)
             <div style="margin: 50px">
-                <a href="{{ $post->url }}" target="_blank">{titre du lien}</a>
+                @php
+                    $url = $post->url;
+
+                    $opts = array('http'=>array('header' => "User-Agent:MyAgent/1.0\r\n"));
+                    $context = stream_context_create($opts);
+
+                    preg_match("/<title>(.+)<\/title>/siU", file_get_contents($url, false, $context), $articleTitle);
+                    preg_match('/<meta property="og:description" content="(.+)">/siU', file_get_contents($url, false, $context), $articleDescription);
+                    preg_match('/<meta property="og:image" content="(.+)">/siU', file_get_contents($url, false, $context), $articleImage);
+
+                    $title = $articleTitle[1];
+                    $description = isset($articleDescription[1]) ? $articleDescription[1] : null;
+                    $image = isset($articleImage[1]) ? $articleImage[1] : null;
+                @endphp
+                <h2><a href="{{ $post->url }}" target="_blank">{{$title}}</a></h2>
+                @if ($description)
+                    <p>{{$description}}</p>
+                @endif
+                @if ($image)
+                    <img src="{{$image}}" style="max-height: 300px;">
+                @endif
                 <p>Post créé par {{ $post->user->name }}</p>
                 <p>Post présent sur les tableaux :</p>
                 <ul>
