@@ -44,7 +44,7 @@ class TableauController extends Controller
         $data = $request->validated();
 
         //Pour stocker l'image
-        if($data['icone'] !== null){
+        if(array_key_exists ( 'icone' , $data )){
             $extension = $data['icone']->extension();
             $name = Str::random(25);
             $data['icone']->storeAs('/public/icones', $name.".".$extension);
@@ -107,12 +107,27 @@ class TableauController extends Controller
         //En fait dans le validate si des trucs sont required, il faut qu'ils y soient.
         $data = $request->validated();
 
+        //Pour stocker l'image
+        if(array_key_exists ( 'icone' , $data )){
+            $extension = $data['icone']->extension();
+            $name = Str::random(25);
+            $data['icone']->storeAs('/public/icones', $name.".".$extension);
+
+            //ATTENTION !!! ALERTE CODE PAS PROPRE (mais qui marche donc pour l'instant je touche pas)
+            $url = 'https://laravel.bukal.etu.mmi-unistra.fr/Curation_de_contenu/caracara/storage/app/public/icones/'.$name.".".$extension; //ATTENTION ICI IL FAUDRA CHANGER LE CHEMIN !!!
+            //ATTENTION !!!
+            
+            $data['url_icone'] = $url;
+            unset($data['icone']);
+        }
+
         $tableau->fill($data);
         $tableau->save();
 
         if(array_key_exists ( 'user' , $data ))
             $tableau->users()->attach($data['user']); //plusieurs à plusieurs (attach pour ajouter et non-pas remplacer)
 
+        //Gestions des utilisateurs (contributeur/lecteur/virer)
         if(array_key_exists ( 'userToUpdate' , $data )){
             if(array_key_exists ( 'contributeur' , $data ))
                 $tableau->users()->updateExistingPivot($data['userToUpdate'], array('contributeur' => $data['contributeur']));

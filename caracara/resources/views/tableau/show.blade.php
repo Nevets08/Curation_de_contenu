@@ -136,7 +136,7 @@
                 @endif
 
                 <h3>Modifier le tableau</h3>
-                <form action="{{ route('tableau.update', $tableau) }}" method="post">
+                <form action="{{ route('tableau.update', $tableau) }}" method="post" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <label>
@@ -150,8 +150,8 @@
                     </label>
             
                     <label>
-                        Icône :
-                        <input type="file" name="icone" accept="image/png, image/jpeg" disabled> <!-- disabled car ça marche pas, vous m'avez saoulé -->
+                        Nouvelle icône :
+                        <input type="file" name="icone" accept="image/png, image/jpeg">
                     </label>
 
                     <button type="submit">Modifier</button>
