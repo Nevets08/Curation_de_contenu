@@ -81,7 +81,7 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post) //En fait pour l'instant ça sert juste à ajouter un like
+    public function update(Request $request, Post $post)
     {
         $data = $request->validate([
             'user' => 'sometimes|required | exists:users,id',
