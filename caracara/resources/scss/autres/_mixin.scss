@@ -1,0 +1,51 @@
+@mixin list-reset {
+    margin: 0;
+    padding: 0;
+    li {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+    }
+}
+
+@mixin button {
+    @include theme() {
+        color: theme-get('main-color-dark');
+        background-color: theme-get('main-color-light');
+    }
+    border-radius: 50px;
+    padding: 5px 20px;
+    margin-top: 15px;
+}
+
+@mixin buttonBefore {
+    &:before {
+        content: "+";
+        display: inline-block;
+        font-size: 3rem;
+        font-weight: bold;
+        height: 20px;
+        margin-top: -12px;
+        margin-left: -5px;
+        margin-right: 5px;
+    }
+}
+
+@mixin cards {
+    @include theme() {
+        box-shadow: 0 3px 6px theme-get('boxShadow-color');
+        background-color: theme-get('grey-medium');
+    }
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 20px;
+    @media (max-width: $breakpoint-tablet) {
+        padding: 10px;
+    }
+}
+
+@mixin borderBottomLinks {
+    @include theme() {
+        border-bottom: 2px solid theme-get('main-color-dark');
+    }
+}

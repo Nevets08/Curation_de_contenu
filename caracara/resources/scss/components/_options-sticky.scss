@@ -1,5 +1,4 @@
 .menu-right-fixed {
-    //background-color: $main-color-dark;
      @include theme() {
          background-color: theme-get('main-color-dark')
       }
@@ -34,7 +33,6 @@
         display: flex;
         justify-content: center;
         font-size: 20px;
-        //color: $white;
          @include theme() {
              color: theme-get('white');
           }

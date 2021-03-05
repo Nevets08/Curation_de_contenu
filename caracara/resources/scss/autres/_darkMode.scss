@@ -1,0 +1,34 @@
+$themes: (
+    lightTheme: (
+        'white': white,
+        'black': black,
+        'boxShadow-color': #DFDFDF,
+        'grey-medium': #F8F8F8,
+        'main-color-light': #94CAD1,
+        'main-color': #3e8f93,
+        'main-color-dark': #12142c,
+    ),
+    darkTheme: (
+        'white': #323234,
+        'black': white,
+        'boxShadow-color': #323234,
+        'grey-medium': #252527,
+        'main-color-light': #3e8f93,
+        'main-color': #3e8f93,
+        'main-color-dark': #F8F8F8,
+    )
+);
+
+@mixin theme() {
+    @each $theme, $map in $themes {
+        $theme-map: $map !global;
+        .#{$theme} & {
+            @content;
+        }
+    }
+    $theme-map: null !global;
+}
+
+@function theme-get($key) {
+    @return map-get($theme-map, $key);
+}

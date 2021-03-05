@@ -17,7 +17,7 @@ mix
     .js('resources/js/app.js', 'public/js')
     .js('resources/js/initSlider.js', 'public/js')
     .sass('resources/scss/app.scss', 'public/css')
-    .sass('resources/scss/appGuest.scss', 'public/css')
+    .sass('resources/scss/appLogin.scss', 'public/css')
     .copyDirectory('resources/img', 'public/img')
     .setResourceRoot('../')
     .options({
@@ -26,12 +26,3 @@ mix
             require('tailwindcss'),
         ]
     });
-
-// mix
-//     .sass('resources/scss/app.scss', 'public/css')
-//     .copyDirectory('resources/img', 'public/img')
-//     .options({
-//         processCssUrls: false,
-//         postCss: [ tailwindcss('./tailwind.config.js') ],
-//     })
-

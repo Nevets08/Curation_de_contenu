@@ -5,15 +5,19 @@
 @import '~slick-carousel/slick/slick.scss';
 @import '~slick-carousel/slick/slick-theme.scss';
 
-//$fa-font-path: "/fonts";
 @import "~@fortawesome/fontawesome-free/scss/fontawesome";
 @import "~@fortawesome/fontawesome-free/scss/solid";
 @import "~@fortawesome/fontawesome-free/scss/brands";
 @import "~@fortawesome/fontawesome-free/scss/regular";
 
+
+
 //Autres
-@import "variables";
-@import "generalites";
+@import "autres/base";
+@import "autres/darkMode";
+@import "autres/mixin";
+@import "autres/variables";
+@import "autres/generalites";
 
 //Pages
 @import "pages/home";
@@ -21,8 +25,6 @@
 
 //Sections
 @import "sections/header";
-@import "sections/liste_tableaux_prives";
-@import "sections/liste_articles_sauvegardes";
 
 //Composants
 @import "components/options-sticky";
@@ -32,7 +34,9 @@
 @import "components/tableaux";
 
 //Tableau
-@import "tableau/sidebarTableau";
+@import "tableaux/_sidebarTableau";
+@import "tableaux/_liste_tableaux_prives";
+@import "tableaux/_liste_articles_sauvegardes";
 
 //Livewire change
 

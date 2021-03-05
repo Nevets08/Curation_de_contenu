@@ -15,7 +15,6 @@ aside {
                 width: 45px;
                 height: 45px;
                 margin: 5px;
-                //background-color: $main-color-light;
                 border-radius: 100%;
                 display: flex;
                 justify-content: center;
@@ -24,7 +23,6 @@ aside {
                      background-color: theme-get('main-color-light');
                   }
                 span {
-                    //color: $white;
                     @include theme() {
                         color: theme-get('white');
                     }
@@ -49,7 +47,6 @@ main {
 
         i {
             margin-left: 15px;
-            //color: $black;
             @include theme() {
                 color: theme-get('black');
             }
@@ -61,13 +58,11 @@ main {
 
         a {
             text-decoration: underline;
-            //color: $black;
             @include theme() {
                 color: theme-get('black');
             }
         }
         span {
-            //color: $black;
             @include theme() {
                 color: theme-get('black');
             }
@@ -82,7 +77,6 @@ main {
             }
 
             span {
-                //color: $main-color-dark;
                 @include theme() {
                     color: theme-get('main-color-dark');
                 }
@@ -107,7 +101,6 @@ main {
                     i {
                         font-size: 14px;
                         margin-right: 8px;
-                        //color: $main-color-dark;
                         @include theme() {
                             color: theme-get('main-color-dark');
                         }
