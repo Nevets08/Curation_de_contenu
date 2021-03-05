@@ -3,7 +3,10 @@
     z-index: 5;
 
     &:before, &:after {
-        color: $main-color-dark;
+        //color: $main-color-dark;
+        @include theme() {
+            color: theme-get('main-color-dark');
+        }
         font-size: 25px;
     }
 

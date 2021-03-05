@@ -9,7 +9,10 @@
             flex-wrap: wrap;
             align-items: center;
             font-size: 2.2rem;
-            color: #12142c;
+            //color: $main-color-dark;
+            @include theme() {
+                color: theme-get('main-color-dark');
+            }
             font-weight: bold;
             a:not(:first-of-type) {
                 @include borderBottomLinks;
@@ -20,7 +23,10 @@
             flex-direction: row;
             align-items: center;
             font-size: 2.2rem;
-            color: $main-color-dark;
+            //color: $main-color-dark;
+            @include theme() {
+                color: theme-get('main-color-dark');
+            }
             font-weight: bold;
             img {
                 margin-right: 10px;
@@ -34,17 +40,28 @@
     .article-footer {
         margin-top: 20px;
         display: flex;
+
+        > div {
+            @media (max-width: $breakpoint-mobile) {
+                flex-shrink: 0;
+                width: auto;
+            }
+        }
         @media (max-width: $breakpoint-mini-mobile) {
             flex-direction: column;
         }
         > div a {
+            //color: $black;
+            @include theme() {
+                color: theme-get('black');
+            }
             display: flex;
             margin: 0 10px;
             justify-content: center;
             font-size: 1.6rem;
             align-items: center;
-            @media (max-width: $breakpoint-mini-mobile) {
-                margin: 10px 0;
+            @media (max-width: $breakpoint-mobile) {
+                margin: 10px;
                 justify-content: left;
             }
             img {
@@ -59,6 +76,11 @@
             @media (max-width: $breakpoint-mini-mobile) {
                 margin-left: 0;
             }
+            @media (max-width: $breakpoint-mobile) {
+                width: 100%;
+                margin-left: -297px;
+                margin-top: 31px;
+            }
             a.article-partager {
                 font-size: 1.8rem;
                 font-weight: bold;
@@ -66,8 +88,10 @@
             div.article-partager-liens {
                 display: none;
                 position: absolute;
-                background-color: $main-color-dark;
-                color: white;
+                @include theme() {
+                    color: theme-get('white');
+                    background-color: theme-get('main-color-dark');
+                }
                 padding: 5px;
                 bottom: 20px;
                 clip-path: polygon(0% 0%, 100% 0%, 100% 92%, 65% 92%, 51% 100%, 36% 92%, 0 92%);

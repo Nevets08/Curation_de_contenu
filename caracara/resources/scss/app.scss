@@ -25,12 +25,17 @@
 @import "sections/liste_articles_sauvegardes";
 
 //Composants
+@import "components/options-sticky";
 @import "components/article-cards";
 @import "components/carousel";
 @import "components/sidebar";
+@import "components/tableaux";
 
+//Tableau
+@import "tableau/sidebarTableau";
 
 //Livewire change
+
 .text-xs, .form-input {
     font-size: 1.4rem;
 }

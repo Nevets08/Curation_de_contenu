@@ -20,3 +20,11 @@ use Illuminate\Support\Facades\Route;
 Route::middleware(['auth:sanctum', 'verified'])->get('/', function () {
     return view('home');
 })->name('home');
+
+Route::get('/private_posts', function () {
+    return view('tableaux/private_posts');
+})->name('private_posts');
+
+Route::get('/saved_posts', function () {
+    return view('tableaux/saved_posts');
+})->name('saved_posts');

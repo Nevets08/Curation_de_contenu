@@ -4,28 +4,40 @@
             <h2>Tableau privés</h2>
             <div class="tableaux_miniatures">
                 <div>
-                    <img src="{{ asset('img/rectangle_vide.png') }}" alt="">
-                    <p>Lorem Ipsum</p>
+                    <a href="{{ route("private_posts") }}">
+                        <img src="{{ asset('img/rectangle_vide.png') }}" alt="">
+                        <p>Lorem Ipsum</p>
+                    </a>
                 </div>
                 <div>
-                    <img src="{{ asset('img/rectangle_vide.png') }}" alt="">
-                    <p>Lorem Ipsum</p>
+                    <a href="{{ route("private_posts") }}">
+                        <img src="{{ asset('img/rectangle_vide.png') }}" alt="">
+                        <p>Lorem Ipsum</p>
+                    </a>
                 </div>
                 <div>
-                    <img src="{{ asset('img/rectangle_vide.png') }}" alt="">
-                    <p>Lorem Ipsum</p>
+                    <a href="{{ route("private_posts") }}">
+                        <img src="{{ asset('img/rectangle_vide.png') }}" alt="">
+                        <p>Lorem Ipsum</p>
+                    </a>
                 </div>
                 <div>
-                    <img src="{{ asset('img/rectangle_vide.png') }}" alt="">
-                    <p>Lorem Ipsum</p>
+                    <a href="{{ route("private_posts") }}">
+                        <img src="{{ asset('img/rectangle_vide.png') }}" alt="">
+                        <p>Lorem Ipsum</p>
+                    </a>
                 </div>
                 <div>
-                    <img src="{{ asset('img/rectangle_vide.png') }}" alt="">
-                    <p>Lorem Ipsum</p>
+                    <a href="{{ route("private_posts") }}">
+                        <img src="{{ asset('img/rectangle_vide.png') }}" alt="">
+                        <p>Lorem Ipsum</p>
+                    </a>
                 </div>
                 <div>
-                    <img src="{{ asset('img/rectangle_vide.png') }}" alt="">
-                    <p>Lorem Ipsum</p>
+                    <a href="{{ route("private_posts") }}">
+                        <img src="{{ asset('img/rectangle_vide.png') }}" alt="">
+                        <p>Lorem Ipsum</p>
+                    </a>
                 </div>
             </div>
             <button>Créer</button>
@@ -43,27 +55,27 @@
         <section>
             <h2>Mes tableaux publics</h2>
             <div class="tableaux_publics">
-                <div onclick="window.location = '#'"><img src="{{ asset('img/rond_vide.png') }}" alt=""><p>Lorem Ipsum</p></div>
-                <div onclick="window.location = '#'"><img src="{{ asset('img/rond_vide.png') }}" alt=""><p>Lorem Ipsum</p></div>
-                <div onclick="window.location = '#'"><img src="{{ asset('img/rond_vide.png') }}" alt=""><p>Lorem Ipsum</p></div>
-                <div onclick="window.location = '#'"><img src="{{ asset('img/rond_vide.png') }}" alt=""><p>Lorem Ipsum</p></div>
-                <div onclick="window.location = '#'"><img src="{{ asset('img/rond_vide.png') }}" alt=""><p>Lorem Ipsum</p></div>
-                <div onclick="window.location = '#'"><img src="{{ asset('img/rond_vide.png') }}" alt=""><p>Lorem Ipsum</p></div>
-                <div onclick="window.location = '#'"><img src="{{ asset('img/rond_vide.png') }}" alt=""><p>Lorem Ipsum</p></div>
-                <div onclick="window.location = '#'"><img src="{{ asset('img/rond_vide.png') }}" alt=""><p>Lorem Ipsum</p></div>
-                <div onclick="window.location = '#'"><img src="{{ asset('img/rond_vide.png') }}" alt=""><p>Lorem Ipsum</p></div>
-                <div onclick="window.location = '#'"><img src="{{ asset('img/rond_vide.png') }}" alt=""><p>Lorem Ipsum</p></div>
-                <div onclick="window.location = '#'"><img src="{{ asset('img/rond_vide.png') }}" alt=""><p>Lorem Ipsum</p></div>
-                <div onclick="window.location = '#'"><img src="{{ asset('img/rond_vide.png') }}" alt=""><p>Lorem Ipsum</p></div>
-                <div onclick="window.location = '#'"><img src="{{ asset('img/rond_vide.png') }}" alt=""><p>Lorem Ipsum</p></div>
-                <div onclick="window.location = '#'"><img src="{{ asset('img/rond_vide.png') }}" alt=""><p>Lorem Ipsum</p></div>
-                <div onclick="window.location = '#'"><img src="{{ asset('img/rond_vide.png') }}" alt=""><p>Lorem Ipsum</p></div>
-                <div onclick="window.location = '#'"><img src="{{ asset('img/rond_vide.png') }}" alt=""><p>Lorem Ipsum</p></div>
-                <div onclick="window.location = '#'"><img src="{{ asset('img/rond_vide.png') }}" alt=""><p>Lorem Ipsum</p></div>
-                <div onclick="window.location = '#'"><img src="{{ asset('img/rond_vide.png') }}" alt=""><p>Lorem Ipsum</p></div>
-                <div onclick="window.location = '#'"><img src="{{ asset('img/rond_vide.png') }}" alt=""><p>Lorem Ipsum</p></div>
-                <div onclick="window.location = '#'"><img src="{{ asset('img/rond_vide.png') }}" alt=""><p>Lorem Ipsum</p></div>
-                <div onclick="window.location = '#'"><img src="{{ asset('img/rond_vide.png') }}" alt=""><p>Lorem Ipsum</p></div>
+                <div onclick="window.location = '{{ route("private_posts") }}'"><img src="{{ asset('img/rond_vide.png') }}" alt=""><p>Lorem Ipsum</p></div>
+                <div onclick="window.location = '{{ route("private_posts") }}'"><img src="{{ asset('img/rond_vide.png') }}" alt=""><p>Lorem Ipsum</p></div>
+                <div onclick="window.location = '{{ route("private_posts") }}'"><img src="{{ asset('img/rond_vide.png') }}" alt=""><p>Lorem Ipsum</p></div>
+                <div onclick="window.location = '{{ route("private_posts") }}'"><img src="{{ asset('img/rond_vide.png') }}" alt=""><p>Lorem Ipsum</p></div>
+                <div onclick="window.location = '{{ route("private_posts") }}'"><img src="{{ asset('img/rond_vide.png') }}" alt=""><p>Lorem Ipsum</p></div>
+                <div onclick="window.location = '{{ route("private_posts") }}'"><img src="{{ asset('img/rond_vide.png') }}" alt=""><p>Lorem Ipsum</p></div>
+                <div onclick="window.location = '{{ route("private_posts") }}'"><img src="{{ asset('img/rond_vide.png') }}" alt=""><p>Lorem Ipsum</p></div>
+                <div onclick="window.location = '{{ route("private_posts") }}'"><img src="{{ asset('img/rond_vide.png') }}" alt=""><p>Lorem Ipsum</p></div>
+                <div onclick="window.location = '{{ route("private_posts") }}'"><img src="{{ asset('img/rond_vide.png') }}" alt=""><p>Lorem Ipsum</p></div>
+                <div onclick="window.location = '{{ route("private_posts") }}'"><img src="{{ asset('img/rond_vide.png') }}" alt=""><p>Lorem Ipsum</p></div>
+                <div onclick="window.location = '{{ route("private_posts") }}'"><img src="{{ asset('img/rond_vide.png') }}" alt=""><p>Lorem Ipsum</p></div>
+                <div onclick="window.location = '{{ route("private_posts") }}'"><img src="{{ asset('img/rond_vide.png') }}" alt=""><p>Lorem Ipsum</p></div>
+                <div onclick="window.location = '{{ route("private_posts") }}'"><img src="{{ asset('img/rond_vide.png') }}" alt=""><p>Lorem Ipsum</p></div>
+                <div onclick="window.location = '{{ route("private_posts") }}'"><img src="{{ asset('img/rond_vide.png') }}" alt=""><p>Lorem Ipsum</p></div>
+                <div onclick="window.location = '{{ route("private_posts") }}'"><img src="{{ asset('img/rond_vide.png') }}" alt=""><p>Lorem Ipsum</p></div>
+                <div onclick="window.location = '{{ route("private_posts") }}'"><img src="{{ asset('img/rond_vide.png') }}" alt=""><p>Lorem Ipsum</p></div>
+                <div onclick="window.location = '{{ route("private_posts") }}'"><img src="{{ asset('img/rond_vide.png') }}" alt=""><p>Lorem Ipsum</p></div>
+                <div onclick="window.location = '{{ route("private_posts") }}'"><img src="{{ asset('img/rond_vide.png') }}" alt=""><p>Lorem Ipsum</p></div>
+                <div onclick="window.location = '{{ route("private_posts") }}'"><img src="{{ asset('img/rond_vide.png') }}" alt=""><p>Lorem Ipsum</p></div>
+                <div onclick="window.location = '{{ route("private_posts") }}'"><img src="{{ asset('img/rond_vide.png') }}" alt=""><p>Lorem Ipsum</p></div>
+                <div onclick="window.location = '{{ route("private_posts") }}'"><img src="{{ asset('img/rond_vide.png') }}" alt=""><p>Lorem Ipsum</p></div>
             </div>
         </section>
         <section>
@@ -79,7 +91,7 @@
                     <div class="article-favoris"><a href=""><i style="margin-right: 5px;" class="far fa-bookmark"></i>Ajouter aux favoris</a></div>
                     <div class="article-Retweet"><a href=""><i style="margin-right: 5px;" class="fas fa-retweet"></i>Retweet</a></div>
                     <div class="article-partager">
-                        <a class="article-partager" href="#" onclick="tooglePartageDiv()">Partager</a>
+                        <a class="article-partager" href="#">Partager</a>
                         <div class="article-partager-liens">
                             <a href="#">Facebook</a>
                             <a href="#">Twitter</a>

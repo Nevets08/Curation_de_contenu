@@ -13,7 +13,10 @@
         font-size: 1.6rem;
         font-weight: bold;
         a {
-            border-bottom: 2px solid $main-color-dark;
+            //border-bottom: 2px solid $main-color-dark;
+             @include theme() {
+                 border-bottom: 2px solid theme-get('main-color-dark')
+              }
         }
     }
 }

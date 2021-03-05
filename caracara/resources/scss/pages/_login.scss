@@ -25,7 +25,10 @@ main {
 }
 
 main, form {
-    background-color: $grey-medium;
+    //background-color: $grey-medium;
+     @include theme() {
+         background-color: theme-get('grey-medium')
+      }
     display: flex;
     flex-direction: column;
 }

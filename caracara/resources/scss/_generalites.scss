@@ -29,10 +29,16 @@ html {
 
 body {
     font-size: 1.6rem;
+    @include theme() {
+        background-color: theme-get('white');
+    }
 }
 
-p {
-    color: $main-color-dark;
+p, label, button {
+    @include theme() {
+        color: theme-get('main-color-dark');
+    }
+    //color: $main-color-dark;
 }
 
 .md {
@@ -43,7 +49,10 @@ p {
 
 h1 {
     font-size: 3rem;
-    color: $main-color-dark;
+    //color: $main-color-dark;
+    @include theme() {
+        color: theme-get('main-color-dark');
+    }
     margin-bottom: 15px;
     line-height: 3rem;
 }
@@ -52,13 +61,19 @@ h2 {
     font-size: 2.2rem;
     text-transform: uppercase;
     font-weight: bold;
-    color: $main-color-dark;
+    //color: $main-color-dark;
+    @include theme() {
+        color: theme-get('main-color-dark');
+    }
     margin-bottom: 15px;
 }
 
 p {
     font-size: 1.6rem;
-    color: $main-color-dark;
+    //color: $main-color-dark;
+    @include theme() {
+        color: theme-get('main-color-dark');
+    }
 }
 
 div.site-global {
@@ -97,7 +112,10 @@ section h2 {
     &:after {
         position: absolute;
         content: "";
-        border-bottom: 1px solid $main-color;
+        //border-bottom: 1px solid $main-color;
+        @include theme() {
+            border-bottom: 1px solid theme-get('main--color');
+        }
         bottom: 0;
         left: -20px;
         right: -20px;

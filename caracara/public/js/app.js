@@ -35240,6 +35240,43 @@ __webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/alpine.js");
 
 __webpack_require__(/*! slick-carousel */ "./node_modules/slick-carousel/slick/slick.js");
 
+new Vue({
+  el: "#app",
+  data: function data() {
+    return {
+      darkTheme: false
+    };
+  },
+  methods: {
+    toggleTheme: function toggleTheme() {
+      this.darkTheme = !this.darkTheme;
+    }
+  }
+});
+var userButton = document.querySelector("header #userButton");
+var icone_search = document.querySelector("header .fa-search");
+var button_edit_profile = document.querySelector(".infos_button_edit");
+var button_partage = document.querySelector(".article-card .article-partager");
+var button_tableau_options = document.querySelector(".title i");
+userButton.addEventListener("click", ClickUserButton);
+icone_search.addEventListener("click", ClickSearchIcone);
+
+if (button_edit_profile !== null) {
+  button_edit_profile.addEventListener("click", DisplaySideBar);
+}
+
+if (button_partage !== null) {
+  button_partage.addEventListener("click", ClickButtonPartage);
+}
+
+if (button_tableau_options !== null) {
+  button_tableau_options.addEventListener("click", DisplaySideBar);
+}
+
+function ClickButtonPartage() {
+  document.querySelector(".article-partager-liens").classList.toggle("show");
+}
+
 function ClickUserButton() {
   if (window.matchMedia("(min-width: 768px)").matches) {
     document.querySelector("#userMenu").classList.toggle("showUserMenu");
@@ -35254,80 +35291,32 @@ function ClickSearchIcone() {
 
 function DisplaySideBar() {
   document.querySelector(".sidebar").classList.toggle("showSideBar");
-  button_edit_profile.style.zIndex = "15";
+  this.style.zIndex = "15";
 
-  if (document.querySelector(".sidebar").classList.contains("showSideBar")) {
+  if (document.querySelector(".sidebar").classList.contains("showSideBar") && document.body.classList.contains("profil")) {
+    console.log("click sur button sur page profil");
     button_edit_profile.innerHTML = "Retour au profil";
     button_edit_profile.style.position = "absolute";
     button_edit_profile.style.top = "0";
     button_edit_profile.style.right = "0";
-  } else {
+  } else if (document.body.classList.contains("profil")) {
     button_edit_profile.innerHTML = "Modifier ";
     button_edit_profile.style.position = "initial";
   }
+
+  if (document.querySelector(".sidebar").classList.contains("showSideBar") && document.body.classList.contains("tableau")) {
+    console.log("click sur button sur page tableau");
+    button_tableau_options.classList.replace("fa-sliders-h", "fa-arrow-left");
+    button_tableau_options.style.position = "absolute";
+    button_tableau_options.style.top = "16px";
+    button_tableau_options.style.left = "0";
+    button_tableau_options.style.fontSize = "font-size: 3rem;";
+  } else if (document.body.classList.contains("tableau")) {
+    button_tableau_options.classList.replace("fa-arrow-left", "fa-sliders-h");
+    button_tableau_options.style.position = "initial";
+    button_tableau_options.style.fontSize = "font-size: xx-large;";
+  }
 }
-
-var userButton = document.querySelector("header #userButton");
-var icone_search = document.querySelector("header .fa-search");
-var button_edit_profile = document.querySelector(".infos_button_edit");
-userButton.addEventListener("click", ClickUserButton);
-icone_search.addEventListener("click", ClickSearchIcone);
-
-if (button_edit_profile !== null) {
-  button_edit_profile.addEventListener("click", DisplaySideBar);
-}
-
-$(document).ready(function () {
-  $('.tableaux_publics').slick({
-    infinite: false,
-    speed: 300,
-    slidesToShow: 9,
-    slidesToScroll: 1,
-    responsive: [{
-      breakpoint: 1024,
-      settings: {
-        slidesToShow: 5
-      }
-    }, {
-      breakpoint: 768,
-      settings: {
-        slidesToShow: 5
-      }
-    }, {
-      breakpoint: 480,
-      settings: {
-        slidesToShow: 3
-      }
-    }]
-  });
-  $('.tableaux_suivi_slider, .tableaux_prives_slider').slick({
-    infinite: false,
-    speed: 300,
-    slidesToShow: 5,
-    slidesToScroll: 1,
-    responsive: [{
-      breakpoint: 1024,
-      settings: {
-        slidesToShow: 5
-      }
-    }, {
-      breakpoint: 768,
-      settings: {
-        slidesToShow: 5
-      }
-    }, {
-      breakpoint: 480,
-      settings: {
-        slidesToShow: 3
-      }
-    }]
-  });
-  $('.publications_sauvegardees_slider, .derniers_posts_slider').slick({
-    infinite: false,
-    speed: 300,
-    slidesToShow: 1
-  });
-});
 
 /***/ }),
 

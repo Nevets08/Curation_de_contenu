@@ -12,9 +12,10 @@
 
     <!-- Scripts -->
     <script src="{{ asset(mix('js/app.js')) }}" defer></script>
+    <script src="{{ asset(mix('js/initSlider.js')) }}" defer></script>
 </head>
 
-<body class="{{ $attributes->get('title') }}">
+<body class="{{ $attributes->get('title') }} ">
 <header>
     <nav class="container">
         <div class="left_elements">
@@ -62,6 +63,11 @@
 <div class="container site-global">
     <!-- Page Content -->
     {{ $slot }}
+</div>
+<div class="menu-right-fixed">
+    <i title="Ajouter un post" class="fas fa-plus"></i>
+    <i title="Activer la newsletter" class="fas fa-envelope-open-text"></i>
+    <i title="Passer en mode nuit" class="far fa-moon" onclick="document.documentElement.classList.toggle('darkTheme');"></i>
 </div>
 @livewireScripts
 </body>

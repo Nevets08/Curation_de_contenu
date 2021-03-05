@@ -35,8 +35,24 @@ body {
   font-size: 1.6rem;
 }
 
-p {
+.lightTheme body {
+  background-color: white;
+}
+
+.darkTheme body {
+  background-color: #323234;
+}
+
+.lightTheme p,
+.lightTheme label,
+.lightTheme button {
   color: #12142c;
+}
+
+.darkTheme p,
+.darkTheme label,
+.darkTheme button {
+  color: #F8F8F8;
 }
 
 @media (min-width: 768px) {
@@ -47,22 +63,43 @@ p {
 
 h1 {
   font-size: 3rem;
-  color: #12142c;
   margin-bottom: 15px;
   line-height: 3rem;
+}
+
+.lightTheme h1 {
+  color: #12142c;
+}
+
+.darkTheme h1 {
+  color: #F8F8F8;
 }
 
 h2 {
   font-size: 2.2rem;
   text-transform: uppercase;
   font-weight: bold;
-  color: #12142c;
   margin-bottom: 15px;
+}
+
+.lightTheme h2 {
+  color: #12142c;
+}
+
+.darkTheme h2 {
+  color: #F8F8F8;
 }
 
 p {
   font-size: 1.6rem;
+}
+
+.lightTheme p {
   color: #12142c;
+}
+
+.darkTheme p {
+  color: #F8F8F8;
 }
 
 div.site-global {
@@ -91,11 +128,19 @@ div.site-global aside {
 }
 
 div.site-global aside section {
-  background-color: #F8F8F8;
   padding: 20px;
   margin-bottom: 30px;
-  box-shadow: 0 3px 6px #DFDFDF;
   border-radius: 20px;
+}
+
+.lightTheme div.site-global aside section {
+  box-shadow: 0 3px 6px #DFDFDF;
+  background-color: #F8F8F8;
+}
+
+.darkTheme div.site-global aside section {
+  box-shadow: 0 3px 6px #323234;
+  background-color: #252527;
 }
 
 @media (max-width: 768px) {
@@ -122,10 +167,17 @@ section h2 {
 section h2:after {
   position: absolute;
   content: "";
-  border-bottom: 1px solid #3e8f93;
   bottom: 0;
   left: -20px;
   right: -20px;
+}
+
+.lightTheme section h2:after {
+  border-bottom: 1px solid;
+}
+
+.darkTheme section h2:after {
+  border-bottom: 1px solid;
 }
 
 @media (max-width: 768px) {
@@ -151,15 +203,23 @@ body {
 }
 
 main {
-  background-color: #F8F8F8;
   padding: 20px;
   margin-bottom: 30px;
-  box-shadow: 0 3px 6px #DFDFDF;
   border-radius: 20px;
   padding: 40px;
   width: 50%;
   max-width: 600px;
   align-items: center;
+}
+
+.lightTheme main {
+  box-shadow: 0 3px 6px #DFDFDF;
+  background-color: #F8F8F8;
+}
+
+.darkTheme main {
+  box-shadow: 0 3px 6px #323234;
+  background-color: #252527;
 }
 
 @media (max-width: 768px) {
@@ -176,9 +236,18 @@ main {
 
 main,
 form {
-  background-color: #F8F8F8;
   display: flex;
   flex-direction: column;
+}
+
+.lightTheme main,
+.lightTheme form {
+  background-color: #F8F8F8;
+}
+
+.darkTheme main,
+.darkTheme form {
+  background-color: #252527;
 }
 
 input {
@@ -189,11 +258,19 @@ input {
 button {
   box-shadow: none;
   border: none;
-  color: #12142c;
-  background-color: #94CAD1;
   border-radius: 50px;
   padding: 5px 20px;
   margin-top: 15px;
+}
+
+.lightTheme button {
+  color: #12142c;
+  background-color: #94CAD1;
+}
+
+.darkTheme button {
+  color: #F8F8F8;
+  background-color: #3e8f93;
 }
 
 label {

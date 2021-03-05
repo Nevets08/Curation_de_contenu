@@ -14,7 +14,7 @@
     <script src="{{ asset(mix('js/app.js')) }}" defer></script>
 </head>
 
-<body class="{{ $attributes->get('title') }}">
+<body class="{{ $attributes->get('title') }} lightTheme">
     {{ $slot }}
 </body>
 
