@@ -103,12 +103,21 @@ class TableauController extends Controller
     public function update(TableauRequest $request, Tableau $tableau)
     {
         $user = Auth::user();
+
         //OK ALORS J'AI COMPRIS PK CA BUG
         //En fait dans le validate si des trucs sont required, il faut qu'ils y soient.
         $data = $request->validated();
 
         //Pour stocker l'image
         if(array_key_exists ( 'icone' , $data )){
+            //si il y en avait une avant, on la suppr
+            if($tableau->url_icone)
+            {
+                preg_match('/laravel\.bukal\.etu\.mmi-unistra\.fr\/Curation_de_contenu\/caracara\/storage\/app\/public\/icones\/(.*)/', $tableau->url_icone, $matches);
+                $filename=$matches[1];
+                Storage::delete('/public/icones/'.$filename);
+            }
+
             $extension = $data['icone']->extension();
             $name = Str::random(25);
             $data['icone']->storeAs('/public/icones', $name.".".$extension);
@@ -150,6 +159,12 @@ class TableauController extends Controller
      */
     public function destroy(Tableau $tableau)
     {
+        if($tableau->url_icone)
+        {
+            preg_match('/laravel\.bukal\.etu\.mmi-unistra\.fr\/Curation_de_contenu\/caracara\/storage\/app\/public\/icones\/(.*)/', $tableau->url_icone, $matches);
+            $filename=$matches[1];
+            Storage::delete('/public/icones/'.$filename);
+        }
         $tableau->delete();
         return redirect()->route('tableau.index');
     }
