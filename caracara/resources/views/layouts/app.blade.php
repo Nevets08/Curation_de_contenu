@@ -15,7 +15,7 @@
     <script src="{{ asset(mix('js/initSlider.js')) }}" defer></script>
 </head>
 
-<body class="{{ $attributes->get('title') }} ">
+<body class="{{ $attributes->get('title') }} lightTheme">
 <header>
     <nav class="container">
         <div class="left_elements">

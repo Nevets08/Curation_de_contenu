@@ -35240,19 +35240,6 @@ __webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/alpine.js");
 
 __webpack_require__(/*! slick-carousel */ "./node_modules/slick-carousel/slick/slick.js");
 
-new Vue({
-  el: "#app",
-  data: function data() {
-    return {
-      darkTheme: false
-    };
-  },
-  methods: {
-    toggleTheme: function toggleTheme() {
-      this.darkTheme = !this.darkTheme;
-    }
-  }
-});
 var userButton = document.querySelector("header #userButton");
 var icone_search = document.querySelector("header .fa-search");
 var button_edit_profile = document.querySelector(".infos_button_edit");
@@ -35315,6 +35302,19 @@ function DisplaySideBar() {
     button_tableau_options.classList.replace("fa-arrow-left", "fa-sliders-h");
     button_tableau_options.style.position = "initial";
     button_tableau_options.style.fontSize = "font-size: xx-large;";
+  }
+} //DarkMode
+
+
+var DarkModeSwitchButton = document.querySelector(".fa-moon");
+var body = document.body;
+DarkModeSwitchButton.addEventListener("click", DarkMode);
+
+function DarkMode() {
+  if (body.classList.contains("darkTheme")) {
+    body.classList.replace("darkTheme", "lightTheme");
+  } else if (body.classList.contains("lightTheme")) {
+    body.classList.replace("lightTheme", "darkTheme");
   }
 }
 
