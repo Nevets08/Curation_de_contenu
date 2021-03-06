@@ -34,7 +34,11 @@ class TableauRequest extends FormRequest
             //Gestion des utilisateurs
             'userToUpdate' => 'sometimes|required | exists:tableau_user,user_id',
             'contributeur' => 'sometimes|required | boolean',
-            'quit' => 'sometimes|required | boolean'
+            'quit' => 'sometimes|required | boolean',
+
+            //S'abonner
+            'abonne' => 'sometimes|required | exists:users,id',
+            'sabonner' => 'sometimes|required | boolean'
         ];
     }
 }

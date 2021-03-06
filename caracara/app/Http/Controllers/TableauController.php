@@ -147,6 +147,14 @@ class TableauController extends Controller
             }
         }
 
+        //Abonnements
+        if(array_key_exists('sabonner', $data)){
+            if($data['sabonner'])
+                $tableau->abonnes()->attach($data['abonne']);
+            else
+                $tableau->abonnes()->detach($data['abonne']);
+        }
+
         return redirect()->route('tableau.show', ['tableau' => $tableau, 'user' => $user, 'allTableaux' => Tableau::all()]);
         // die('it works');
     }

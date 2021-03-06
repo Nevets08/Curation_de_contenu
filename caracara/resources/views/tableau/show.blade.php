@@ -21,6 +21,36 @@
         @else
             public
         @endif</p>
+
+        {{-- s'abonner --}}
+        @php
+            $userDejaAbo = false;
+            foreach ($tableau->abonnes as $item){
+                if (isset($item->id) && $item->id === $user->id)
+                    $userDejaAbo = true;
+            }
+        @endphp
+        @if (!$userDejaAbo)
+            <form action="{{ route('tableau.update', $tableau) }}" method="post">
+                @csrf
+                @method('PUT')
+                <input type="hidden" name="abonne" value="{{$user->id}}">
+                <input type="hidden" name="sabonner" value="1">
+
+                <button type="submit">S'abonner :)</button>
+            </form>
+        @else
+            <form action="{{ route('tableau.update', $tableau) }}" method="post">
+                @csrf
+                @method('PUT')
+                <input type="hidden" name="abonne" value="{{$user->id}}">
+                <input type="hidden" name="sabonner" value="0">
+
+                <button type="submit">Se désabonner :(</button>
+            </form>
+        @endif
+
+
         <p>{{count($tableau->abonnes)}} abonnés :</p>
         <ul>
             @foreach ($tableau->abonnes as $abonne)
