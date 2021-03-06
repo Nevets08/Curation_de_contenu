@@ -37,6 +37,7 @@ return array(
     'App\\Models\\Tableau' => $baseDir . '/app/Models/Tableau.php',
     'App\\Models\\Team' => $baseDir . '/app/Models/Team.php',
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',
+    'App\\Policies\\PostPolicy' => $baseDir . '/app/Policies/PostPolicy.php',
     'App\\Policies\\TableauPolicy' => $baseDir . '/app/Policies/TableauPolicy.php',
     'App\\Policies\\TeamPolicy' => $baseDir . '/app/Policies/TeamPolicy.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',

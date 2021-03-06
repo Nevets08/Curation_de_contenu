@@ -27,4 +27,9 @@ class Tableau extends Model
     public function user(){
         return $this->belongsTo(User::class)->withDefault();
     }
+
+    public function abonnes()
+    {
+        return $this->belongsToMany(User::class, 'abonnements', 'tableau_id', 'user_id');
+    }
 }

@@ -600,6 +600,7 @@ class ComposerStaticInit552442d2afdc69b86c131cccc82cfc2b
         'App\\Models\\Tableau' => __DIR__ . '/../..' . '/app/Models/Tableau.php',
         'App\\Models\\Team' => __DIR__ . '/../..' . '/app/Models/Team.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
+        'App\\Policies\\PostPolicy' => __DIR__ . '/../..' . '/app/Policies/PostPolicy.php',
         'App\\Policies\\TableauPolicy' => __DIR__ . '/../..' . '/app/Policies/TableauPolicy.php',
         'App\\Policies\\TeamPolicy' => __DIR__ . '/../..' . '/app/Policies/TeamPolicy.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',

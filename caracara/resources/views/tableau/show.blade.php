@@ -21,6 +21,12 @@
         @else
             public
         @endif</p>
+        <p>{{count($tableau->abonnes)}} abonnés :</p>
+        <ul>
+            @foreach ($tableau->abonnes as $abonne)
+                <li>{{$abonne->name}}</li>
+            @endforeach
+        </ul>
         <p>Posts du tableau :</p>
         <ul>
         @foreach ($tableau->posts as $post)
