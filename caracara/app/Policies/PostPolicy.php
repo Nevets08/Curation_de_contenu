@@ -97,4 +97,22 @@ class PostPolicy
     {
         //
     }
+
+    /**
+     * Determine whether the user can view the model.
+     *
+     * @param  \App\Models\User  $user
+     * @param  \App\Models\Post  $post
+     * @return mixed
+     */
+    public function abonnement(User $user, Post $post)
+    {
+        foreach ($post->tableaux as $tableau){
+            foreach ($tableau->abonnes as $item){
+                if (isset($item->id) && $item->id === $user->id)
+                    return true;
+                break;
+            }
+        }
+    }
 }

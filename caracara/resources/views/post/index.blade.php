@@ -6,7 +6,7 @@
 </head>
 <body>
     @foreach ($posts as $post)
-        @can('view', $post)
+        @can('abonnement', $post){{--  abonnement : pour voir les posts des tableaux auxquels on est abonné - view : pour voir tous les posts auxquels on a accès --}}
             <div style="margin: 50px">
                 @php
                     $url = $post->url;
