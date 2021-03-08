@@ -1,219 +1,379 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{{ $tableau->nom }}</title>
-</head>
-<body>
-    @can ('view', $tableau) {{--Si on a bien accès au tableau--}}
+<x-app-layout title="tableau">
 
-        <h1>{{ $tableau->nom }}</h1>
-        <p>
-            Icone du tableau :
-            <img style="max-height: 50px; max-width: 50px;" src="{{$tableau->url_icone}}">
-        </p>
-        <p>{{ $tableau->description }}</p>
-        <p>Tableau créé par {{ $tableau->user->name }}</p>
-        <p>Ce tableau est @if ($tableau->prive)
-            privé
-        @else
-            public
-        @endif</p>
+    <aside>
+        <section>
+            <h2>MENU</h2>
+            @include('layouts.secondary_menu')
+        </section>
 
-        {{-- s'abonner --}}
-        @php
-            $userDejaAbo = false;
-            foreach ($tableau->abonnes as $item){
-                if (isset($item->id) && $item->id === $user->id)
-                    $userDejaAbo = true;
-            }
-        @endphp
-        @if (!$userDejaAbo)
-            <form action="{{ route('tableau.update', $tableau) }}" method="post">
-                @csrf
-                @method('PUT')
-                <input type="hidden" name="abonne" value="{{$user->id}}">
-                <input type="hidden" name="sabonner" value="1">
+        <section class="members">
+            <h2>Membres du tableau</h2>
+            @include('layouts.members_posts')
+        </section>
+    </aside>
 
-                <button type="submit">S'abonner :)</button>
-            </form>
-        @else
-            <form action="{{ route('tableau.update', $tableau) }}" method="post">
-                @csrf
-                @method('PUT')
-                <input type="hidden" name="abonne" value="{{$user->id}}">
-                <input type="hidden" name="sabonner" value="0">
+    <main>
+        <div class="title">
+            <h1>{{ $tableau->nom }}</h1>
+            <i class="fas fa-sliders-h"></i>
+        </div>
 
-                <button type="submit">Se désabonner :(</button>
-            </form>
-        @endif
+        <div class="breadcrumb">
+            <a href="{{ route('home') }}">Accueil</a>
+            <span>/ Vos tableaux privés</span>
+        </div>
 
+        <div class="posts">
+            <div class="posts-infos">
+                <h2>Dernières publications</h2>
 
-        <p>{{count($tableau->abonnes)}} abonnés :</p>
-        <ul>
-            @foreach ($tableau->abonnes as $abonne)
-                <li>{{$abonne->name}}</li>
+                <div class="actions">
+                    <span>Trier par : Nouveautés</span>
+                    <a href="{{ route('add_post') }}"><i class="fas fa-plus-circle"></i>Ajouter une publication</a>*
+                </div>
+            </div>
+
+            @foreach ($tableau->posts as $post)
+                    @php
+                        $url = $post->url;
+
+                        $opts = array('http'=>array('header' => "User-Agent:MyAgent/1.0\r\n"));
+                        $context = stream_context_create($opts);
+
+                        preg_match("/<title>(.+)<\/title>/siU", file_get_contents($url, false, $context), $articleTitle);
+                        preg_match('/<meta property="og:description" content="(.+)"\/>/siU', file_get_contents($url, false, $context), $articleDescription);
+                        preg_match('/<meta property="og:image" content="(.+)"\/>/siU', file_get_contents($url, false, $context), $articleImage);
+
+                        $title = $articleTitle[1];
+                        $description = isset($articleDescription[1]) ? $articleDescription[1] : null;
+                        $image = isset($articleImage[1]) ? $articleImage[1] : null;
+                    @endphp
+                    <article class="article-card">
+                        <div class="article-infos">
+                            <p class="article-auteur"><a href="#"><img class="article-auteur-image" src="{{ $post->user->profile_photo_url }}" alt="">{{$post->user->name}}</a>&nbspdans&nbsp<a href="#">{{$post->tableaux[0]->nom}}</a></p>
+                            <p class="article-date">Il y a 1h</p>
+                        </div>
+                        <h2><a href="{{$post->url}}">{{$title}}</a></h2>
+                        <p class="article-headline">{{$description}}</p>
+                        <img class="article-image" src="{{ $image }}" alt="">
+                        <div class="article-footer">
+                            <div class="article-likes">
+                                {{-- likes --}}
+                                @php
+                                    $user = Auth::user();
+                                    $userHasLiked = false;
+                                    foreach ($post->likes as $item){
+                                        if (isset($item->id) && $item->id === $user->id)
+                                            $userHasLiked = true;
+                                    }
+                                @endphp
+                                @if (!$userHasLiked)
+                                    <form action="{{ route('post.update', $post) }}" method="post">
+                                        @csrf
+                                        @method('PUT')
+                                        <input type="hidden" name="user" value="{{$user->id}}">
+                                        <input type="hidden" name="like" value="1">
+
+                                        <button type="submit"><i style="margin-right: 5px;" class="far fa-heart"></i>  {{count($post->likes)}}</button>
+                                    </form>
+                                @else
+                                    <form action="{{ route('post.update', $post) }}" method="post">
+                                        @csrf
+                                        @method('PUT')
+                                        <input type="hidden" name="user" value="{{$user->id}}">
+                                        <input type="hidden" name="like" value="0">
+
+                                        <button type="submit"><i style="margin-right: 5px;" class="fas fa-heart"></i>{{count($post->likes)}}</button>
+                                    </form>
+                                @endif
+                                <span></span>
+                            </div>
+                            {{-- <a href=""><i style="margin-right: 5px;" class="far fa-heart"></i>605</a> --}}
+                            {{-- <div class="article-favoris"><a href=""><i style="margin-right: 5px;" class="far fa-bookmark"></i>Ajouter aux favoris</a></div> --}}
+                            <div class="article-Retweet"><a href=""><i style="margin-right: 5px;" class="fas fa-retweet"></i>Retweet</a></div>
+                            <div class="article-partager">
+                                <a class="article-partager" href="#">Partager</a>
+                                <div class="article-partager-liens">
+                                    <a href="https://www.facebook.com/sharer/sharer.php?u={{$post->url}}">Facebook</a>
+                                    <a href="https://twitter.com/intent/tweet?text={{$post->url}}">Twitter</a>
+                                    <a href="https://www.linkedin.com/shareArticle?url={{$post->url}}">LinkedIn</a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
             @endforeach
-        </ul>
-        <p>Posts du tableau :</p>
+
+        </div>
+    </main>
+
+    <div class="sidebar sidebarTableau">
+        <div>
+            <h2>Paramètres du tableau</h2>
+        </div>
+        <img src="{{$tableau->url_icone}}" alt="">
+        <h2>Tableau {{ $tableau->name }}</h2>
         <ul>
-        @foreach ($tableau->posts as $post)
-            <li><a href="{{ $post->url }}" target="_blank">{titre du lien}</a> (posté par {{ $post->user->name }})</li>
-        @endforeach
+            <li>
+                <a href="#">
+                    <i class="fas fa-plus"></i>
+                    <p>Ajouter une publication</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fas fa-users"></i>
+                    <p>Gérer les membres</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fas fa-chart-pie"></i>
+                    <p>Voir les statistiques</p>
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <i class="fas fa-book"></i>
+                    <p>Générer une bibliographie</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="far fa-comment-alt"></i>
+                    <p>Proposer un lien à ajouter</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fas fa-search"></i>
+                    <p>Rechercher dans le tableau</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="far fa-times-circle"></i>
+                    <p>Quitter le groupe</p>
+                </a>
+            </li>
         </ul>
+    </div>
 
-        <h2>Paramètres du tableau</h2>
-            @can('addPost', $tableau)
-            <h3>Ajouter un post</h3>
-                <form action="{{ route('post.store') }}" method="post" style="display: flex; flex-direction: column">
-                    @csrf
 
-                    <label>
-                        A quel(s) tableau(x) souhaitez-vous l'ajouter ? (vous pouvez selectionner plusieurs tableaux avec ctrl)
-                        <select multiple required name="tableau[]">
-                            @foreach ($allTableaux as $tab)
-                                @can('addPost', $tab)
-                                    <option
-                                        value={{ $tab->id }}
-                                        @if ( $tab->id === $tableau->id )
-                                            selected
-                                        @endif
-                                    >
-                                        {{ $tab->nom }}
-                                    </option>
-                                @endcan
-                            @endforeach
-                        </select>
-                    </label>
+</x-app-layout>
 
-                    <label>
-                        Renseignez l'url de l'article
-                        <input type="url" placeholder="URL de l'article"  name="url" required >
-                    </label>
 
-                    <div style="display: none">
-                        <input name="user_id" value="@if($user) {{$user->id}} @else anonyme @endif">
-                        <input name="created_from" value="{{$tableau->id}}">
-                    </div>
 
-                    <button type="submit">Envoyer !</button>
-                </form>
-            @endcan
 
-            @if($user == $tableau->user)
-                @if($tableau->prive)
-                    <h3>Gérer les membres</h3>
-                        <h4>Liste des membres</h4>
-                            <ul>
-                                @foreach ($tableau->users as $user)
-                                    <li>
-                                        {{ $user->name }}
-                                        @if ($user->pivot->contributeur)
-                                            (contributeur)
-                                            <form action="{{ route('tableau.update', $tableau) }}" method="post">
-                                                @csrf
-                                                @method('PUT')
-                                                <input type="hidden" name="userToUpdate" value="{{$user->id}}">
-                                                <input type="hidden" name="contributeur" value="0">
-                        
-                                                <button type="submit">Nommer lecteur</button>
-                                            </form>
-                                        @else
-                                            (lecteur)
-                                            <form action="{{ route('tableau.update', $tableau) }}" method="post">
-                                                @csrf
-                                                @method('PUT')
-                                                <input type="hidden" name="userToUpdate" value="{{$user->id}}">
-                                                <input type="hidden" name="contributeur" value="1">
-                        
-                                                <button type="submit">Nommer contributeur</button>
-                                            </form>
-                                        @endif
-                                        <form action="{{ route('tableau.update', $tableau) }}" method="post">
-                                            @csrf
-                                            @method('PUT')
-                                            <input type="hidden" name="userToUpdate" value="{{$user->id}}">
-                                            <input type="hidden" name="quit" value="1">
-                    
-                                            <button type="submit">Ca dégage</button>
-                                        </form>
-                                    </li>
-                                @endforeach
-                            </ul>
-                        
-                        <h4>Ajouter des membres</h4>
-                            <form action="{{ route('tableau.update', $tableau) }}" method="post">
-                                @csrf
-                                @method('PUT')
 
-                                <label>
-                                    Qui voulez vous inviter ? (vous pouvez selectionner plusieurs personnes avec ctrl)
-                                    <select multiple name="user[]" required>
-                                        @foreach ($allUsers as $optionUser)
-                                            <option
-                                                value={{ $optionUser->id }}
-                                                @if (   $optionUser == $tableau->user //Le créateur du tableau
-                                                        || array_search($optionUser->toArray()['id'], array_column($tableau->users->toArray(), 'id')) !== false //Les gens déjà dans le tableau
-                                                    )
-                                                    disabled
-                                                    style="display: none"
-                                                @endif
-                                            >
-                                                {{ $optionUser->name }}
-                                            </option>
-                                        @endforeach
-                                    </select>
-                                </label>
 
-                                <button type="submit">Valider</button>
-                            </form>
-                @endif
+{{--<body>--}}
+{{--    @can ('view', $tableau) --}}{{--Si on a bien accès au tableau--}}
 
-                <h3>Modifier le tableau</h3>
-                <form action="{{ route('tableau.update', $tableau) }}" method="post" enctype="multipart/form-data">
-                    @csrf
-                    @method('PUT')
-                    <label>
-                        Nom du  tableau :
-                        <input type="text" placeholder="Nom du tableau"  name="nom" required value="{{$tableau->nom}}">
-                    </label>
-            
-                    <label>
-                        Description :
-                        <textarea name="description" cols="30" rows="10" placeholder="Description du tableau...">{{$tableau->description}}</textarea>
-                    </label>
-            
-                    <label>
-                        Nouvelle icône :
-                        <input type="file" name="icone" accept="image/png, image/jpeg">
-                    </label>
+{{--        <h1>{{ $tableau->nom }}</h1>--}}
+{{--        <p>--}}
+{{--            Icone du tableau :--}}
+{{--            <img style="max-height: 50px; max-width: 50px;" src="{{$tableau->url_icone}}">--}}
+{{--        </p>--}}
+{{--        <p>{{ $tableau->description }}</p>--}}
+{{--        <p>Tableau créé par {{ $tableau->user->name }}</p>--}}
+{{--        <p>Ce tableau est @if ($tableau->prive)--}}
+{{--            privé--}}
+{{--        @else--}}
+{{--            public--}}
+{{--        @endif</p>--}}
 
-                    <button type="submit">Modifier</button>
-                </form>
-                
-                <h3>Supprimer le tableau</h3>
-                <form action="{{ route('tableau.destroy', $tableau) }}" method="POST">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit">X</button>
-                </form>
-            @else
-                @if($tableau->prive)
-                    <form action="{{ route('tableau.update', $tableau) }}" method="post">
-                        @csrf
-                        @method('PUT')
-                        <input type="hidden" name="userToUpdate" value="{{$user->id}}">
-                        <input type="hidden" name="quit" value="1">
+{{--        --}}{{-- s'abonner --}}
+{{--        @php--}}
+{{--            $userDejaAbo = false;--}}
+{{--            foreach ($tableau->abonnes as $item){--}}
+{{--                if (isset($item->id) && $item->id === $user->id)--}}
+{{--                    $userDejaAbo = true;--}}
+{{--            }--}}
+{{--        @endphp--}}
+{{--        @if (!$userDejaAbo)--}}
+{{--            <form action="{{ route('tableau.update', $tableau) }}" method="post">--}}
+{{--                @csrf--}}
+{{--                @method('PUT')--}}
+{{--                <input type="hidden" name="abonne" value="{{$user->id}}">--}}
+{{--                <input type="hidden" name="sabonner" value="1">--}}
 
-                        <button type="submit">Quitter le tableau</button>
-                    </form>
-                @endif
-            @endif
-        
-    @else
-        <p>Vous n'avez pas accès à ce tableau !</p>
-    @endcan
-</body>
-</html>
+{{--                <button type="submit">S'abonner :)</button>--}}
+{{--            </form>--}}
+{{--        @else--}}
+{{--            <form action="{{ route('tableau.update', $tableau) }}" method="post">--}}
+{{--                @csrf--}}
+{{--                @method('PUT')--}}
+{{--                <input type="hidden" name="abonne" value="{{$user->id}}">--}}
+{{--                <input type="hidden" name="sabonner" value="0">--}}
+
+{{--                <button type="submit">Se désabonner :(</button>--}}
+{{--            </form>--}}
+{{--        @endif--}}
+
+
+{{--        <p>{{count($tableau->abonnes)}} abonnés :</p>--}}
+{{--        <ul>--}}
+{{--            @foreach ($tableau->abonnes as $abonne)--}}
+{{--                <li>{{$abonne->name}}</li>--}}
+{{--            @endforeach--}}
+{{--        </ul>--}}
+{{--        <p>Posts du tableau :</p>--}}
+{{--        <ul>--}}
+{{--        @foreach ($tableau->posts as $post)--}}
+{{--            <li><a href="{{ $post->url }}" target="_blank">{titre du lien}</a> (posté par {{ $post->user->name }})</li>--}}
+{{--        @endforeach--}}
+{{--        </ul>--}}
+
+{{--        <h2>Paramètres du tableau</h2>--}}
+{{--            @can('addPost', $tableau)--}}
+{{--            <h3>Ajouter un post</h3>--}}
+{{--                <form action="{{ route('post.store') }}" method="post" style="display: flex; flex-direction: column">--}}
+{{--                    @csrf--}}
+
+{{--                    <label>--}}
+{{--                        A quel(s) tableau(x) souhaitez-vous l'ajouter ? (vous pouvez selectionner plusieurs tableaux avec ctrl)--}}
+{{--                        <select multiple required name="tableau[]">--}}
+{{--                            @foreach ($allTableaux as $tab)--}}
+{{--                                @can('addPost', $tab)--}}
+{{--                                    <option--}}
+{{--                                        value={{ $tab->id }}--}}
+{{--                                        @if ( $tab->id === $tableau->id )--}}
+{{--                                            selected--}}
+{{--                                        @endif--}}
+{{--                                    >--}}
+{{--                                        {{ $tab->nom }}--}}
+{{--                                    </option>--}}
+{{--                                @endcan--}}
+{{--                            @endforeach--}}
+{{--                        </select>--}}
+{{--                    </label>--}}
+
+{{--                    <label>--}}
+{{--                        Renseignez l'url de l'article--}}
+{{--                        <input type="url" placeholder="URL de l'article"  name="url" required >--}}
+{{--                    </label>--}}
+
+{{--                    <div style="display: none">--}}
+{{--                        <input name="user_id" value="@if($user) {{$user->id}} @else anonyme @endif">--}}
+{{--                        <input name="created_from" value="{{$tableau->id}}">--}}
+{{--                    </div>--}}
+
+{{--                    <button type="submit">Envoyer !</button>--}}
+{{--                </form>--}}
+{{--            @endcan--}}
+
+{{--            @if($user == $tableau->user)--}}
+{{--                @if($tableau->prive)--}}
+{{--                    <h3>Gérer les membres</h3>--}}
+{{--                        <h4>Liste des membres</h4>--}}
+{{--                            <ul>--}}
+{{--                                @foreach ($tableau->users as $user)--}}
+{{--                                    <li>--}}
+{{--                                        {{ $user->name }}--}}
+{{--                                        @if ($user->pivot->contributeur)--}}
+{{--                                            (contributeur)--}}
+{{--                                            <form action="{{ route('tableau.update', $tableau) }}" method="post">--}}
+{{--                                                @csrf--}}
+{{--                                                @method('PUT')--}}
+{{--                                                <input type="hidden" name="userToUpdate" value="{{$user->id}}">--}}
+{{--                                                <input type="hidden" name="contributeur" value="0">--}}
+
+{{--                                                <button type="submit">Nommer lecteur</button>--}}
+{{--                                            </form>--}}
+{{--                                        @else--}}
+{{--                                            (lecteur)--}}
+{{--                                            <form action="{{ route('tableau.update', $tableau) }}" method="post">--}}
+{{--                                                @csrf--}}
+{{--                                                @method('PUT')--}}
+{{--                                                <input type="hidden" name="userToUpdate" value="{{$user->id}}">--}}
+{{--                                                <input type="hidden" name="contributeur" value="1">--}}
+
+{{--                                                <button type="submit">Nommer contributeur</button>--}}
+{{--                                            </form>--}}
+{{--                                        @endif--}}
+{{--                                        <form action="{{ route('tableau.update', $tableau) }}" method="post">--}}
+{{--                                            @csrf--}}
+{{--                                            @method('PUT')--}}
+{{--                                            <input type="hidden" name="userToUpdate" value="{{$user->id}}">--}}
+{{--                                            <input type="hidden" name="quit" value="1">--}}
+
+{{--                                            <button type="submit">Ca dégage</button>--}}
+{{--                                        </form>--}}
+{{--                                    </li>--}}
+{{--                                @endforeach--}}
+{{--                            </ul>--}}
+
+{{--                        <h4>Ajouter des membres</h4>--}}
+{{--                            <form action="{{ route('tableau.update', $tableau) }}" method="post">--}}
+{{--                                @csrf--}}
+{{--                                @method('PUT')--}}
+
+{{--                                <label>--}}
+{{--                                    Qui voulez vous inviter ? (vous pouvez selectionner plusieurs personnes avec ctrl)--}}
+{{--                                    <select multiple name="user[]" required>--}}
+{{--                                        @foreach ($allUsers as $optionUser)--}}
+{{--                                            <option--}}
+{{--                                                value={{ $optionUser->id }}--}}
+{{--                                                @if (   $optionUser == $tableau->user //Le créateur du tableau--}}
+{{--                                                        || array_search($optionUser->toArray()['id'], array_column($tableau->users->toArray(), 'id')) !== false //Les gens déjà dans le tableau--}}
+{{--                                                    )--}}
+{{--                                                    disabled--}}
+{{--                                                    style="display: none"--}}
+{{--                                                @endif--}}
+{{--                                            >--}}
+{{--                                                {{ $optionUser->name }}--}}
+{{--                                            </option>--}}
+{{--                                        @endforeach--}}
+{{--                                    </select>--}}
+{{--                                </label>--}}
+
+{{--                                <button type="submit">Valider</button>--}}
+{{--                            </form>--}}
+{{--                @endif--}}
+
+{{--                <h3>Modifier le tableau</h3>--}}
+{{--                <form action="{{ route('tableau.update', $tableau) }}" method="post" enctype="multipart/form-data">--}}
+{{--                    @csrf--}}
+{{--                    @method('PUT')--}}
+{{--                    <label>--}}
+{{--                        Nom du  tableau :--}}
+{{--                        <input type="text" placeholder="Nom du tableau"  name="nom" required value="{{$tableau->nom}}">--}}
+{{--                    </label>--}}
+
+{{--                    <label>--}}
+{{--                        Description :--}}
+{{--                        <textarea name="description" cols="30" rows="10" placeholder="Description du tableau...">{{$tableau->description}}</textarea>--}}
+{{--                    </label>--}}
+
+{{--                    <label>--}}
+{{--                        Nouvelle icône :--}}
+{{--                        <input type="file" name="icone" accept="image/png, image/jpeg">--}}
+{{--                    </label>--}}
+
+{{--                    <button type="submit">Modifier</button>--}}
+{{--                </form>--}}
+
+{{--                <h3>Supprimer le tableau</h3>--}}
+{{--                <form action="{{ route('tableau.destroy', $tableau) }}" method="POST">--}}
+{{--                    @csrf--}}
+{{--                    @method('DELETE')--}}
+{{--                    <button type="submit">X</button>--}}
+{{--                </form>--}}
+{{--            @else--}}
+{{--                @if($tableau->prive)--}}
+{{--                    <form action="{{ route('tableau.update', $tableau) }}" method="post">--}}
+{{--                        @csrf--}}
+{{--                        @method('PUT')--}}
+{{--                        <input type="hidden" name="userToUpdate" value="{{$user->id}}">--}}
+{{--                        <input type="hidden" name="quit" value="1">--}}
+
+{{--                        <button type="submit">Quitter le tableau</button>--}}
+{{--                    </form>--}}
+{{--                @endif--}}
+{{--            @endif--}}
+
+{{--    @else--}}
+{{--        <p>Vous n'avez pas accès à ce tableau !</p>--}}
+{{--    @endcan--}}
+{{--</body>--}}
+

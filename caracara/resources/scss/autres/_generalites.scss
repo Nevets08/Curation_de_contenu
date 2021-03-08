@@ -30,6 +30,10 @@ a {
     text-decoration: none;
 }
 
+ul {
+    @include list-reset;
+}
+
 .hidden {
     display: none;
 }

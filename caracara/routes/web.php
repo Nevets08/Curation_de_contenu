@@ -31,7 +31,7 @@ Route::resource('/tableau', TableauController::class);
 Route::resource('/post', PostController::class);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/', function () {
-    return view('home', ['tableaux' => Tableau::get(), 'posts' => Post::orderBy('created_at', 'desc')->get()]);
+    return view('home', ['tableaux' => Tableau::all(), 'posts' => Post::orderBy('created_at', 'desc')->get()]);
 })->name('home');
 
 Route::get('/private_posts', function () {
