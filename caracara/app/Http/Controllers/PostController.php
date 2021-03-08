@@ -7,6 +7,7 @@ use App\Models\Post;
 use App\Models\Tableau;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 class PostController extends Controller
 {
@@ -102,7 +103,8 @@ class PostController extends Controller
             $post->tableaux()->attach($data['tableau']);
 
         $user = Auth::user();
-        return redirect()->route('post.index', ['posts' => Post::orderBy('created_at', 'desc')->get(), 'user' => $user]);
+        // return redirect()->route('post.index', ['posts' => Post::orderBy('created_at', 'desc')->get(), 'user' => $user]);
+        return Redirect::back();
     }
 
     /**

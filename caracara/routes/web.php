@@ -3,6 +3,9 @@
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TableauController;
+use App\Models\Post;
+use App\Models\Tableau;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,7 +31,7 @@ Route::resource('/tableau', TableauController::class);
 Route::resource('/post', PostController::class);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/', function () {
-    return view('home');
+    return view('home', ['tableaux' => Tableau::all(), 'posts' => Post::orderBy('created_at', 'desc')->get()]);
 })->name('home');
 
 Route::get('/private_posts', function () {

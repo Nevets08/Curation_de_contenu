@@ -20,7 +20,7 @@ class TableauController extends Controller
     public function index()
     {
         $user = Auth::user();
-        return view('tableau.index', ['tableaux' => Tableau::all(), 'user' => $user, 'allUsers' => User::all()]);
+        return view('home', ['tableaux' => Tableau::all(), 'user' => $user, 'allUsers' => User::all()]);
     }
 
     /**
