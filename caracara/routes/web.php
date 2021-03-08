@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TableauController;
 use App\Models\Post;
 use App\Models\Tableau;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -31,7 +32,7 @@ Route::resource('/tableau', TableauController::class);
 Route::resource('/post', PostController::class);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/', function () {
-    return view('home', ['tableaux' => Tableau::get(), 'posts' => Post::orderBy('created_at', 'desc')->get()]);
+    return view('home', ['tableaux' => Tableau::all(), 'posts' => Post::orderBy('created_at', 'desc')->get()]);
 })->name('home');
 
 Route::get('/private_posts', function () {
@@ -43,7 +44,7 @@ Route::get('/saved_posts', function () {
 })->name('saved_posts');
 
 Route::get('/add_post', function () {
-    return view('tableaux/add_post');
+    return view('tableaux/add_post', ['user' => Auth::user(), 'allTableaux' => Tableau::all(), 'allUsers' => User::all()]);
 })->name('add_post');
 
 Route::get('/add_tableau', function () {
