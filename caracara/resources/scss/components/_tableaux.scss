@@ -1,0 +1,113 @@
+aside {
+    .members {
+        .members-line {
+            display: flex;
+            flex-wrap: wrap;
+
+            img {
+                border-radius: 100%;
+                margin: 5px;
+                width: 45px;
+                height: 45px;
+            }
+
+            .more-members {
+                width: 45px;
+                height: 45px;
+                margin: 5px;
+                border-radius: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                 @include theme() {
+                     background-color: theme-get('main-color-light');
+                  }
+                span {
+                    @include theme() {
+                        color: theme-get('white');
+                    }
+
+                }
+            }
+        }
+
+        button {
+            i {
+                margin-right: 10px;
+            }
+            @include button;
+        }
+    }
+}
+
+main {
+    .title {
+        display: flex;
+        align-items: baseline;
+
+        i {
+            margin-left: 15px;
+            @include theme() {
+                color: theme-get('black');
+            }
+        }
+    }
+
+    .breadcrumb {
+        margin-bottom: 15px;
+
+        a {
+            text-decoration: underline;
+            @include theme() {
+                color: theme-get('black');
+            }
+        }
+        span {
+            @include theme() {
+                color: theme-get('black');
+            }
+        }
+    }
+
+    .posts {
+        .posts-infos {
+            font-size: 18px;
+            h2 {
+                margin-bottom: 0;
+            }
+
+            span {
+                @include theme() {
+                    color: theme-get('main-color-dark');
+                }
+            }
+
+            .actions {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                font-size: 16px;
+                margin-bottom: 15px;
+                @media (max-width: $breakpoint-mini-mobile) {
+                    flex-direction: column;
+
+                    a {
+                        margin-top: 20px;
+                    }
+                }
+                a {
+                    @include button;
+                    margin-top: 0;
+                    i {
+                        font-size: 14px;
+                        margin-right: 8px;
+                        @include theme() {
+                            color: theme-get('main-color-dark');
+                        }
+
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,21 @@
+.article-miniature {
+    min-height: 110px;
+    img {
+        width: 100px;
+        float: left;
+        margin-right: 20px;
+    }
+    .article-miniature-headline {
+        font-size: 1.6rem;
+    }
+    .article-miniature-infos{
+        margin-top: 10px;
+        font-size: 1.6rem;
+        font-weight: bold;
+        a {
+             @include theme() {
+                 border-bottom: 2px solid theme-get('main-color-dark');
+              }
+        }
+    }
+}
