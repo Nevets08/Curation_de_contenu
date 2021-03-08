@@ -1,0 +1,52 @@
+//@import 'tailwindcss/base';
+//@import 'tailwindcss/components';
+//@import 'tailwindcss/utilities';
+
+@import '~slick-carousel/slick/slick.scss';
+@import '~slick-carousel/slick/slick-theme.scss';
+
+@import "~@fortawesome/fontawesome-free/scss/fontawesome";
+@import "~@fortawesome/fontawesome-free/scss/solid";
+@import "~@fortawesome/fontawesome-free/scss/brands";
+@import "~@fortawesome/fontawesome-free/scss/regular";
+
+
+
+//Autres
+@import "autres/base";
+@import "autres/darkMode";
+@import "autres/mixin";
+@import "autres/variables";
+@import "autres/generalites";
+
+//Pages
+@import "pages/home";
+@import "pages/profile";
+
+//Sections
+@import "sections/header";
+
+//Composants
+@import "components/options-sticky";
+@import "components/article-cards";
+@import "components/carousel";
+@import "components/sidebar";
+@import "components/tableaux";
+
+//Tableau
+@import "tableaux/_sidebarTableau";
+@import "tableaux/_liste_tableaux_prives";
+@import "tableaux/_liste_articles_sauvegardes";
+@import "tableaux/add_post";
+
+//Livewire change
+
+.text-xs, .form-input {
+    font-size: 1.4rem;
+}
+.text-sm {
+    font-size: 1.6rem;
+}
+.text-lg {
+    font-size: 2rem;
+}

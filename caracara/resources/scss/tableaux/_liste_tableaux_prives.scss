@@ -1,0 +1,47 @@
+.tableaux_miniatures{
+    display: flex;
+    flex-wrap: wrap;
+    > div {
+        display: flex;
+        flex-direction: column;
+        margin: 10px;
+        overflow: hidden;
+        img {
+            width: 50px;
+        }
+        p {
+            max-width: 50px;
+            white-space: nowrap;
+        }
+
+
+    }
+
+    + button {
+        @include button;
+        display: flex;
+        @include buttonBefore;
+    }
+}
+
+.tableaux {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    div {
+        margin-top: 15px;
+        width: 100%;
+        img {
+            width: 70px;
+            float: left;
+            margin-right: 10px;
+        }
+        h2 {
+            margin: 0;
+        }
+        p {
+            margin: 0;
+        }
+    }
+}

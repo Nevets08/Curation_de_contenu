@@ -11,9 +11,18 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
-    .postCss('resources/css/app.css', 'public/css', [
-        require('postcss-import'),
-        require('tailwindcss'),
-    ])
-    .webpackConfig(require('./webpack.config'));
+const tailwindcss = require('tailwindcss');
+
+mix
+    .js('resources/js/app.js', 'public/js')
+    .js('resources/js/initSlider.js', 'public/js')
+    .sass('resources/scss/app.scss', 'public/css')
+    .sass('resources/scss/appLogin.scss', 'public/css')
+    .copyDirectory('resources/img', 'public/img')
+    .setResourceRoot('../')
+    .options({
+        postCss: [
+            require('postcss-import'),
+            require('tailwindcss'),
+        ]
+    });

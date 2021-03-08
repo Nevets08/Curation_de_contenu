@@ -1,0 +1,166 @@
+@font-face {
+    font-family: "Unistra A";
+    src: url('../../fonts/UnistraA-Regular.ttf');
+}
+
+.container {
+    max-width: $breakpoint-deskop;
+    width: auto;
+    margin: auto;
+    @media (max-width: $breakpoint-deskop) {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+}
+
+html {
+    font-size: 62.5%;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: "Unistra A", sans-serif;
+    font-size: 1.6rem;
+}
+
+a {
+    @include theme() {
+        color: theme-get('black');
+    }
+    text-decoration: none;
+}
+
+.hidden {
+    display: none;
+}
+
+body {
+    font-size: 1.6rem;
+    @include theme() {
+        background-color: theme-get('white');
+    }
+    &.darkTheme {
+        background-color: #323234;
+    }
+}
+
+button {
+    background-color: transparent;
+    border: none;
+}
+
+textarea, input, select {
+    padding: 2px 5px;
+    &::placeholder {
+        font-size: 1.4rem;
+    }
+}
+
+input {
+    background-color: transparent;
+    @include theme() {
+        border: 1px solid theme-get('main-color');
+    }
+    &::placeholder {
+        @include theme() {
+            color: theme-get('black');
+        }
+    }
+}
+p, label, button {
+    @include theme() {
+        color: theme-get('main-color-dark');
+    }
+}
+
+select, textarea {
+    border: none;
+    @include theme() {
+        background-color: theme-get('grey-medium');
+        color: theme-get('black');
+    }
+}
+
+.md {
+    @media (min-width: $breakpoint-tablet) {
+        display: block;
+    }
+}
+
+h1 {
+    font-size: 3rem;
+    @include theme() {
+        color: theme-get('main-color-dark');
+    }
+    margin-bottom: 15px;
+    line-height: 3rem;
+}
+
+h2 {
+    font-size: 2.2rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    @include theme() {
+        color: theme-get('main-color-dark');
+    }
+    margin-bottom: 15px;
+}
+
+p {
+    font-size: 1.6rem;
+    @include theme() {
+        color: theme-get('main-color-dark');
+    }
+}
+
+
+
+div.site-global {
+    position: relative;
+    overflow-x: hidden;
+    display: flex;
+    margin-top: 50px;
+    @media (max-width: $breakpoint-tablet) {
+        margin-top: 20px;
+    }
+
+    aside {
+        width: 25%;
+        margin-right: 50px;
+        @media (max-width: $breakpoint-tablet) {
+            display: none;
+            margin-right: 0;
+        }
+
+        section {
+            @include cards;
+        }
+    }
+
+    main {
+        width: calc(100% - 25% - 50px);
+        @media (max-width: $breakpoint-tablet) {
+            width: 100%;
+        }
+    }
+}
+
+section h2 {
+    position: relative;
+    padding-bottom: 10px;
+    &:after {
+        position: absolute;
+        content: "";
+        @include theme() {
+            border-bottom: 1px solid theme-get('main--color');
+        }
+        bottom: 0;
+        left: -20px;
+        right: -20px;
+        @media (max-width: $breakpoint-tablet) {
+            left: -10px;
+            right: -10px;
+        }
+    }
+}
+
