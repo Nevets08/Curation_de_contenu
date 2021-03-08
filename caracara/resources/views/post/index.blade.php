@@ -15,8 +15,8 @@
                     $context = stream_context_create($opts);
 
                     preg_match("/<title>(.+)<\/title>/siU", file_get_contents($url, false, $context), $articleTitle);
-                    preg_match('/<meta property="og:description" content="(.+)">/siU', file_get_contents($url, false, $context), $articleDescription);
-                    preg_match('/<meta property="og:image" content="(.+)">/siU', file_get_contents($url, false, $context), $articleImage);
+                    preg_match('/<meta property="og:description" content="(.+)"\/>/siU', file_get_contents($url, false, $context), $articleDescription);
+                    preg_match('/<meta property="og:image" content="(.+)"\/>/siU', file_get_contents($url, false, $context), $articleImage);
 
                     $title = $articleTitle[1];
                     $description = isset($articleDescription[1]) ? $articleDescription[1] : null;
