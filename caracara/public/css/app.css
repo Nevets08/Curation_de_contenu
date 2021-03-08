@@ -6186,6 +6186,32 @@ a {
   text-decoration: none;
 }
 
+button {
+  background-color: #94cad1;
+  color: #000;
+  padding: 10px 20px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  display: inline-block;
+  margin-top: 10px;
+  border: none;
+  cursor: pointer;
+  box-shadow: inset 0 0 0 0 #94cad1;
+  transition: ease-out 0.5s;
+}
+
+button:hover {
+  color: #fff;
+  box-shadow: inset 200px 0 0 0 #53b5c2;
+  transition: ease-out 0.8s;
+}
+
+button:active {
+  transform: scale(0.9);
+  transition: 0.2s;
+}
+
 .menu-right-fixed {
   background-color: #12142c;
   width: 60px;
@@ -6280,18 +6306,7 @@ aside .members .border {
   margin-bottom: 20px;
 }
 
-aside .members a {
-  background-color: #94cad1;
-  color: #000;
-  padding: 10px 20px;
-  border-radius: 20px;
-  display: flex;
-  align-items: center;
-  display: inline-block;
-  margin-top: 10px;
-}
-
-aside .members a i {
+aside .members i {
   margin-right: 10px;
 }
 
@@ -6474,6 +6489,110 @@ button {
   margin-left: 10px;
   font-size: 20px;
   color: #000;
+}
+
+.active-modal {
+  display: flex;
+}
+
+.inactive-modal {
+  display: none;
+}
+
+.background-modal {
+  justify-content: center;
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+  padding-top: 5%;
+}
+
+.background-modal .modal-members {
+  display: flex;
+  overflow-y: scroll;
+  justify-content: center;
+  background-color: #fff;
+  border-radius: 10px;
+  border: 3px solid #94cad1;
+  padding: 20px 40px;
+  -webkit-animation-name: animatetop;
+          animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+          animation-duration: 0.4s;
+  margin-bottom: 10%;
+}
+
+.background-modal .modal-members .modal-content .button {
+  margin-top: 10px;
+}
+
+.background-modal .modal-members .modal-content .button i {
+  margin-right: 10px;
+}
+
+.background-modal .modal-members .modal-content #close-modal-button {
+  margin-bottom: 10px;
+}
+
+.background-modal .modal-members .modal-content .members-show {
+  margin-top: 30px;
+}
+
+.background-modal .modal-members .modal-content .members-show .member {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #94cad1;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+.background-modal .modal-members .modal-content .members-show .member i {
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.background-modal .modal-members .modal-content .members-show .member img {
+  border-radius: 100%;
+  width: 60px;
+}
+
+.background-modal .modal-members .modal-content .members-show .member .infos-member .roles {
+  display: flex;
+}
+
+.background-modal .modal-members .modal-content .members-show .member .infos-member .roles a {
+  color: #000;
+  text-decoration: underline;
+  margin-left: 3px;
+}
+
+@-webkit-keyframes animatetop {
+  from {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes animatetop {
+  from {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 @media screen and (max-width: 992px) {
