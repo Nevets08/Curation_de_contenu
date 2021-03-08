@@ -5,17 +5,19 @@
             <div class="tableaux_miniatures">
                 @foreach ($tableaux as $tableau)
                     @can('view', $tableau){{--Si on a bien accès au tableau--}}
-                        <div>
-                            <a href="{{ route('private_posts') }}">
-                                <img src="
-                                    @if ($tableau->url_icone)
-                                        {{ $tableau->url_icone }}
-                                    @else
-                                        {{ asset('img/rectangle_vide.png') }}
-                                    @endif" alt="">
-                                <p>{{$tableau->nom}}</p>
-                            </a>
-                        </div>
+                        @if ($tableau->prive)
+                            <div>
+                                <a href="{{ route('private_posts') }}">
+                                    <img src="
+                                        @if ($tableau->url_icone)
+                                            {{ $tableau->url_icone }}
+                                        @else
+                                            {{ asset('img/rectangle_vide.png') }}
+                                        @endif" alt="">
+                                    <p>{{$tableau->nom}}</p>
+                                </a>
+                            </div>
+                        @endif
                     @endcan
                 @endforeach
             </div>
@@ -36,11 +38,17 @@
             <div class="tableaux_publics">
                 @foreach ($tableaux as $tableau)
                     @can('view', $tableau){{--Si on a bien accès au tableau--}}
-                        <div onclick="window.location = '{{ route("private_posts") }}'"><img src=" @if ($tableau->url_icone)
-                            {{ $tableau->url_icone }}
-                        @else
-                            {{ asset('img/rond_vide.png') }}
-                            @endif" alt=""><p>{{$tableau->nom}}</p></div>
+                    @if (!$tableau->prive)
+                        <div onclick="window.location = '{{ route("private_posts") }}'">
+                            <img src=" 
+                            @if ($tableau->url_icone)
+                                {{ $tableau->url_icone }}
+                            @else
+                                {{ asset('img/rond_vide.png') }}
+                            @endif" alt="">
+                            <p>{{$tableau->nom}}</p>
+                        </div>
+                    @endif
                     @endcan
                 @endforeach
             </div>

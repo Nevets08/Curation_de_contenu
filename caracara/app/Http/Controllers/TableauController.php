@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\TableauRequest;
+use App\Models\Post;
 use App\Models\Tableau;
 use App\Models\User;
 use Illuminate\Support\Str;
@@ -20,7 +21,7 @@ class TableauController extends Controller
     public function index()
     {
         $user = Auth::user();
-        return view('home', ['tableaux' => Tableau::all(), 'user' => $user, 'allUsers' => User::all()]);
+        return view('home', ['tableaux' => Tableau::all(), 'user' => $user, 'allUsers' => User::all(), 'posts' => Post::orderBy('created_at', 'desc')->get()]);
     }
 
     /**
