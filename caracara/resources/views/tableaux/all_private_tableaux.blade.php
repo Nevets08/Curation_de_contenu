@@ -18,36 +18,21 @@
         </div>
 
         <div class="tableaux">
-            <div>
-                <img src="{{ asset('img/rectangle_vide.png') }}" alt="">
-                <h2>Lorem ispum dolor sit amet</h2>
-                <p>Créer par <a href="#">Nom Prénom</a></p>
-            </div>
-            <div>
-                <img src="{{ asset('img/rectangle_vide.png') }}" alt="">
-                <h2>Lorem ispum dolor sit amet</h2>
-                <p>Créer par <a href="#">Nom Prénom</a></p>
-            </div>
-            <div>
-                <img src="{{ asset('img/rectangle_vide.png') }}" alt="">
-                <h2>Lorem ispum dolor sit amet</h2>
-                <p>Créer par <a href="#">Nom Prénom</a></p>
-            </div>
-            <div>
-                <img src="{{ asset('img/rectangle_vide.png') }}" alt="">
-                <h2>Lorem ispum dolor sit amet</h2>
-                <p>Créer par <a href="#">Nom Prénom</a></p>
-            </div>
-            <div>
-                <img src="{{ asset('img/rectangle_vide.png') }}" alt="">
-                <h2>Lorem ispum dolor sit amet</h2>
-                <p>Créer par <a href="#">Nom Prénom</a></p>
-            </div>
-            <div>
-                <img src="{{ asset('img/rectangle_vide.png') }}" alt="">
-                <h2>Lorem ispum dolor sit amet</h2>
-                <p>Créer par <a href="#">Nom Prénom</a></p>
-            </div>
+            @foreach ($tableaux as $tableau)
+            @can('view', $tableau)
+                <div>
+                    <img src="
+                        @if ($tableau->url_icone)
+                            {{$tableau->url_icone}}
+                        @else
+                            {{ asset('img/rectangle_vide.png') }}
+                        @endif
+                    " alt="">
+                    <h2>{{$tableau->nom}}</h2>
+                    <p>Créé par <a href="#">{{$tableau->user->name}}</a></p>
+                </div>
+                @endcan
+            @endforeach
         </div>
     </main>
 
