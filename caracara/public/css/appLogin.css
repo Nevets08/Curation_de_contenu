@@ -327,10 +327,69 @@ body {
   background-color: #323234;
 }
 
-button,
-input {
+body.darkTheme {
+  background-color: #323234;
+}
+
+button {
   background-color: transparent;
   border: none;
+}
+
+textarea,
+input,
+select {
+  padding: 2px 5px;
+}
+
+textarea::-moz-placeholder, input::-moz-placeholder, select::-moz-placeholder {
+  font-size: 1.4rem;
+}
+
+textarea:-ms-input-placeholder, input:-ms-input-placeholder, select:-ms-input-placeholder {
+  font-size: 1.4rem;
+}
+
+textarea::placeholder,
+input::placeholder,
+select::placeholder {
+  font-size: 1.4rem;
+}
+
+input {
+  background-color: transparent;
+}
+
+.lightTheme input {
+  border: 1px solid #3e8f93;
+}
+
+.darkTheme input {
+  border: 1px solid #3e8f93;
+}
+
+.lightTheme input::-moz-placeholder {
+  color: black;
+}
+
+.lightTheme input:-ms-input-placeholder {
+  color: black;
+}
+
+.lightTheme input::placeholder {
+  color: black;
+}
+
+.darkTheme input::-moz-placeholder {
+  color: white;
+}
+
+.darkTheme input:-ms-input-placeholder {
+  color: white;
+}
+
+.darkTheme input::placeholder {
+  color: white;
 }
 
 .lightTheme p,
@@ -343,6 +402,23 @@ input {
 .darkTheme label,
 .darkTheme button {
   color: #F8F8F8;
+}
+
+select,
+textarea {
+  border: none;
+}
+
+.lightTheme select,
+.lightTheme textarea {
+  background-color: #F8F8F8;
+  color: black;
+}
+
+.darkTheme select,
+.darkTheme textarea {
+  background-color: #252527;
+  color: white;
 }
 
 @media (min-width: 768px) {
@@ -543,6 +619,14 @@ form {
 input {
   width: 100%;
   margin-top: 5px;
+}
+
+.lightTheme input {
+  background-color: white;
+}
+
+.darkTheme input {
+  background-color: #323234;
 }
 
 button {

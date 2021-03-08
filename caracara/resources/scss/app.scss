@@ -1,6 +1,6 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+//@import 'tailwindcss/base';
+//@import 'tailwindcss/components';
+//@import 'tailwindcss/utilities';
 
 @import '~slick-carousel/slick/slick.scss';
 @import '~slick-carousel/slick/slick-theme.scss';
@@ -37,6 +37,7 @@
 @import "tableaux/_sidebarTableau";
 @import "tableaux/_liste_tableaux_prives";
 @import "tableaux/_liste_articles_sauvegardes";
+@import "tableaux/add_post";
 
 //Livewire change
 

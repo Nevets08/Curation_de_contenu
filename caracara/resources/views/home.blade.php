@@ -40,7 +40,7 @@
                     </a>
                 </div>
             </div>
-            <button>Créer</button>
+            <button><a href="{{ route("add_tableau") }}">Créer</a></button>
         </section>
         <section>
             <h2>Publications sauvegardées</h2>
@@ -93,9 +93,9 @@
                     <div class="article-partager">
                         <a class="article-partager" href="#">Partager</a>
                         <div class="article-partager-liens">
-                            <a href="#">Facebook</a>
-                            <a href="#">Twitter</a>
-                            <a href="#">Email</a>
+                            <a href="https://www.facebook.com/sharer/sharer.php?u=URL">Facebook</a>
+                            <a href="https://twitter.com/intent/tweet?text=URL">Twitter</a>
+                            <a href="https://www.linkedin.com/shareArticle?url=URL">Email</a>
                         </div>
                     </div>
                 </div>

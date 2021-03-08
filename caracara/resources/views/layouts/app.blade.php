@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }} ">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -42,8 +42,8 @@
                         <li>
                             <hr>
                         </li>
-                        <li><a href="#">Ajouter un article</a></li>
-                        <li><a href="#">Créer un tableau</a></li>
+                        <li><a href="{{ route('add_post') }}">Ajouter un article</a></li>
+                        <li><a href="{{ route('add_tableau') }}">Créer un tableau</a></li>
                         <li>
                             <hr>
                         </li>
@@ -65,9 +65,8 @@
     {{ $slot }}
 </div>
 <div class="menu-right-fixed">
-    <i title="Ajouter un post" class="fas fa-plus"></i>
-    <i title="Activer la newsletter" class="fas fa-envelope-open-text"></i>
-    <i title="Passer en mode nuit" class="far fa-moon" onclick="document.documentElement.classList.toggle('darkTheme');"></i>
+    <a href="{{ route('add_post') }}"><i title="Ajouter un post" class="fas fa-plus"></i></a>
+    <i title="Passer en mode nuit" class="far fa-moon"></i>
 </div>
 @livewireScripts
 </body>

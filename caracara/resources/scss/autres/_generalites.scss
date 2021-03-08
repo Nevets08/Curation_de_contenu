@@ -28,9 +28,6 @@ a {
         color: theme-get('black');
     }
     text-decoration: none;
-    //&:visited {
-    //    color: initial;
-    //}
 }
 
 .hidden {
@@ -42,16 +39,45 @@ body {
     @include theme() {
         background-color: theme-get('white');
     }
+    &.darkTheme {
+        background-color: #323234;
+    }
 }
 
-button, input {
+button {
     background-color: transparent;
     border: none;
 }
 
+textarea, input, select {
+    padding: 2px 5px;
+    &::placeholder {
+        font-size: 1.4rem;
+    }
+}
+
+input {
+    background-color: transparent;
+    @include theme() {
+        border: 1px solid theme-get('main-color');
+    }
+    &::placeholder {
+        @include theme() {
+            color: theme-get('black');
+        }
+    }
+}
 p, label, button {
     @include theme() {
         color: theme-get('main-color-dark');
+    }
+}
+
+select, textarea {
+    border: none;
+    @include theme() {
+        background-color: theme-get('grey-medium');
+        color: theme-get('black');
     }
 }
 

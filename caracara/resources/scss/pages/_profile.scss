@@ -1,6 +1,7 @@
 ul.liens_menu_aside {
     margin-top: 30px;
     @include list-reset;
+
     li a {
         padding: 7px 15px;
         border-radius: 5px;
@@ -73,9 +74,11 @@ main.page_profile {
     @media (max-width: $breakpoint-laptop) {
         width: 100%;
     }
+
     p.buttonAdd a {
         border-bottom: transparent;
     }
+
     a {
         @include theme() {
             border-bottom: 1px solid theme-get('main-color-dark');
@@ -86,4 +89,44 @@ main.page_profile {
 
 .tableaux_suivi, .publications_sauvegardees {
     margin-right: calc(99% - 48% * 2);
+}
+
+.sidebarProfile {
+    h3 {
+        @include theme() {
+            color: theme-get('main-color-dark')
+        }
+    }
+
+    button {
+        @include theme() {
+            background-color: theme-get('main-color-light');;
+            color: theme-get('main-color-dark');
+        }
+    }
+
+    form {
+        @include cards;
+        > div {
+            box-shadow: none;
+            > div {
+                @include theme() {
+                    background-color: theme-get('grey-medium');
+                }
+            }
+        }
+    }
+
+    input {
+        @include theme() {
+            background-color: theme-get('white');
+            color: theme-get('main-color-dark');
+        }
+
+        &::placeholder {
+            @include theme() {
+                color: theme-get('main-color-dark');
+            }
+        }
+    }
 }

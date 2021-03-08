@@ -62,7 +62,7 @@ function DisplaySideBar() {
         button_tableau_options.style.top = "16px";
         button_tableau_options.style.left = "0";
         button_tableau_options.style.fontSize = "font-size: 3rem;";
-    } else if (document.body.classList.contains("tableau")){
+    } else if (document.body.classList.contains("tableau")) {
         button_tableau_options.classList.replace("fa-arrow-left", "fa-sliders-h");
         button_tableau_options.style.position = "initial";
         button_tableau_options.style.fontSize = "font-size: xx-large;";
@@ -72,13 +72,53 @@ function DisplaySideBar() {
 //DarkMode
 const DarkModeSwitchButton = document.querySelector(".fa-moon");
 const body = document.body;
-
+const logo = document.querySelector("img.logo");
 DarkModeSwitchButton.addEventListener("click", DarkMode);
 
 function DarkMode() {
     if (body.classList.contains("darkTheme")) {
-        body.classList.replace("darkTheme", "lightTheme");
+        localStorage.setItem('darkTheme', 'no');
+        console.log("set localstorage à no");
     } else if (body.classList.contains("lightTheme")) {
-        body.classList.replace("lightTheme", "darkTheme");
+        localStorage.setItem('darkTheme', 'yes');
+        console.log("set localstorage à yes");
     }
+    if (localStorage.getItem('darkTheme') === "yes") {
+        console.log("replace lightTheme par darkTheme");
+        body.classList.replace("lightTheme", "darkTheme");
+        logo.src = "https://projet-tutore.christ.etu.mmi-unistra.fr/caracara/public/img/Logo-DarkMode.png"
+    } else {
+        console.log("replace darkTheme par lightTheme");
+        body.classList.replace("darkTheme", "lightTheme");
+        logo.src = "https://projet-tutore.christ.etu.mmi-unistra.fr/caracara/public/img/Logo.png"
+    }
+}
+
+(function () {
+    if (localStorage.getItem('darkTheme') === "yes") {
+        console.log("replace lightTheme par darkTheme");
+        body.classList.replace("lightTheme", "darkTheme");
+        logo.src = "https://projet-tutore.christ.etu.mmi-unistra.fr/caracara/public/img/Logo-DarkMode.png"
+    } else {
+        console.log("replace darkTheme par lightTheme");
+        body.classList.replace("darkTheme", "lightTheme");
+        logo.src = "https://projet-tutore.christ.etu.mmi-unistra.fr/caracara/public/img/Logo.png"
+    }
+}());
+
+
+//Slide création de post
+
+const lien = document.querySelector(".createTableau");
+const lienRetour = document.querySelector(".retour_creationPost");
+
+lien.addEventListener("click", displaySideBarCreationTableau);
+lienRetour.addEventListener("click", removeSideBarCreationTableau);
+function displaySideBarCreationTableau(e) {
+    e.preventDefault();
+    document.querySelector(".sidebar").classList.add("showSideBar");
+}
+function removeSideBarCreationTableau(e) {
+    e.preventDefault();
+    document.querySelector(".sidebar").classList.remove("showSideBar");
 }

@@ -8,7 +8,7 @@
     <title>{{ $attributes->get('title') }} - {{ config('app.name', 'Caracara') }}</title>
 
     <!-- Styles -->
-    <link rel="stylesheet" href="{{ asset(mix('css/appGuest.css'))}}">
+    <link rel="stylesheet" href="{{ asset(mix('css/appLogin.css'))}}">
 
     <!-- Scripts -->
     <script src="{{ asset(mix('js/app.js')) }}" defer></script>

@@ -17,6 +17,9 @@
                 @include borderBottomLinks;
             }
         }
+        p.article-date {
+            margin-top: 0;
+        }
         a {
             display: flex;
             flex-direction: row;
