@@ -58,4 +58,31 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    /**
+     * Ce que j'ajoute moi : la relation avec les posts (et tableaux)
+     *
+     */
+    public function posts(){ //Posts créés
+        return $this->hasMany(Post::class);
+    }
+
+    //Relation plusieurs à plusieurs avec les tableaux, pour savoir si on est lecteur ou contributeur
+    public function tableaux(){
+        return $this->belongsToMany(Tableau::class);
+    }
+
+    //Relation un à plusieurs : les tableaux dont nous sommes le créateur
+    public function tableauxCrees(){
+        return $this->hasMany(Nom::class);
+    }
+
+    public function likes(){ //Posts likés
+        return $this->belongsToMany(Post::class);
+    }
+
+    public function abonnements()
+    {
+        return $this->belongsToMany(Tableau::class, 'abonnements', 'user_id', 'tableau_id');
+    }
 }

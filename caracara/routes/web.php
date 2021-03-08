@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TableauController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +18,14 @@ use Illuminate\Support\Facades\Route;
 //Route::middleware(['auth:sanctum', 'verified'])->get('/', function () {
 //    return view('home');
 //})->name('home');;
+
+//Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+//    return view('dashboard');
+//})->name('dashboard');
+
+Route::resource('/tableau', TableauController::class);
+
+Route::resource('/post', PostController::class);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/', function () {
     return view('home');
@@ -44,3 +54,4 @@ Route::get('/all_private_tableaux', function () {
 Route::get('/all_public_tableaux', function () {
     return view('tableaux/all_public_tableaux');
 })->name('all_public_tableaux');
+
