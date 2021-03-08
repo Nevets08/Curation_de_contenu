@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Caracara - Vos tableaux privés</title>
     <link rel="stylesheet" href="{{ asset(mix('css/app.css')) }}" />
+    <script src="{{ asset(mix('js/private_posts.js')) }}" defer></script>
 </head>
 
 <body>
@@ -58,9 +59,137 @@
                     </div>
                 </div>
 
-                <a href=""><i class="fas fa-users"></i> Liste des membres</a>
+                <button><i class="fas fa-users"></i> Liste des membres</button>
             </div>
         </aside>
+
+        {{-- MODAL MEMBRES --}}
+
+        <div class="background-modal inactive-modal">
+            <div class="modal-members">
+                <div class="modal-content">
+                    <h3>Liste des membres</h3>
+                    <div class="buttons">
+                        <button><i class="fas fa-plus"></i> Ajouter un membre</button>
+                        <button><i class="fas fa-users-cog"></i> En savoir plus sur les rôles</button>
+                    </div>
+
+                    <div class="members-show">
+                        <div class="member">
+                            <img src="https://via.placeholder.com/45x45" alt="">
+                            <div class="infos-member">
+                                <div class="roles">
+                                    <p>Lorem ipsum |</p>
+                                    <a href="">Administrateur</a>
+                                </div>
+                                <p>Ajouté le : jj.mm.aaaa</p>
+                            </div>
+                            <i class="fas fa-times-circle"></i>
+                        </div>
+                        <div class="member">
+                            <img src="https://via.placeholder.com/45x45" alt="">
+                            <div class="infos-member">
+                                <div class="roles">
+                                    <p>Lorem ipsum |</p>
+                                    <a href="">Administrateur</a>
+                                </div>
+                                <p>Ajouté le : jj.mm.aaaa</p>
+                            </div>
+                            <i class="fas fa-times-circle"></i>
+                        </div>
+                        <div class="member">
+                            <img src="https://via.placeholder.com/45x45" alt="">
+                            <div class="infos-member">
+                                <div class="roles">
+                                    <p>Lorem ipsum |</p>
+                                    <a href="">Administrateur</a>
+                                </div>
+                                <p>Ajouté le : jj.mm.aaaa</p>
+                            </div>
+                            <i class="fas fa-times-circle"></i>
+                        </div>
+                        <div class="member">
+                            <img src="https://via.placeholder.com/45x45" alt="">
+                            <div class="infos-member">
+                                <div class="roles">
+                                    <p>Lorem ipsum |</p>
+                                    <a href="">Administrateur</a>
+                                </div>
+                                <p>Ajouté le : jj.mm.aaaa</p>
+                            </div>
+                            <i class="fas fa-times-circle"></i>
+                        </div>
+                        <div class="member">
+                            <img src="https://via.placeholder.com/45x45" alt="">
+                            <div class="infos-member">
+                                <div class="roles">
+                                    <p>Lorem ipsum |</p>
+                                    <a href="">Administrateur</a>
+                                </div>
+                                <p>Ajouté le : jj.mm.aaaa</p>
+                            </div>
+                            <i class="fas fa-times-circle"></i>
+                        </div>
+                        <div class="member">
+                            <img src="https://via.placeholder.com/45x45" alt="">
+                            <div class="infos-member">
+                                <div class="roles">
+                                    <p>Lorem ipsum |</p>
+                                    <a href="">Administrateur</a>
+                                </div>
+                                <p>Ajouté le : jj.mm.aaaa</p>
+                            </div>
+                            <i class="fas fa-times-circle"></i>
+                        </div>
+                        <div class="member">
+                            <img src="https://via.placeholder.com/45x45" alt="">
+                            <div class="infos-member">
+                                <div class="roles">
+                                    <p>Lorem ipsum |</p>
+                                    <a href="">Administrateur</a>
+                                </div>
+                                <p>Ajouté le : jj.mm.aaaa</p>
+                            </div>
+                            <i class="fas fa-times-circle"></i>
+                        </div>
+                        <div class="member">
+                            <img src="https://via.placeholder.com/45x45" alt="">
+                            <div class="infos-member">
+                                <div class="roles">
+                                    <p>Lorem ipsum |</p>
+                                    <a href="">Administrateur</a>
+                                </div>
+                                <p>Ajouté le : jj.mm.aaaa</p>
+                            </div>
+                            <i class="fas fa-times-circle"></i>
+                        </div>
+                        <div class="member">
+                            <img src="https://via.placeholder.com/45x45" alt="">
+                            <div class="infos-member">
+                                <div class="roles">
+                                    <p>Lorem ipsum |</p>
+                                    <a href="">Administrateur</a>
+                                </div>
+                                <p>Ajouté le : jj.mm.aaaa</p>
+                            </div>
+                            <i class="fas fa-times-circle"></i>
+                        </div>
+                        <div class="member">
+                            <img src="https://via.placeholder.com/45x45" alt="">
+                            <div class="infos-member">
+                                <div class="roles">
+                                    <p>Lorem ipsum |</p>
+                                    <a href="">Administrateur</a>
+                                </div>
+                                <p>Ajouté le : jj.mm.aaaa</p>
+                            </div>
+                            <i class="fas fa-times-circle"></i>
+                        </div>
+                    </div>
+                    <button id="close-modal-button"><i class="fas fa-check"></i> Valider</button>
+                </div>
+            </div>
+        </div>
 
         <main>
             <div class="title">
