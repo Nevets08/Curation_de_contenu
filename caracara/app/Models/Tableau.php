@@ -15,7 +15,7 @@ class Tableau extends Model
     protected $fillable = ['nom', 'description', 'url_icone', 'prive'];
 
     public function posts(){
-        return $this->belongsToMany(Post::class);
+        return $this->belongsToMany(Post::class)->orderBy('created_at', 'desc');
     }
 
     //Les lecteurs/contributeurs

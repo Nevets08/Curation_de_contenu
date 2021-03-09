@@ -6,10 +6,12 @@
             @include('layouts.secondary_menu')
         </section>
 
-        <section class="members">
-            <h2>Membres du tableau</h2>
-            @include('layouts.members_posts')
-        </section>
+        @if ($tableau->prive)
+            <section class="members">
+                <h2>Membres du tableau</h2>
+                @include('layouts.members_posts')
+            </section>
+        @endif
     </aside>
 
     <main>
