@@ -58,17 +58,25 @@
             @can('abonnement', $post)
             @php
                 $url = $post->url;
+                $title='';
+                $description='';
+                $image='';
 
-                $opts = array('http'=>array('header' => "User-Agent:MyAgent/1.0\r\n"));
-                $context = stream_context_create($opts);
+                require_once('/var/www/vhosts/bukal.etu.mmi-unistra.fr/laravel.bukal.etu.mmi-unistra.fr/Curation_de_contenu/caracara/resources/php/OpenGraph.php');
 
-                preg_match("/<title>(.+)<\/title>/siU", file_get_contents($url, false, $context), $articleTitle);
-                preg_match('/<meta property="og:description" content="(.+)"\/>/siU', file_get_contents($url, false, $context), $articleDescription);
-                preg_match('/<meta property="og:image" content="(.+)"\/>/siU', file_get_contents($url, false, $context), $articleImage);
+                $graph = OpenGraph::fetch($url);
 
-                $title = $articleTitle[1];
-                $description = isset($articleDescription[1]) ? $articleDescription[1] : null;
-                $image = isset($articleImage[1]) ? $articleImage[1] : null;
+                foreach ($graph as $key => $value) {
+                    if ($key === "title") {
+                        $title = $value;
+                    }
+                    if ($key === "description") {
+                        $description = $value;
+                    }
+                    if ($key === "image") {
+                        $image = $value;
+                    }
+                }
             @endphp
                 <article class="article-card">
                     <div class="article-infos">

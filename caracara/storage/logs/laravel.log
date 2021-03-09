@@ -12535,3 +12535,23 @@ Stack trace:
 #44 /var/www/vhosts/bukal.etu.mmi-unistra.fr/laravel.bukal.etu.mmi-unistra.fr/Curation_de_contenu/caracara/public/index.php(52): Illuminate\\Foundation\\Http\\Kernel->handle()
 #45 {main}
 "} 
+[2021-03-09 18:18:37] local.ERROR: Illuminate\Filesystem\Filesystem::main(): Failed opening required 'OpenGraph.php' (include_path='.:/opt/plesk/php/7.4/share/pear') {"userId":2,"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Illuminate\\Filesystem\\Filesystem::main(): Failed opening required 'OpenGraph.php' (include_path='.:/opt/plesk/php/7.4/share/pear') at /var/www/vhosts/bukal.etu.mmi-unistra.fr/laravel.bukal.etu.mmi-unistra.fr/Curation_de_contenu/caracara/storage/framework/views/e003d10865f2dd44612a52e34ba4108c35ad5d99.php:71)
+[stacktrace]
+#0 {main}
+"} 
+[2021-03-09 18:19:40] local.ERROR: Illuminate\Filesystem\Filesystem::main(): Failed opening required '../php/OpenGraph.php' (include_path='.:/opt/plesk/php/7.4/share/pear') {"userId":2,"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Illuminate\\Filesystem\\Filesystem::main(): Failed opening required '../php/OpenGraph.php' (include_path='.:/opt/plesk/php/7.4/share/pear') at /var/www/vhosts/bukal.etu.mmi-unistra.fr/laravel.bukal.etu.mmi-unistra.fr/Curation_de_contenu/caracara/storage/framework/views/e003d10865f2dd44612a52e34ba4108c35ad5d99.php:71)
+[stacktrace]
+#0 {main}
+"} 
+[2021-03-09 18:20:04] local.ERROR: Illuminate\Filesystem\Filesystem::main(): Failed opening required '/resources/php/OpenGraph.php' (include_path='.:/opt/plesk/php/7.4/share/pear') {"userId":2,"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Illuminate\\Filesystem\\Filesystem::main(): Failed opening required '/resources/php/OpenGraph.php' (include_path='.:/opt/plesk/php/7.4/share/pear') at /var/www/vhosts/bukal.etu.mmi-unistra.fr/laravel.bukal.etu.mmi-unistra.fr/Curation_de_contenu/caracara/storage/framework/views/e003d10865f2dd44612a52e34ba4108c35ad5d99.php:71)
+[stacktrace]
+#0 {main}
+"} 
+[2021-03-09 18:20:17] local.ERROR: Illuminate\Filesystem\Filesystem::main(): Failed opening required 'resources/php/OpenGraph.php' (include_path='.:/opt/plesk/php/7.4/share/pear') {"userId":2,"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Illuminate\\Filesystem\\Filesystem::main(): Failed opening required 'resources/php/OpenGraph.php' (include_path='.:/opt/plesk/php/7.4/share/pear') at /var/www/vhosts/bukal.etu.mmi-unistra.fr/laravel.bukal.etu.mmi-unistra.fr/Curation_de_contenu/caracara/storage/framework/views/e003d10865f2dd44612a52e34ba4108c35ad5d99.php:71)
+[stacktrace]
+#0 {main}
+"} 
+[2021-03-09 18:20:39] local.ERROR: Illuminate\Filesystem\Filesystem::main(): Failed opening required 'resources/php/OpenGraph.php' (include_path='.:/opt/plesk/php/7.4/share/pear') {"userId":2,"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Illuminate\\Filesystem\\Filesystem::main(): Failed opening required 'resources/php/OpenGraph.php' (include_path='.:/opt/plesk/php/7.4/share/pear') at /var/www/vhosts/bukal.etu.mmi-unistra.fr/laravel.bukal.etu.mmi-unistra.fr/Curation_de_contenu/caracara/storage/framework/views/e003d10865f2dd44612a52e34ba4108c35ad5d99.php:71)
+[stacktrace]
+#0 {main}
+"} 
