@@ -50,7 +50,10 @@ class PostController extends Controller
         $post->tableaux()->attach($data['tableau']); //plusieurs à plusieurs
 
         $user = Auth::user();
-        return redirect()->route('tableau.show', ['tableau' => $data['created_from'], 'user' => $user]);
+        if(array_key_exists('created_from', $data))
+            return redirect()->route('tableau.show', ['tableau' => $data['created_from'], 'user' => $user]);
+        else
+            return redirect()->route('home');
     }
 
     /**

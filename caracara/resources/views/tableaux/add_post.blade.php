@@ -22,20 +22,34 @@
             <span>/ Ajouter un article</span>
         </div>
 
-        <form action="#">
+        <form action="{{ route('post.store') }}" method="post">
+            @csrf
             <label>A quel tableau voulez-vous l'ajouter ?
-                <select multiple required>
-                    <option value="">--Choississez au moins 1 tableau--</option>
-                    <option value="1">Tableau 1</option>
-                    <option value="2">Tableau 2</option>
-                    <option value="3">Tableau 3</option>
+                <select multiple required name="tableau[]">
+                    @foreach ($allTableaux as $tab)
+                        @can('addPost', $tab)
+                            <option
+                                value={{ $tab->id }}
+                                {{-- @if ( $tab->id === $tableau->id )
+                                    selected
+                                @endif --}}
+                            >
+                                {{ $tab->nom }}
+                            </option>
+                        @endcan
+                    @endforeach
                 </select>
                 <p><a class="createTableau" href="#">Ou créer un nouveau tableau</a></p>
             </label>
 
             <label>Renseignez l'url de l'article
-                <input type="url" placeholder="Entrez une url" required>
+                <input type="url" placeholder="Entrez une url" name="url" required>
             </label>
+
+            <div style="display: none">
+                <input name="user_id" value="@if($user) {{$user->id}} @else anonyme @endif">
+                {{-- <input name="created_from" value="{{$tableau->id}}"> --}}
+            </div>
 
             <button type="submit">Envoyer !</button>
         </form>
