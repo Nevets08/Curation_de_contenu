@@ -39,7 +39,7 @@
                 @foreach ($tableaux as $tableau)
                     @can('view', $tableau){{--Si on a bien accès au tableau--}}
                     @if (!$tableau->prive)
-                        <div onclick="window.location = '{{ route("private_posts") }}'">
+                        <div onclick="window.location = '{{ route("tableau.show", $tableau) }}'">
                             <img src="
                             @if ($tableau->url_icone)
                                 {{ $tableau->url_icone }}

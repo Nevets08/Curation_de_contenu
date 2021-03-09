@@ -1,5 +1,4 @@
 @php
-
     //Recuperer titre, description et image d'un article
     $public = public_path('php/OpenGraph.php');
 
