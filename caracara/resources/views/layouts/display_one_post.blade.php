@@ -13,9 +13,10 @@
 
     //Recuperer la différence entre la date de création et maintenant
     $first_date = new DateTime("now");
-    $second_date = new DateTime("08-03-2021 20:00:00");
+    $second_date = new DateTime(date('d-m-Y', strtotime($post->created_at)));
     $difference = $first_date->diff($second_date);
     $date = format_interval($difference);
+
 
 @endphp
 
@@ -28,8 +29,8 @@
         <p class="article-date">{{ $date }}</p>
     </div>
     <h2><a href="{{$post->url}}">{{$title}}</a></h2>
-    <p class="article-headline">{{$description}}</p>
-    <img class="article-image" src="{{ $image }}" alt="">
+    <p class="article-headline">@isset($description){{ $description }} @endisset</p>
+    <img class="article-image" src="@isset($image){{ $image }} @endisset" alt="">
     <div class="article-footer">
         <div class="article-likes">
             {{-- likes --}}

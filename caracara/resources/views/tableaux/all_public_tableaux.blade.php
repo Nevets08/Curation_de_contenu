@@ -19,7 +19,7 @@
 
         <div class="tableaux">
             @foreach ($tableaux as $tableau)
-                <div  onclick="window.location = '{{ route("tableau.show", $tableau) }}'">
+                <div onclick="window.location = '{{ route("tableau.show", $tableau) }}'">
                     <img src="
                         @if ($tableau->url_icone)
                             {{$tableau->url_icone}}
