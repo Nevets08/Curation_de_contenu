@@ -31,7 +31,7 @@
 
                 <div class="actions">
                     <span>Trier par : Nouveautés</span>
-                    <a href="{{ route('add_post') }}"><i class="fas fa-plus-circle"></i>Ajouter une publication</a>*
+                    <a href="{{ route('add_post', ['tableau' => $tableau]) }}"><i class="fas fa-plus-circle"></i>Ajouter une publication</a>*
                 </div>
             </div>
            @include('layouts.declare_format_interval')

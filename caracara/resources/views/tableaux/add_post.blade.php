@@ -6,10 +6,13 @@
             @include('layouts.secondary_menu')
         </section>
 
-        <section class="members">
-            <h2>Membres du tableau</h2>
-            @include('layouts.members_posts')
-        </section>
+        @if (isset($tableau))
+            <section class="members">
+                <h2>Membres du tableau</h2>
+                @include('layouts.members_posts')
+            </section>
+        @endif
+        
     </aside>
 
     <main class="add_post">
@@ -30,9 +33,9 @@
                         @can('addPost', $tab)
                             <option
                                 value={{ $tab->id }}
-                                {{-- @if ( $tab->id === $tableau->id )
+                                @if (isset($tableau) && $tab->id === $tableau->id )
                                     selected
-                                @endif --}}
+                                @endif
                             >
                                 {{ $tab->nom }}
                             </option>
@@ -48,7 +51,9 @@
 
             <div style="display: none">
                 <input name="user_id" value="@if($user) {{$user->id}} @else anonyme @endif">
-                {{-- <input name="created_from" value="{{$tableau->id}}"> --}}
+                @if (isset($tableau))
+                    <input name="created_from" value="{{$tableau->id}}">
+                @endif
             </div>
 
             <button type="submit">Envoyer !</button>
