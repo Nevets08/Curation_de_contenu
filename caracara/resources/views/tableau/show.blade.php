@@ -34,9 +34,7 @@
             </div>
            @include('layouts.declare_format_interval')
 
-
             @foreach ($tableau->posts as $post)
-
                    @include('layouts.display_one_post')
             @endforeach
 
