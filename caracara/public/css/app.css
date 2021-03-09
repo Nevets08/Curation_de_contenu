@@ -6752,6 +6752,22 @@ a {
   color: white;
 }
 
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+ul ul {
+  margin: 0;
+  padding: 0;
+}
+
+ul li {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
 .hidden {
   display: none;
 }
@@ -7459,7 +7475,7 @@ header .user button#userButton span {
 
 @media (min-width: 768px) {
   header .user button#userButton:after {
-    content: url(../images/down-chevron.svg?3fc898075b85bba3248d2e735ffece52);
+    content: url(../images/down-chevron.svg?1e99c84d8c0860ddf6982e8cb74d75c1);
     width: 10px;
     height: -10px;
     margin-left: 10px;
@@ -8111,6 +8127,7 @@ main .posts .posts-infos .actions a i {
 }
 
 .tableaux_miniatures > div p {
+  margin-top: 0;
   max-width: 50px;
   white-space: nowrap;
 }

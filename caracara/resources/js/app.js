@@ -86,11 +86,11 @@ function DarkMode() {
     if (localStorage.getItem('darkTheme') === "yes") {
         console.log("replace lightTheme par darkTheme");
         body.classList.replace("lightTheme", "darkTheme");
-        logo.src = "https://projet-tutore.christ.etu.mmi-unistra.fr/caracara/public/img/Logo-DarkMode.png"
+        logo.src = "/caracara/public/img/Logo-DarkMode.png"
     } else {
         console.log("replace darkTheme par lightTheme");
         body.classList.replace("darkTheme", "lightTheme");
-        logo.src = "https://projet-tutore.christ.etu.mmi-unistra.fr/caracara/public/img/Logo.png"
+        logo.src = "/caracara/public/img/Logo.png"
     }
 }
 
@@ -98,11 +98,11 @@ function DarkMode() {
     if (localStorage.getItem('darkTheme') === "yes") {
         console.log("replace lightTheme par darkTheme");
         body.classList.replace("lightTheme", "darkTheme");
-        logo.src = "https://projet-tutore.christ.etu.mmi-unistra.fr/caracara/public/img/Logo-DarkMode.png"
+        logo.src = "/caracara/public/img/Logo-DarkMode.png"
     } else {
         console.log("replace darkTheme par lightTheme");
         body.classList.replace("darkTheme", "lightTheme");
-        logo.src = "https://projet-tutore.christ.etu.mmi-unistra.fr/caracara/public/img/Logo.png"
+        logo.src = "/caracara/public/img/Logo.png"
     }
 }());
 
