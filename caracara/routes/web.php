@@ -48,7 +48,7 @@ Route::get('/add_post', function () {
 })->name('add_post');
 
 Route::get('/add_tableau', function () {
-    return view('tableaux/add_tableau');
+    return view('tableaux/add_tableau', ['user' => Auth::user(), 'allUsers' => User::all()]);
 })->name('add_tableau');
 
 Route::get('/all_private_tableaux', function () {
