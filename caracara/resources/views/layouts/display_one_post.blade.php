@@ -13,7 +13,7 @@
 
     //Recuperer la différence entre la date de création et maintenant
     $first_date = new DateTime("now");
-    $second_date = new DateTime(date('d-m-Y', strtotime($post->created_at)));
+    $second_date = new DateTime(date('d-m-Y H:i:s', strtotime($post->created_at)));
     $difference = $first_date->diff($second_date);
     $date = format_interval($difference);
 
