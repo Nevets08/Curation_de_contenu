@@ -6902,6 +6902,7 @@ h2 {
   font-size: 2.2rem;
   text-transform: uppercase;
   font-weight: bold;
+  line-height: initial;
   margin-bottom: 15px;
 }
 
@@ -7652,6 +7653,7 @@ header .user #userMenu.showUserMenu {
 
 .article-card .article-infos p.article-date {
   margin-top: 0;
+  align-self: center;
 }
 
 .article-card .article-infos a {
@@ -7672,10 +7674,24 @@ header .user #userMenu.showUserMenu {
 
 .article-card .article-infos a img {
   margin-right: 10px;
+  border-radius: 100px;
+}
+
+.article-card h2 {
+  text-transform: none;
+}
+
+.article-card h2::after {
+  content: none;
 }
 
 .article-card p.article-headline {
   margin: 15px 0;
+}
+
+.article-card img.article-image {
+  width: 100%;
+  max-height: 350px;
 }
 
 .article-card .article-footer {
@@ -8001,38 +8017,63 @@ main .posts .posts-infos .actions {
     flex-direction: column;
   }
 
-  main .posts .posts-infos .actions a {
+  main .posts .posts-infos .actions .btnAction {
     margin-top: 20px;
   }
 }
 
-main .posts .posts-infos .actions a {
+@media (max-width: 768px) {
+  main .posts .posts-infos .actions > div {
+    flex-direction: column;
+  }
+
+  main .posts .posts-infos .actions > div .btnAction {
+    width: 100%;
+    margin: 0;
+    text-align: left;
+  }
+
+  main .posts .posts-infos .actions > div .btnAction:first-of-type {
+    margin-bottom: 10px;
+  }
+}
+
+main .posts .posts-infos .actions > div {
+  display: flex;
+}
+
+main .posts .posts-infos .actions .btnAction {
   border-radius: 50px;
   padding: 5px 20px;
   margin-top: 15px;
   margin-top: 0;
+  height: 35px;
 }
 
-.lightTheme main .posts .posts-infos .actions a {
+.lightTheme main .posts .posts-infos .actions .btnAction {
   color: #12142c;
   background-color: #94CAD1;
 }
 
-.darkTheme main .posts .posts-infos .actions a {
+.darkTheme main .posts .posts-infos .actions .btnAction {
   color: #F8F8F8;
   background-color: #3e8f93;
 }
 
-main .posts .posts-infos .actions a i {
+main .posts .posts-infos .actions .btnAction:first-of-type {
+  margin-right: 15px;
+}
+
+main .posts .posts-infos .actions .btnAction i {
   font-size: 14px;
   margin-right: 8px;
 }
 
-.lightTheme main .posts .posts-infos .actions a i {
+.lightTheme main .posts .posts-infos .actions .btnAction i {
   color: #12142c;
 }
 
-.darkTheme main .posts .posts-infos .actions a i {
+.darkTheme main .posts .posts-infos .actions .btnAction i {
   color: #F8F8F8;
 }
 

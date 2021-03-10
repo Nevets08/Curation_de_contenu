@@ -3,6 +3,7 @@
 /public/storage
 /storage/*.key
 /storage/logs/laravel.log
+/caracara/storage/logs/laravel.log
 /vendor
 .env
 .env.backup

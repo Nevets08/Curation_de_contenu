@@ -15262,7 +15262,11 @@ Stack trace:
 #60 /var/www/vhosts/bukal.etu.mmi-unistra.fr/laravel.bukal.etu.mmi-unistra.fr/Curation_de_contenu/caracara/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(110): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
 #61 /var/www/vhosts/bukal.etu.mmi-unistra.fr/laravel.bukal.etu.mmi-unistra.fr/Curation_de_contenu/caracara/public/index.php(52): Illuminate\\Foundation\\Http\\Kernel->handle()
 #62 {main}
+<<<<<<< HEAD
+"}
+=======
 "} 
+>>>>>>> 132c8880f81d145f75e80c8efd74675f5e487144
 [2021-03-09 19:43:53] local.ERROR: Undefined variable: description (View: /var/www/vhosts/bukal.etu.mmi-unistra.fr/laravel.bukal.etu.mmi-unistra.fr/Curation_de_contenu/caracara/resources/views/layouts/display_one_post.blade.php) (View: /var/www/vhosts/bukal.etu.mmi-unistra.fr/laravel.bukal.etu.mmi-unistra.fr/Curation_de_contenu/caracara/resources/views/layouts/display_one_post.blade.php) {"userId":2,"exception":"[object] (ErrorException(code: 0): Undefined variable: description (View: /var/www/vhosts/bukal.etu.mmi-unistra.fr/laravel.bukal.etu.mmi-unistra.fr/Curation_de_contenu/caracara/resources/views/layouts/display_one_post.blade.php) (View: /var/www/vhosts/bukal.etu.mmi-unistra.fr/laravel.bukal.etu.mmi-unistra.fr/Curation_de_contenu/caracara/resources/views/layouts/display_one_post.blade.php) at /var/www/vhosts/bukal.etu.mmi-unistra.fr/laravel.bukal.etu.mmi-unistra.fr/Curation_de_contenu/caracara/storage/framework/views/20b988e91030a6622f0991e6d5becadcc5439f95.php:31)
 [stacktrace]
 #0 /var/www/vhosts/bukal.etu.mmi-unistra.fr/laravel.bukal.etu.mmi-unistra.fr/Curation_de_contenu/caracara/vendor/livewire/livewire/src/CompilerEngine.php(38): Illuminate\\View\\Engines\\CompilerEngine->handleViewException()
@@ -15447,7 +15451,11 @@ Stack trace:
 #60 /var/www/vhosts/bukal.etu.mmi-unistra.fr/laravel.bukal.etu.mmi-unistra.fr/Curation_de_contenu/caracara/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(110): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
 #61 /var/www/vhosts/bukal.etu.mmi-unistra.fr/laravel.bukal.etu.mmi-unistra.fr/Curation_de_contenu/caracara/public/index.php(52): Illuminate\\Foundation\\Http\\Kernel->handle()
 #62 {main}
+<<<<<<< HEAD
+"}
+=======
 "} 
+>>>>>>> 132c8880f81d145f75e80c8efd74675f5e487144
 [2021-03-09 19:57:22] local.ERROR: Undefined variable: description (View: /var/www/vhosts/bukal.etu.mmi-unistra.fr/laravel.bukal.etu.mmi-unistra.fr/Curation_de_contenu/caracara/resources/views/layouts/display_one_post.blade.php) (View: /var/www/vhosts/bukal.etu.mmi-unistra.fr/laravel.bukal.etu.mmi-unistra.fr/Curation_de_contenu/caracara/resources/views/layouts/display_one_post.blade.php) {"userId":2,"exception":"[object] (ErrorException(code: 0): Undefined variable: description (View: /var/www/vhosts/bukal.etu.mmi-unistra.fr/laravel.bukal.etu.mmi-unistra.fr/Curation_de_contenu/caracara/resources/views/layouts/display_one_post.blade.php) (View: /var/www/vhosts/bukal.etu.mmi-unistra.fr/laravel.bukal.etu.mmi-unistra.fr/Curation_de_contenu/caracara/resources/views/layouts/display_one_post.blade.php) at /var/www/vhosts/bukal.etu.mmi-unistra.fr/laravel.bukal.etu.mmi-unistra.fr/Curation_de_contenu/caracara/storage/framework/views/20b988e91030a6622f0991e6d5becadcc5439f95.php:31)
 [stacktrace]
 #0 /var/www/vhosts/bukal.etu.mmi-unistra.fr/laravel.bukal.etu.mmi-unistra.fr/Curation_de_contenu/caracara/vendor/livewire/livewire/src/CompilerEngine.php(38): Illuminate\\View\\Engines\\CompilerEngine->handleViewException()
@@ -15632,7 +15640,11 @@ Stack trace:
 #60 /var/www/vhosts/bukal.etu.mmi-unistra.fr/laravel.bukal.etu.mmi-unistra.fr/Curation_de_contenu/caracara/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(110): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
 #61 /var/www/vhosts/bukal.etu.mmi-unistra.fr/laravel.bukal.etu.mmi-unistra.fr/Curation_de_contenu/caracara/public/index.php(52): Illuminate\\Foundation\\Http\\Kernel->handle()
 #62 {main}
+<<<<<<< HEAD
+"}
+=======
 "} 
+>>>>>>> 132c8880f81d145f75e80c8efd74675f5e487144
 [2021-03-09 21:15:19] local.ERROR: Trying to get property 'name' of non-object (View: /var/www/vhosts/bukal.etu.mmi-unistra.fr/laravel.bukal.etu.mmi-unistra.fr/Curation_de_contenu/caracara/resources/views/layouts/members_posts.blade.php) (View: /var/www/vhosts/bukal.etu.mmi-unistra.fr/laravel.bukal.etu.mmi-unistra.fr/Curation_de_contenu/caracara/resources/views/layouts/members_posts.blade.php) {"userId":2,"exception":"[object] (ErrorException(code: 0): Trying to get property 'name' of non-object (View: /var/www/vhosts/bukal.etu.mmi-unistra.fr/laravel.bukal.etu.mmi-unistra.fr/Curation_de_contenu/caracara/resources/views/layouts/members_posts.blade.php) (View: /var/www/vhosts/bukal.etu.mmi-unistra.fr/laravel.bukal.etu.mmi-unistra.fr/Curation_de_contenu/caracara/resources/views/layouts/members_posts.blade.php) at /var/www/vhosts/bukal.etu.mmi-unistra.fr/laravel.bukal.etu.mmi-unistra.fr/Curation_de_contenu/caracara/storage/framework/views/521f418568b86b5479b8b66d35e9da97d1eefc14.php:2)
 [stacktrace]
 #0 /var/www/vhosts/bukal.etu.mmi-unistra.fr/laravel.bukal.etu.mmi-unistra.fr/Curation_de_contenu/caracara/vendor/livewire/livewire/src/CompilerEngine.php(38): Illuminate\\View\\Engines\\CompilerEngine->handleViewException()
@@ -15817,7 +15829,11 @@ Stack trace:
 #60 /var/www/vhosts/bukal.etu.mmi-unistra.fr/laravel.bukal.etu.mmi-unistra.fr/Curation_de_contenu/caracara/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(110): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
 #61 /var/www/vhosts/bukal.etu.mmi-unistra.fr/laravel.bukal.etu.mmi-unistra.fr/Curation_de_contenu/caracara/public/index.php(52): Illuminate\\Foundation\\Http\\Kernel->handle()
 #62 {main}
+<<<<<<< HEAD
+"}
+=======
 "} 
+>>>>>>> 132c8880f81d145f75e80c8efd74675f5e487144
 [2021-03-09 21:21:04] local.ERROR: Undefined variable: tableau (View: /var/www/vhosts/bukal.etu.mmi-unistra.fr/laravel.bukal.etu.mmi-unistra.fr/Curation_de_contenu/caracara/resources/views/layouts/members_posts.blade.php) (View: /var/www/vhosts/bukal.etu.mmi-unistra.fr/laravel.bukal.etu.mmi-unistra.fr/Curation_de_contenu/caracara/resources/views/layouts/members_posts.blade.php) {"userId":2,"exception":"[object] (ErrorException(code: 0): Undefined variable: tableau (View: /var/www/vhosts/bukal.etu.mmi-unistra.fr/laravel.bukal.etu.mmi-unistra.fr/Curation_de_contenu/caracara/resources/views/layouts/members_posts.blade.php) (View: /var/www/vhosts/bukal.etu.mmi-unistra.fr/laravel.bukal.etu.mmi-unistra.fr/Curation_de_contenu/caracara/resources/views/layouts/members_posts.blade.php) at /var/www/vhosts/bukal.etu.mmi-unistra.fr/laravel.bukal.etu.mmi-unistra.fr/Curation_de_contenu/caracara/storage/framework/views/521f418568b86b5479b8b66d35e9da97d1eefc14.php:2)
 [stacktrace]
 #0 /var/www/vhosts/bukal.etu.mmi-unistra.fr/laravel.bukal.etu.mmi-unistra.fr/Curation_de_contenu/caracara/vendor/livewire/livewire/src/CompilerEngine.php(38): Illuminate\\View\\Engines\\CompilerEngine->handleViewException()
@@ -16002,7 +16018,11 @@ Stack trace:
 #60 /var/www/vhosts/bukal.etu.mmi-unistra.fr/laravel.bukal.etu.mmi-unistra.fr/Curation_de_contenu/caracara/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(110): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
 #61 /var/www/vhosts/bukal.etu.mmi-unistra.fr/laravel.bukal.etu.mmi-unistra.fr/Curation_de_contenu/caracara/public/index.php(52): Illuminate\\Foundation\\Http\\Kernel->handle()
 #62 {main}
+<<<<<<< HEAD
+"}
+=======
 "} 
+>>>>>>> 132c8880f81d145f75e80c8efd74675f5e487144
 [2021-03-09 21:22:13] local.ERROR: Undefined variable: tableau (View: /var/www/vhosts/bukal.etu.mmi-unistra.fr/laravel.bukal.etu.mmi-unistra.fr/Curation_de_contenu/caracara/resources/views/tableaux/add_post.blade.php) {"userId":2,"exception":"[object] (ErrorException(code: 0): Undefined variable: tableau (View: /var/www/vhosts/bukal.etu.mmi-unistra.fr/laravel.bukal.etu.mmi-unistra.fr/Curation_de_contenu/caracara/resources/views/tableaux/add_post.blade.php) at /var/www/vhosts/bukal.etu.mmi-unistra.fr/laravel.bukal.etu.mmi-unistra.fr/Curation_de_contenu/caracara/storage/framework/views/f1397d434911ec3d456bca635c612a635a5965f0.php:14)
 [stacktrace]
 #0 /var/www/vhosts/bukal.etu.mmi-unistra.fr/laravel.bukal.etu.mmi-unistra.fr/Curation_de_contenu/caracara/vendor/livewire/livewire/src/CompilerEngine.php(38): Illuminate\\View\\Engines\\CompilerEngine->handleViewException()
@@ -16114,7 +16134,11 @@ Stack trace:
 #51 /var/www/vhosts/bukal.etu.mmi-unistra.fr/laravel.bukal.etu.mmi-unistra.fr/Curation_de_contenu/caracara/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(110): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
 #52 /var/www/vhosts/bukal.etu.mmi-unistra.fr/laravel.bukal.etu.mmi-unistra.fr/Curation_de_contenu/caracara/public/index.php(52): Illuminate\\Foundation\\Http\\Kernel->handle()
 #53 {main}
+<<<<<<< HEAD
+"}
+=======
 "} 
+>>>>>>> 132c8880f81d145f75e80c8efd74675f5e487144
 [2021-03-09 21:22:21] local.ERROR: Undefined variable: tableau (View: /var/www/vhosts/bukal.etu.mmi-unistra.fr/laravel.bukal.etu.mmi-unistra.fr/Curation_de_contenu/caracara/resources/views/tableaux/add_post.blade.php) {"userId":2,"exception":"[object] (ErrorException(code: 0): Undefined variable: tableau (View: /var/www/vhosts/bukal.etu.mmi-unistra.fr/laravel.bukal.etu.mmi-unistra.fr/Curation_de_contenu/caracara/resources/views/tableaux/add_post.blade.php) at /var/www/vhosts/bukal.etu.mmi-unistra.fr/laravel.bukal.etu.mmi-unistra.fr/Curation_de_contenu/caracara/storage/framework/views/f1397d434911ec3d456bca635c612a635a5965f0.php:14)
 [stacktrace]
 #0 /var/www/vhosts/bukal.etu.mmi-unistra.fr/laravel.bukal.etu.mmi-unistra.fr/Curation_de_contenu/caracara/vendor/livewire/livewire/src/CompilerEngine.php(38): Illuminate\\View\\Engines\\CompilerEngine->handleViewException()
@@ -16226,7 +16250,11 @@ Stack trace:
 #51 /var/www/vhosts/bukal.etu.mmi-unistra.fr/laravel.bukal.etu.mmi-unistra.fr/Curation_de_contenu/caracara/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(110): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
 #52 /var/www/vhosts/bukal.etu.mmi-unistra.fr/laravel.bukal.etu.mmi-unistra.fr/Curation_de_contenu/caracara/public/index.php(52): Illuminate\\Foundation\\Http\\Kernel->handle()
 #53 {main}
+<<<<<<< HEAD
+"}
+=======
 "} 
+>>>>>>> 132c8880f81d145f75e80c8efd74675f5e487144
 [2021-03-09 21:22:39] local.ERROR: Use of undefined constant undefined - assumed 'undefined' (this will throw an Error in a future version of PHP) (View: /var/www/vhosts/bukal.etu.mmi-unistra.fr/laravel.bukal.etu.mmi-unistra.fr/Curation_de_contenu/caracara/resources/views/tableaux/add_post.blade.php) {"userId":2,"exception":"[object] (ErrorException(code: 0): Use of undefined constant undefined - assumed 'undefined' (this will throw an Error in a future version of PHP) (View: /var/www/vhosts/bukal.etu.mmi-unistra.fr/laravel.bukal.etu.mmi-unistra.fr/Curation_de_contenu/caracara/resources/views/tableaux/add_post.blade.php) at /var/www/vhosts/bukal.etu.mmi-unistra.fr/laravel.bukal.etu.mmi-unistra.fr/Curation_de_contenu/caracara/storage/framework/views/f1397d434911ec3d456bca635c612a635a5965f0.php:14)
 [stacktrace]
 #0 /var/www/vhosts/bukal.etu.mmi-unistra.fr/laravel.bukal.etu.mmi-unistra.fr/Curation_de_contenu/caracara/vendor/livewire/livewire/src/CompilerEngine.php(38): Illuminate\\View\\Engines\\CompilerEngine->handleViewException()
@@ -16338,4 +16366,8 @@ Stack trace:
 #51 /var/www/vhosts/bukal.etu.mmi-unistra.fr/laravel.bukal.etu.mmi-unistra.fr/Curation_de_contenu/caracara/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(110): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
 #52 /var/www/vhosts/bukal.etu.mmi-unistra.fr/laravel.bukal.etu.mmi-unistra.fr/Curation_de_contenu/caracara/public/index.php(52): Illuminate\\Foundation\\Http\\Kernel->handle()
 #53 {main}
+<<<<<<< HEAD
+"}
+=======
 "} 
+>>>>>>> 132c8880f81d145f75e80c8efd74675f5e487144
