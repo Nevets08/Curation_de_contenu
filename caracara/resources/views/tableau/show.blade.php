@@ -31,11 +31,11 @@
 
                 <div class="actions">
                     <span>Trier par : Nouveautés</span>
-<<<<<<< HEAD
+
                     <a href="{{ route('add_post') }}"><i class="fas fa-plus-circle"></i>Ajouter une publication</a>
-=======
+
                     <a href="{{ route('add_post', ['tableau' => $tableau]) }}"><i class="fas fa-plus-circle"></i>Ajouter une publication</a>*
->>>>>>> 132c8880f81d145f75e80c8efd74675f5e487144
+
                 </div>
             </div>
            @include('layouts.declare_format_interval')
