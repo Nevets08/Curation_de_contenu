@@ -2,87 +2,36 @@
     <aside>
         <section>
             <h2>MENU</h2>
-            <ul class="liens_menu_aside">
-                <li><a href="{{ route('home') }}">Retourner à l'accueil</a></li>
-                <li><a href="#">Tableaux privés</a></li>
-                <li><a href="#">Tableaux publics</a></li>
-                <li><a href="#">Vos publications sauvegardés</a></li>
-            </ul>
+            @include('layouts.secondary_menu')
         </section>
     </aside>
 
     <main class="page_profile">
         <section class="infos">
             <div class="infos_top">
-                <h1 class="infos_nom">Nom Prénom</h1>
+                <h1 class="infos_nom">{{$user->name}}</h1>
                 <a class="infos_button_edit" href="#">Modifier</a>
             </div>
             <p><a href="#">Accueil</a> / Profil</p>
-            <img style="object-fit: contain" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}">
-            <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia. Excepteur sint occaecat
-                cupidatat non proident, sunt in culpa qui officia. Excepteur sint occaecat cupidatat non proident, sunt
-                in culpa qui officia.</p>
+            <img style="object-fit: contain" src="{{ $user->profile_photo_url }}" alt="{{ $user->name }}">
+
+            {{-- Je l'enlève, c'est la bio qui n'existe pas --}}
+            {{-- <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.</p> --}}
         </section>
 
         <section class="tableaux_suivi">
             <h2>Tableaux suivis</h2>
             <div class="tableaux_suivi_slider slider">
-                <div>
-                    <img src="{{ asset('img/rond_vide.png') }}" alt="">
-                    <p>Lorem Ipsum</p>
-                </div>
-                <div>
-                    <img src="{{ asset('img/rond_vide.png') }}" alt="">
-                    <p>Lorem Ipsum</p>
-                </div>
-                <div>
-                    <img src="{{ asset('img/rond_vide.png') }}" alt="">
-                    <p>Lorem Ipsum</p>
-                </div>
-                <div>
-                    <img src="{{ asset('img/rond_vide.png') }}" alt="">
-                    <p>Lorem Ipsum</p>
-                </div>
-                <div>
-                    <img src="{{ asset('img/rond_vide.png') }}" alt="">
-                    <p>Lorem Ipsum</p>
-                </div>
-                <div>
-                    <img src="{{ asset('img/rond_vide.png') }}" alt="">
-                    <p>Lorem Ipsum</p>
-                </div>
-                <div>
-                    <img src="{{ asset('img/rond_vide.png') }}" alt="">
-                    <p>Lorem Ipsum</p>
-                </div>
-                <div>
-                    <img src="{{ asset('img/rond_vide.png') }}" alt="">
-                    <p>Lorem Ipsum</p>
-                </div>
-                <div>
-                    <img src="{{ asset('img/rond_vide.png') }}" alt="">
-                    <p>Lorem Ipsum</p>
-                </div>
-                <div>
-                    <img src="{{ asset('img/rond_vide.png') }}" alt="">
-                    <p>Lorem Ipsum</p>
-                </div>
-                <div>
-                    <img src="{{ asset('img/rond_vide.png') }}" alt="">
-                    <p>Lorem Ipsum</p>
-                </div>
-                <div>
-                    <img src="{{ asset('img/rond_vide.png') }}" alt="">
-                    <p>Lorem Ipsum</p>
-                </div>
-                <div>
-                    <img src="{{ asset('img/rond_vide.png') }}" alt="">
-                    <p>Lorem Ipsum</p>
-                </div>
-                <div>
-                    <img src="{{ asset('img/rond_vide.png') }}" alt="">
-                    <p>Lorem Ipsum</p>
-                </div>
+                @foreach ($user->abonnements as $tab)
+                    <div onclick="window.location = '{{ route("tableau.show", $tab) }}'">
+                        <img src="@if ($tab->url_icone)
+                            {{ $tab->url_icone }}
+                        @else
+                            {{ asset('img/rond_vide.png') }}
+                        @endif" alt="{{$tab->nom}}">
+                        <p>{{$tab->nom}}</p>
+                    </div>
+                @endforeach
             </div>
             <p class="buttonAdd"><a href="#">Proposer un article</a></p>
         </section>
@@ -90,56 +39,30 @@
         <section class="tableaux_prives">
             <h2>Tableaux privés</h2>
             <div class="tableaux_prives_slider slider ">
-                <div>
-                    <img src="{{ asset('img/rectangle_vide.png') }}" alt="">
-                    <p>Lorem Ipsum</p>
-                </div>
-                <div>
-                    <img src="{{ asset('img/rectangle_vide.png') }}" alt="">
-                    <p>Lorem Ipsum</p>
-                </div>
-                <div>
-                    <img src="{{ asset('img/rectangle_vide.png') }}" alt="">
-                    <p>Lorem Ipsum</p>
-                </div>
-                <div>
-                    <img src="{{ asset('img/rectangle_vide.png') }}" alt="">
-                    <p>Lorem Ipsum</p>
-                </div>
-                <div>
-                    <img src="{{ asset('img/rectangle_vide.png') }}" alt="">
-                    <p>Lorem Ipsum</p>
-                </div>
-                <div>
-                    <img src="{{ asset('img/rectangle_vide.png') }}" alt="">
-                    <p>Lorem Ipsum</p>
-                </div>
-                <div>
-                    <img src="{{ asset('img/rectangle_vide.png') }}" alt="">
-                    <p>Lorem Ipsum</p>
-                </div>
-                <div>
-                    <img src="{{ asset('img/rectangle_vide.png') }}" alt="">
-                    <p>Lorem Ipsum</p>
-                </div>
-                <div>
-                    <img src="{{ asset('img/rectangle_vide.png') }}" alt="">
-                    <p>Lorem Ipsum</p>
-                </div>
-                <div>
-                    <img src="{{ asset('img/rectangle_vide.png') }}" alt="">
-                    <p>Lorem Ipsum</p>
-                </div>
-                <div>
-                    <img src="{{ asset('img/rectangle_vide.png') }}" alt="">
-                    <p>Lorem Ipsum</p>
-                </div>
-                <div>
-                    <img src="{{ asset('img/rectangle_vide.png') }}" alt="">
-                    <p>Lorem Ipsum</p>
-                </div>
+                @foreach ($user->tableauxCrees as $tab)
+                    @if($tab->prive)
+                        <div onclick="window.location = '{{ route("tableau.show", $tab) }}'">
+                            <img src="@if ($tab->url_icone)
+                            {{ $tab->url_icone }}
+                        @else
+                            {{ asset('img/rectangle_vide.png') }}
+                        @endif" alt="{{ $tab->nom }}">
+                            <p>{{$tab->nom}}</p>
+                        </div>
+                    @endif
+                @endforeach
+                @foreach ($user->tableaux as $tab)
+                    <div onclick="window.location = '{{ route("tableau.show", $tab) }}'">
+                        <img src="@if ($tab->url_icone)
+                        {{ $tab->url_icone }}
+                    @else
+                        {{ asset('img/rectangle_vide.png') }}
+                    @endif" alt="{{$tab->nom}}">
+                        <p>{{$tab->nom}}</p>
+                    </div>
+                @endforeach
             </div>
-            <p class="buttonAdd"><a href="#">Créer un tableau privé</a></p>
+            <p class="buttonAdd"><a href="{{ route('add_tableau') }}">Créer un tableau privé</a></p>
         </section>
 
         <section class="publications_sauvegardees">

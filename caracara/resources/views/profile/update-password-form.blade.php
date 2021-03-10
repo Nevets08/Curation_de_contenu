@@ -33,7 +33,7 @@
         </x-jet-action-message>
 
         <x-jet-button>
-            {{ __('Sauvegarger') }}
+            {{ __('Sauvegarder') }}
         </x-jet-button>
     </x-slot>
 </x-jet-form-section>
