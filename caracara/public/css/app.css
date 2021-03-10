@@ -6815,6 +6815,15 @@ select::placeholder {
 
 input {
   background-color: transparent;
+  filter: none;
+}
+
+.lightTheme input {
+  color: black;
+}
+
+.darkTheme input {
+  color: white;
 }
 
 .lightTheme input {
@@ -6882,6 +6891,30 @@ textarea {
   .md {
     display: block;
   }
+}
+
+.lightTheme *::-moz-placeholder {
+  color: black;
+}
+
+.lightTheme *:-ms-input-placeholder {
+  color: black;
+}
+
+.lightTheme *::placeholder {
+  color: black;
+}
+
+.darkTheme *::-moz-placeholder {
+  color: white;
+}
+
+.darkTheme *:-ms-input-placeholder {
+  color: white;
+}
+
+.darkTheme *::placeholder {
+  color: white;
 }
 
 h1 {
@@ -7692,6 +7725,8 @@ header .user #userMenu.showUserMenu {
 .article-card img.article-image {
   width: 100%;
   max-height: 350px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .article-card .article-footer {
@@ -7859,6 +7894,20 @@ header .user #userMenu.showUserMenu {
 
 .slider_articles_miniatures .slick-arrow {
   top: 48%;
+}
+
+.tableaux_publics .slick-slide > div > div {
+  overflow-x: hidden;
+  width: 70px !important;
+}
+
+.tableaux_publics .slick-slide > div > div img {
+  width: 70px;
+  height: 70px;
+}
+
+.tableaux_publics .slick-slide > div > div p {
+  white-space: nowrap;
 }
 
 .sidebar {

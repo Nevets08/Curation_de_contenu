@@ -62,6 +62,10 @@ textarea, input, select {
 
 input {
     background-color: transparent;
+    filter: none;
+    @include theme() {
+        color: theme-get('black');
+    }
     @include theme() {
         border: 1px solid theme-get('main-color');
     }
@@ -88,6 +92,11 @@ select, textarea {
 .md {
     @media (min-width: $breakpoint-tablet) {
         display: block;
+    }
+}
+*::placeholder {
+    @include theme() {
+        color: theme-get('black');
     }
 }
 

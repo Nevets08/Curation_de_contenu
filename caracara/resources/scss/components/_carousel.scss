@@ -44,3 +44,16 @@
     }
 }
 
+.tableaux_publics .slick-slide > div > div {
+    overflow-x: hidden;
+    width: 70px !important;
+    img {
+        width: 70px;
+        height: 70px;
+    }
+    p {
+        white-space: nowrap
+    }
+
+}
+
