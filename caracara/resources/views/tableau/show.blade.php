@@ -33,7 +33,8 @@
                     <span>Trier par : Nouveautés</span>
 
                     <div>
-                        <a class="btnAction" href="{{ route('add_post') }}"><i class="fas fa-plus-circle"></i>Ajouter une publication</a>
+                        <a class="btnAction" href="{{ route('add_post') }}"><i class="fas fa-plus-circle"></i>Ajouter
+                            une publication</a>
 
                         @php
                             $userDejaAbo = false;
@@ -59,17 +60,18 @@
                                 <input type="hidden" name="abonne" value="{{$user->id}}">
                                 <input type="hidden" name="sabonner" value="0">
 
-                                <button class="btnAction" type="submit"><i class="fas fa-bell-slash"></i>Se désabonner</button>
+                                <button class="btnAction" type="submit"><i class="fas fa-bell-slash"></i>Se désabonner
+                                </button>
                             </form>
                         @endif
                     </div>
 
                 </div>
             </div>
-           @include('layouts.declare_format_interval')
+            @include('layouts.declare_format_interval')
 
             @foreach ($tableau->posts as $post)
-                   @include('layouts.display_one_post')
+                @include('layouts.display_one_post')
             @endforeach
 
         </div>
@@ -118,21 +120,26 @@
                     <p>Rechercher dans le tableau</p>
                 </a>
             </li>
+            @if($tableau->prive)
             <li>
                 <a href="#">
                     <i class="far fa-times-circle"></i>
-                    <p>Quitter le groupe</p>
+                    <form action="{{ route('tableau.update', $tableau) }}" method="post">
+                        @csrf
+                        @method('PUT')
+                        <input type="hidden" name="userToUpdate" value="{{$user->id}}">
+                        <input type="hidden" name="quit" value="1">
+
+                        <button type="submit">Quitter le tableau</button>
+                    </form>
                 </a>
             </li>
+            @endif
         </ul>
     </div>
 
 
 </x-app-layout>
-
-
-
-
 
 
 {{--<body>--}}
