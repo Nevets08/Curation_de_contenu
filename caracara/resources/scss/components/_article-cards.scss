@@ -1,5 +1,11 @@
 .article-card {
     @include cards;
+    cursor: pointer;
+    &:hover {
+        @include theme() {
+            background-color: theme-get('DFDFDF');
+        }
+    }
 
     .article-infos {
         display: flex;

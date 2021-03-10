@@ -14,6 +14,13 @@ ul.liens_menu_aside {
             color: theme-get('black');
             border: 1px solid theme-get('main-color');
         }
+        &:hover {
+            @include theme() {
+                background-color: theme-get('main-color');
+                color: theme-get('white');
+                border: 1px solid theme-get('main-color');
+            }
+        }
     }
 }
 

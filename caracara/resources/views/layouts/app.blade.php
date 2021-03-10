@@ -66,7 +66,7 @@
 </div>
 <div class="menu-right-fixed">
     <a href="{{ route('add_post') }}"><i title="Ajouter un post" class="fas fa-plus"></i></a>
-    <i title="Passer en mode nuit" class="far fa-moon"></i>
+    <i title="Passer en mode nuit" class="far fa-lightbulb"></i>
 </div>
 @livewireScripts
 </body>

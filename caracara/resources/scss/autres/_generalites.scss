@@ -134,6 +134,7 @@ div.site-global {
     overflow-x: hidden;
     display: flex;
     margin-top: 50px;
+    min-height: calc(100vh - 113px);
     @media (max-width: $breakpoint-tablet) {
         margin-top: 20px;
     }

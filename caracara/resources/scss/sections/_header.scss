@@ -145,6 +145,11 @@ header {
                     @include theme() {
                         color: theme-get('black');
                     }
+                    &:hover {
+                        @include theme() {
+                            color: theme-get('main-color');
+                        }
+                    }
                 }
             }
 

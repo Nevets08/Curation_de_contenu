@@ -33,6 +33,9 @@
     div {
         margin-top: 15px;
         width: 100%;
+        &:hover {
+            @include cards;
+        }
         img {
             width: 70px;
             float: left;

@@ -523,6 +523,7 @@ div.site-global {
   overflow-x: hidden;
   display: flex;
   margin-top: 50px;
+  min-height: calc(100vh - 113px);
 }
 
 @media (max-width: 768px) {
@@ -693,6 +694,16 @@ button {
 }
 
 .darkTheme button {
+  color: #F8F8F8;
+  background-color: #3e8f93;
+}
+
+.lightTheme button:hover {
+  color: #12142c;
+  background-color: #3e8f93;
+}
+
+.darkTheme button:hover {
   color: #F8F8F8;
   background-color: #3e8f93;
 }
