@@ -120,7 +120,7 @@
                     <p>Rechercher dans le tableau</p>
                 </a>
             </li>
-            @if($tableau->prive)
+            @if($tableau->prive and Auth::user()->id != $tableau->user->id)
             <li>
                 <a href="#">
                     <i class="far fa-times-circle"></i>
