@@ -104,6 +104,7 @@ h2 {
     font-size: 2.2rem;
     text-transform: uppercase;
     font-weight: bold;
+    line-height: initial;
     @include theme() {
         color: theme-get('main-color-dark');
     }
