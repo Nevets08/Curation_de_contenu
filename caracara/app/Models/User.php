@@ -64,7 +64,7 @@ class User extends Authenticatable
      *
      */
     public function posts(){ //Posts créés
-        return $this->hasMany(Post::class);
+        return $this->hasMany(Post::class)->orderBy('created_at', 'desc');
     }
 
     //Relation plusieurs à plusieurs avec les tableaux, pour savoir si on est lecteur ou contributeur
@@ -74,7 +74,7 @@ class User extends Authenticatable
 
     //Relation un à plusieurs : les tableaux dont nous sommes le créateur
     public function tableauxCrees(){
-        return $this->hasMany(Nom::class);
+        return $this->hasMany(Tableau::class);
     }
 
     public function likes(){ //Posts likés
