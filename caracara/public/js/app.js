@@ -35437,9 +35437,9 @@ window.$ = window.jQuery = $ = __webpack_require__(/*! jquery */ "./node_modules
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /var/www/vhosts/christ.etu.mmi-unistra.fr/master-projet-tutore.christ.etu.mmi-unistra.fr/caracara/resources/js/app.js */"./resources/js/app.js");
-__webpack_require__(/*! /var/www/vhosts/christ.etu.mmi-unistra.fr/master-projet-tutore.christ.etu.mmi-unistra.fr/caracara/resources/scss/app.scss */"./resources/scss/app.scss");
-module.exports = __webpack_require__(/*! /var/www/vhosts/christ.etu.mmi-unistra.fr/master-projet-tutore.christ.etu.mmi-unistra.fr/caracara/resources/scss/appLogin.scss */"./resources/scss/appLogin.scss");
+__webpack_require__(/*! /var/www/vhosts/bukal.etu.mmi-unistra.fr/laravel.bukal.etu.mmi-unistra.fr/Curation_de_contenu/caracara/resources/js/app.js */"./resources/js/app.js");
+__webpack_require__(/*! /var/www/vhosts/bukal.etu.mmi-unistra.fr/laravel.bukal.etu.mmi-unistra.fr/Curation_de_contenu/caracara/resources/scss/app.scss */"./resources/scss/app.scss");
+module.exports = __webpack_require__(/*! /var/www/vhosts/bukal.etu.mmi-unistra.fr/laravel.bukal.etu.mmi-unistra.fr/Curation_de_contenu/caracara/resources/scss/appLogin.scss */"./resources/scss/appLogin.scss");
 
 
 /***/ })
