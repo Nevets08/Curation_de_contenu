@@ -91,13 +91,33 @@ main {
                 @media (max-width: $breakpoint-mini-mobile) {
                     flex-direction: column;
 
-                    a {
+                    .btnAction {
                         margin-top: 20px;
                     }
                 }
-                a {
+                @media (max-width: $breakpoint-tablet) {
+                    > div {
+                        flex-direction: column;
+                        .btnAction {
+                            width: 100%;
+                            margin: 0;
+                            text-align: left;
+                            &:first-of-type {
+                                margin-bottom: 10px;
+                            }
+                        }
+                    }
+                }
+                > div {
+                    display: flex;
+                }
+                .btnAction {
                     @include button;
                     margin-top: 0;
+                    height: 35px;
+                    &:first-of-type {
+                        margin-right: 15px;
+                    }
                     i {
                         font-size: 14px;
                         margin-right: 8px;

@@ -32,9 +32,37 @@
                 <div class="actions">
                     <span>Trier par : Nouveautés</span>
 
-                    <a href="{{ route('add_post') }}"><i class="fas fa-plus-circle"></i>Ajouter une publication</a>
+                    <div>
+                        <a class="btnAction" href="{{ route('add_post') }}"><i class="fas fa-plus-circle"></i>Ajouter une publication</a>
 
-                    <a href="{{ route('add_post', ['tableau' => $tableau]) }}"><i class="fas fa-plus-circle"></i>Ajouter une publication</a>*
+                        @php
+                            $userDejaAbo = false;
+                            foreach ($tableau->abonnes as $item){
+                                if (isset($item->id) && $item->id === $user->id)
+                                    $userDejaAbo = true;
+                            }
+                        @endphp
+
+                        @if (!$userDejaAbo)
+                            <form action="{{ route('tableau.update', $tableau) }}" method="post">
+                                @csrf
+                                @method('PUT')
+                                <input type="hidden" name="abonne" value="{{$user->id}}">
+                                <input type="hidden" name="sabonner" value="1">
+
+                                <button class="btnAction" type="submit"><i class="fas fa-bell"></i>S'abonner</button>
+                            </form>
+                        @else
+                            <form action="{{ route('tableau.update', $tableau) }}" method="post">
+                                @csrf
+                                @method('PUT')
+                                <input type="hidden" name="abonne" value="{{$user->id}}">
+                                <input type="hidden" name="sabonner" value="0">
+
+                                <button class="btnAction" type="submit"><i class="fas fa-bell-slash"></i>Se désabonner</button>
+                            </form>
+                        @endif
+                    </div>
 
                 </div>
             </div>
