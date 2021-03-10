@@ -30,7 +30,7 @@ class TableauPolicy
      */
     public function view(User $user, Tableau $tableau)
     {
-        if( (!$tableau->prive) || ($tableau->user == $user) || ($tableau->users->isNotEmpty() && $tableau->users->contains($user)) )
+        if( (!$tableau->prive) || ($tableau->user->id == $user->id) || ($tableau->users->isNotEmpty() && $tableau->users->contains($user)) )
             return true;
     }
 

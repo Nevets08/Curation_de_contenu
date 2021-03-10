@@ -63,8 +63,11 @@ class TableauController extends Controller
         $tableau->user()->associate($data['user_id']); //un à plusieurs
         $tableau->save();
 
+        $tableau->abonnes()->attach($data['user_id']); //abonner le créateur
+
         if(array_key_exists ( 'user' , $data )){
             $tableau->users()->attach($data['user']); //plusieurs à plusieurs
+            $tableau->abonnes()->attach($data['user']);
         }
 
         $user = Auth::user();
@@ -134,8 +137,11 @@ class TableauController extends Controller
         $tableau->fill($data);
         $tableau->save();
 
-        if(array_key_exists ( 'user' , $data ))
+        if(array_key_exists ( 'user' , $data )){
             $tableau->users()->attach($data['user']); //plusieurs à plusieurs (attach pour ajouter et non-pas remplacer)
+            $tableau->abonnes()->attach($data['user']);
+        }
+            
 
         //Gestions des utilisateurs (contributeur/lecteur/virer)
         if(array_key_exists ( 'userToUpdate' , $data )){
@@ -143,6 +149,7 @@ class TableauController extends Controller
                 $tableau->users()->updateExistingPivot($data['userToUpdate'], array('contributeur' => $data['contributeur']));
             else if(array_key_exists ( 'quit' , $data ) && $data['quit']){
                 $tableau->users()->detach($data['userToUpdate']);
+                $tableau->abonnes()->detach($data['userToUpdate']);
                 if($data['userToUpdate'] == $user->id) //Si c'est nous qui avons quitté le tableau
                     return redirect()->route('tableau.index');
             }

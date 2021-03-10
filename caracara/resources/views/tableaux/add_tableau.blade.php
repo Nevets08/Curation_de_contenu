@@ -6,10 +6,10 @@
             @include('layouts.secondary_menu')
         </section>
 
-        <section class="members">
+        {{-- <section class="members">
             <h2>Membres du tableau</h2>
             @include('layouts.members_posts')
-        </section>
+        </section> --}}
     </aside>
 
     <main class="add_post">
