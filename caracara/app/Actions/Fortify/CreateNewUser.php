@@ -2,6 +2,7 @@
 
 namespace App\Actions\Fortify;
 
+use App\Models\Tableau;
 use App\Models\Team;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
@@ -34,6 +35,7 @@ class CreateNewUser implements CreatesNewUsers
                 'password' => Hash::make($input['password']),
             ]), function (User $user) {
                 $this->createTeam($user);
+                $this->createTableauSaved($user);
             });
         });
     }
@@ -50,6 +52,22 @@ class CreateNewUser implements CreatesNewUsers
             'user_id' => $user->id,
             'name' => explode(' ', $user->name, 2)[0]."'s Team",
             'personal_team' => true,
+        ]));
+    }
+
+    /**
+     * Créer le tableau des posts sauvegardés
+     *
+     * @param  \App\Models\User  $user
+     * @return void
+     */
+    protected function createTableauSaved(User $user)
+    {
+        $user->tableauSaved()->associate(Tableau::forceCreate([
+            'nom' => "Publications sauvegardées de ".$user->name,
+            'description' => "Vous pouvez reposter ici les publications que vous avez aimées, ou que vous souhaitez lire plus tard... Il est privé et vous seul y avez accès !",
+            'prive' => 1,
+            'user_id' => $user->id
         ]));
     }
 }

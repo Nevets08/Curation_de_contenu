@@ -32,4 +32,9 @@ class Tableau extends Model
     {
         return $this->belongsToMany(User::class, 'abonnements', 'tableau_id', 'user_id');
     }
+
+    public function userSaved()
+    {
+        return $this->hasOne(User::class);
+    }
 }
