@@ -20,6 +20,12 @@
     border-radius: 50px;
     padding: 5px 20px;
     margin-top: 15px;
+    &:hover {
+        @include theme() {
+            color: theme-get('main-color-dark');
+            background-color: theme-get('main-color');
+        }
+    }
 }
 
 @mixin buttonBefore {

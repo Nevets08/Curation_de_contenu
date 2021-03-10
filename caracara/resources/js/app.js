@@ -79,9 +79,10 @@ function DisplaySideBar() {
 
 
 //DarkMode
-const DarkModeSwitchButton = document.querySelector(".fa-moon");
+const DarkModeSwitchButton = document.querySelector(".menu-right-fixed > i");
 const body = document.body;
 const logo = document.querySelector("img.logo");
+// const iconNuit = document.querySelector(".menu-right-fixed > i")
 if (DarkModeSwitchButton !== null) {
     DarkModeSwitchButton.addEventListener("click", DarkMode);
 }
@@ -94,20 +95,24 @@ function DarkMode() {
     }
     if (localStorage.getItem('darkTheme') === "yes") {
         body.classList.replace("lightTheme", "darkTheme");
-        logo.src = "/caracara/public/img/Logo-DarkMode.png"
+        logo.src = "/caracara/public/img/Logo-DarkMode.png";
+        DarkModeSwitchButton.classList.replace("far", "fas");
     } else {
         body.classList.replace("darkTheme", "lightTheme");
-        logo.src = "/caracara/public/img/Logo.png"
+        logo.src = "/caracara/public/img/Logo.png";
+        DarkModeSwitchButton.classList.replace("fas", "far");
     }
 }
 
 (function () {
     if (localStorage.getItem('darkTheme') === "yes") {
         body.classList.replace("lightTheme", "darkTheme");
-        logo.src = "/caracara/public/img/Logo-DarkMode.png"
+        logo.src = "/caracara/public/img/Logo-DarkMode.png";
+        DarkModeSwitchButton.classList.replace("far", "fas");
     } else {
         body.classList.replace("darkTheme", "lightTheme");
-        logo.src = "/caracara/public/img/Logo.png"
+        logo.src = "/caracara/public/img/Logo.png";
+        DarkModeSwitchButton.classList.replace("fas", "far");
     }
 }());
 
@@ -131,4 +136,13 @@ function displaySideBarCreationTableau(e) {
 function removeSideBarCreationTableau(e) {
     e.preventDefault();
     document.querySelector(".sidebar").classList.remove("showSideBar");
+}
+
+//Enlever lien sur article cards quand on like
+const buttonLikes = document.querySelectorAll(".article-likes form button");
+for (var i = 0; i < buttonLikes.length; i++) {
+    const buttonLikeElement = buttonLikes[i];
+    buttonLikeElement.addEventListener("click", function(e) {
+        e.stopPropagation();
+    })
 }
