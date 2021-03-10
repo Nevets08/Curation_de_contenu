@@ -6,13 +6,16 @@ require('slick-carousel');
 
 
 //Bouton partage
-const button_partage = document.querySelector(".article-card a.article-partager");
+const button_partage = document.querySelectorAll(".article-card a.article-partager");
 if (button_partage !== null) {
-    button_partage.addEventListener("click", ClickButtonPartage);
+    for (var i = 0; i < button_partage.length; i++) {
+        const buttonPartageElement = button_partage[i];
+        buttonPartageElement.addEventListener("click", ClickButtonPartage);
+    }
 }
 
 function ClickButtonPartage(e) {
-    document.querySelector(".article-partager-liens").classList.toggle("show");
+    this.nextElementSibling.classList.toggle("show");
     e.preventDefault();
     e.stopPropagation();
 }

@@ -35241,14 +35241,17 @@ __webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/alpine.js");
 __webpack_require__(/*! slick-carousel */ "./node_modules/slick-carousel/slick/slick.js"); //Bouton partage
 
 
-var button_partage = document.querySelector(".article-card a.article-partager");
+var button_partage = document.querySelectorAll(".article-card a.article-partager");
 
 if (button_partage !== null) {
-  button_partage.addEventListener("click", ClickButtonPartage);
+  for (var i = 0; i < button_partage.length; i++) {
+    var buttonPartageElement = button_partage[i];
+    buttonPartageElement.addEventListener("click", ClickButtonPartage);
+  }
 }
 
 function ClickButtonPartage(e) {
-  document.querySelector(".article-partager-liens").classList.toggle("show");
+  this.nextElementSibling.classList.toggle("show");
   e.preventDefault();
   e.stopPropagation();
 } //User boutton dropdown
