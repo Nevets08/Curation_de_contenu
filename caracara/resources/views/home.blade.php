@@ -25,11 +25,16 @@
         </section>
         <section>
             <h2>Publications sauvegardées</h2>
-            <article class="article-miniature">
-                <img src="{{ asset('img/carre_vide.png') }}" alt="">
-                <p class="article-miniature-headline">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.</p>
-                <p class="article-miniature-infos">Par <a href="#">Nom Prénom</a> dans <a href="#">Anglais</a></p>
-            </article>
+            @php
+                $count = count(Auth::user()->tableauSaved->posts)>3 ? 3 : count(Auth::user()->tableauSaved->posts);
+            @endphp
+            @for ($i = 0; $i < $count; $i++)
+                @php
+                    $post=Auth::user()->posts[$i];
+                @endphp
+                @include('layouts.article_miniature')
+            @endfor
+            <p class="button"><a href="{{ route('saved_posts', ['tabID' => Auth::user()->tableauSaved->id]) }}">Voir toutes vos publications sauvegardées</a></p>
         </section>
     </aside>
     <main>
