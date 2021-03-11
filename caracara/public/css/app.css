@@ -7978,7 +7978,7 @@ div.modal {
   right: 0;
   bottom: 0;
   background: rgba(0, 0, 0, 0.75);
-  z-index: 20;
+  z-index: 5;
 }
 
 div.modal > div {
@@ -8264,104 +8264,6 @@ div.modal.show {
   border-bottom: 2px solid #F8F8F8;
 }
 
-.add_post form,
-.add_post form label {
-  display: flex;
-  flex-direction: column;
-}
-
-.add_post form {
-  margin-top: 30px;
-}
-
-.add_post form label {
-  margin: 10px 0;
-  font-size: 2rem;
-  font-weight: bold;
-}
-
-.add_post form label > * {
-  margin-top: 5px;
-  width: 100%;
-  max-width: 600px;
-}
-
-.add_post form p a {
-  font-weight: initial;
-  font-size: 1.4rem;
-  text-decoration: underline;
-}
-
-.lightTheme .add_post form p a {
-  color: #12142c;
-}
-
-.darkTheme .add_post form p a {
-  color: #F8F8F8;
-}
-
-.add_post form label.booleanChoice.row {
-  flex-direction: row;
-}
-
-.add_post form label.booleanChoice label {
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: left;
-  align-items: center;
-  width: auto;
-}
-
-.add_post form label.booleanChoice label:first-of-type {
-  margin-right: 15px;
-}
-
-.add_post form label.booleanChoice label input {
-  flex-basis: max-content;
-}
-
-.add_post form .group_buttons {
-  display: flex;
-  align-items: center;
-  margin-top: 30px;
-}
-
-.add_post form .group_buttons button {
-  margin-top: 0;
-  margin-left: 15px;
-}
-
-.add_post form button {
-  margin-top: 30px;
-  padding: 10px 20px;
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
-  border-radius: 10px;
-  font-weight: bold;
-}
-
-.lightTheme .add_post form button {
-  background-color: #12142c;
-  color: white;
-}
-
-.darkTheme .add_post form button {
-  background-color: #F8F8F8;
-  color: #323234;
-}
-
-@media (max-width: 768px) {
-  .add_post form button {
-    width: 100%;
-    text-align: center;
-  }
-}
-
-.add_post form .retour_creationPost {
-  text-decoration: underline;
-}
-
 .article-card {
   padding: 20px;
   margin-bottom: 30px;
@@ -8612,6 +8514,104 @@ div.modal.show {
 
 .darkTheme .article-remove i {
   color: #323234;
+}
+
+.add_post form,
+.add_post form label {
+  display: flex;
+  flex-direction: column;
+}
+
+.add_post form {
+  margin-top: 30px;
+}
+
+.add_post form label {
+  margin: 10px 0;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.add_post form label > * {
+  margin-top: 5px;
+  width: 100%;
+  max-width: 600px;
+}
+
+.add_post form p a {
+  font-weight: initial;
+  font-size: 1.4rem;
+  text-decoration: underline;
+}
+
+.lightTheme .add_post form p a {
+  color: #12142c;
+}
+
+.darkTheme .add_post form p a {
+  color: #F8F8F8;
+}
+
+.add_post form label.booleanChoice.row {
+  flex-direction: row;
+}
+
+.add_post form label.booleanChoice label {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: left;
+  align-items: center;
+  width: auto;
+}
+
+.add_post form label.booleanChoice label:first-of-type {
+  margin-right: 15px;
+}
+
+.add_post form label.booleanChoice label input {
+  flex-basis: max-content;
+}
+
+.add_post form .group_buttons {
+  display: flex;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.add_post form .group_buttons button {
+  margin-top: 0;
+  margin-left: 15px;
+}
+
+.add_post form button {
+  margin-top: 30px;
+  padding: 10px 20px;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+.lightTheme .add_post form button {
+  background-color: #12142c;
+  color: white;
+}
+
+.darkTheme .add_post form button {
+  background-color: #F8F8F8;
+  color: #323234;
+}
+
+@media (max-width: 768px) {
+  .add_post form button {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+.add_post form .retour_creationPost {
+  text-decoration: underline;
 }
 
 .text-xs,

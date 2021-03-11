@@ -78,15 +78,13 @@
                 <a href="https://www.linkedin.com/shareArticle?url={{$post->url}}">LinkedIn</a>
             </div>
         </div>
-        @if ($post->user->id == $user->id)
-            <div class="article-remove">
-                <form action="{{ route('post.destroy', $post) }}" method="POST">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit"><i class="fas fa-trash" title="Supprimer le post"></i></button>
-                </form>
-            </div>
-        @endif
+        <div class="article-remove">
+            <form action="{{ route('post.destroy', $post) }}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button type="submit"><i class="fas fa-trash" title="Supprimer le post"></i></button>
+            </form>
+        </div>
     </div>
 </article>
 

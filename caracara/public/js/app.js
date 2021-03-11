@@ -35441,7 +35441,7 @@ if (seeMembersButton !== null) {
   seeMembersButton.addEventListener("click", function (e) {
     e.preventDefault();
     e.stopPropagation();
-    var modal = document.querySelector(".modal.members-list");
+    var modal = document.querySelector(".modal");
     modal.classList.add("show");
     window.addEventListener("click", function () {
       modal.classList.remove("show");
@@ -35451,36 +35451,6 @@ if (seeMembersButton !== null) {
     });
   });
 }
-
-var membersManagementButton = document.querySelector(".members-management-button");
-
-if (membersManagementButton !== null) {
-  membersManagementButton.addEventListener("click", function (e) {
-    e.preventDefault();
-    e.stopPropagation();
-    var modal = document.querySelector(".modal.members-management");
-    modal.classList.add("show");
-    window.addEventListener("click", function () {
-      modal.classList.remove("show");
-    });
-    modal.firstElementChild.addEventListener("click", function (e) {
-      e.stopPropagation();
-    });
-  });
-} // function DisplayModal(e) {
-//     e.preventDefault();
-//     e.stopPropagation();
-//
-//     const modal = document.querySelector(".modal");
-//     modal.classList.add("show");
-//
-//     window.addEventListener("click", function () {
-//         modal.classList.remove("show");
-//     });
-//     modal.firstElementChild.addEventListener("click", function (e) {
-//         e.stopPropagation();
-//     });
-// }
 
 /***/ }),
 
