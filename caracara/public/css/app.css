@@ -8178,6 +8178,91 @@ main .posts .posts-infos .actions .btnAction i {
   color: #F8F8F8;
 }
 
+div.article-repost {
+  position: fixed !important;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  visibility: hidden;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.75);
+}
+
+div.article-repost > div {
+  padding: 20px;
+  margin-bottom: 30px;
+  border-radius: 20px;
+  max-width: 80vh;
+  max-height: 80vh;
+  margin: auto;
+}
+
+.lightTheme div.article-repost > div {
+  box-shadow: 0 3px 6px #DFDFDF;
+  background-color: #F8F8F8;
+}
+
+.darkTheme div.article-repost > div {
+  box-shadow: 0 3px 6px #323234;
+  background-color: #252527;
+}
+
+@media (max-width: 768px) {
+  div.article-repost > div {
+    padding: 10px;
+  }
+}
+
+.lightTheme div.article-repost > div {
+  background-color: white;
+}
+
+.darkTheme div.article-repost > div {
+  background-color: #323234;
+}
+
+div.article-repost label,
+div.article-repost select {
+  width: 100%;
+}
+
+div.article-repost select {
+  margin-top: 30px;
+}
+
+div.article-repost button {
+  border-radius: 50px;
+  padding: 5px 20px;
+  margin-top: 15px;
+}
+
+.lightTheme div.article-repost button {
+  color: #12142c;
+  background-color: #94CAD1;
+}
+
+.darkTheme div.article-repost button {
+  color: #F8F8F8;
+  background-color: #3e8f93;
+}
+
+.lightTheme div.article-repost button:hover {
+  color: #12142c;
+  background-color: #3e8f93;
+}
+
+.darkTheme div.article-repost button:hover {
+  color: #F8F8F8;
+  background-color: #3e8f93;
+}
+
+div.article-repost.show {
+  visibility: initial;
+}
+
 .sidebarTableau {
   text-align: center;
 }

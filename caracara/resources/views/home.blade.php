@@ -60,7 +60,7 @@
                     @include('layouts.display_one_post');
                 @endcan
             @endforeach
-
+            @include('layouts/modal_retweet');
         </section>
 
     </main>

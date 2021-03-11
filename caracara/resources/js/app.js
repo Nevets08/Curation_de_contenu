@@ -140,9 +140,34 @@ function removeSideBarCreationTableau(e) {
 
 //Enlever lien sur article cards quand on like
 const buttonLikes = document.querySelectorAll(".article-likes form button");
-for (var i = 0; i < buttonLikes.length; i++) {
-    const buttonLikeElement = buttonLikes[i];
+for (var j = 0; j < buttonLikes.length; j++) {
+    const buttonLikeElement = buttonLikes[j];
     buttonLikeElement.addEventListener("click", function(e) {
         e.stopPropagation();
-    })
+    });
+}
+
+//Modal Repost
+const retweetButton = document.querySelectorAll(".article-Retweet a");
+if (retweetButton !== null) {
+    for (var i = 0; i < retweetButton.length; i++) {
+        const retweetButtonElement = retweetButton[i];
+        retweetButtonElement.addEventListener("click", displayModalRetweet);
+    }
+}
+
+
+
+function displayModalRetweet(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    const modal = document.querySelector(".article-repost");
+    modal.classList.add("show");
+
+    window.addEventListener("click", function () {
+        modal.classList.remove("show");
+    });
+    modal.firstElementChild.addEventListener("click", function (e) {
+        e.stopPropagation();
+    });
 }
