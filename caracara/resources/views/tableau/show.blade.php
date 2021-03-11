@@ -74,6 +74,7 @@
                 @include('layouts.display_one_post')
             @endforeach
 
+            @include('layouts/modal_retweet');
         </div>
     </main>
 
