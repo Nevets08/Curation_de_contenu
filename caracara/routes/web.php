@@ -35,27 +35,27 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/', function () {
     return view('home', ['tableaux' => Tableau::all(), 'posts' => Post::orderBy('created_at', 'desc')->get()]);
 })->name('home');
 
-Route::get('/private_posts', function () {
+Route::middleware(['auth:sanctum', 'verified'])->get('/private_posts', function () {
     return view('tableaux/private_posts');
 })->name('private_posts');
 
-Route::get('/saved_posts', function () {
+Route::middleware(['auth:sanctum', 'verified'])->get('/saved_posts', function () {
     return view('tableaux/saved_posts');
 })->name('saved_posts');
 
-Route::get('/add_post', function () {
+Route::middleware(['auth:sanctum', 'verified'])->get('/add_post', function () {
     return view('tableaux/add_post', ['user' => Auth::user(), 'allTableaux' => Tableau::all(), 'allUsers' => User::all()]);
 })->name('add_post');
 
-Route::get('/add_tableau', function () {
+Route::middleware(['auth:sanctum', 'verified'])->get('/add_tableau', function () {
     return view('tableaux/add_tableau', ['user' => Auth::user(), 'allUsers' => User::all()]);
 })->name('add_tableau');
 
-Route::get('/all_private_tableaux', function () {
+Route::middleware(['auth:sanctum', 'verified'])->get('/all_private_tableaux', function () {
     return view('tableaux/all_private_tableaux', ['tableaux' => Tableau::where('prive', 1)->get()]);
 })->name('all_private_tableaux');
 
-Route::get('/all_public_tableaux', function () {
+Route::middleware(['auth:sanctum', 'verified'])->get('/all_public_tableaux', function () {
     return view('tableaux/all_public_tableaux', ['tableaux' => Tableau::where('prive', 0)->get()]);
 })->name('all_public_tableaux');
 
