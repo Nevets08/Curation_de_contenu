@@ -21,6 +21,8 @@
             @if (Route::has('password.request'))
                 <a style="text-align: center; margin-top: 40px; color: #646464;" href="{{ route('password.request') }}">Mot de passe oublié ?</a>
             @endif
+
+            <p style="text-align: center; margin-top: 0; color: #646464;">Pas encore inscrit ? <a style="color: #646464; text-decoration: underline" href="{{ route('register') }}">Inscrivez-vous</a></p>
         </form>
     </main>
 </x-guest-layout>

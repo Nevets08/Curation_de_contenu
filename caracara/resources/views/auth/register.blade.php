@@ -21,7 +21,7 @@
 
             <button type="submit">S'inscrire</button>
 
-            <p style="text-align: center; margin-top: 40px; color: #646464;">Déjà inscrit ? <a style="color: #646464;" href="{{ route('login') }}">Connectez-vous</a></p>
+            <p style="text-align: center; margin-top: 40px; color: #646464;">Déjà inscrit ? <a style="color: #646464; text-decoration: underline" href="{{ route('login') }}">Connectez-vous</a></p>
         </form>
     </main>
 </x-guest-layout>
