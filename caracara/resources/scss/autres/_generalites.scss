@@ -154,6 +154,7 @@ div.site-global {
 
     main {
         width: calc(100% - 25% - 50px);
+        min-height: 100vh;
         @media (max-width: $breakpoint-tablet) {
             width: 100%;
         }

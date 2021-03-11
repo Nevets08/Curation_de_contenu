@@ -1,7 +1,5 @@
-<div class="article-repost">
+<div class="article-repost modal">
     <div>
-
-
         {{-- Reposts --}}
         <form action="{{ route('post.update', $post) }}" method="post">
             @csrf

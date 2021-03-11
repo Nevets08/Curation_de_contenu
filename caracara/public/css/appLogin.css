@@ -568,6 +568,7 @@ div.site-global aside section {
 
 div.site-global main {
   width: calc(100% - 25% - 50px);
+  min-height: 100vh;
 }
 
 @media (max-width: 768px) {

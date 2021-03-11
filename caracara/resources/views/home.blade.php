@@ -54,11 +54,10 @@
             </div>
         </section>
         <section>
-            @include('layouts.declare_format_interval');
+            @include('layouts.declare_format_interval')
             @foreach ($posts as $post)
                 @can('abonnement', $post)
-                    @include('layouts.display_one_post');
-                    @include('layouts/modal_retweet');
+                    @include('layouts.display_one_post')
                 @endcan
             @endforeach
 

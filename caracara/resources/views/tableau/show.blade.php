@@ -72,7 +72,6 @@
 
             @foreach ($tableau->posts as $post)
                 @include('layouts.display_one_post')
-                @include('layouts/modal_retweet')
             @endforeach
 
 

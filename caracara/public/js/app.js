@@ -35254,6 +35254,27 @@ function ClickButtonPartage(e) {
   this.nextElementSibling.classList.toggle("show");
   e.preventDefault();
   e.stopPropagation();
+  var liens = this.nextElementSibling.childNodes;
+
+  for (var y = 0; y < liens.length; y++) {
+    var unLien = liens[y];
+    console.log(unLien);
+    unLien.addEventListener("click", function (e) {
+      e.stopPropagation();
+    });
+  }
+} //Click button remove post
+
+
+var buttonRemove = document.querySelectorAll(".article-remove form button");
+
+if (buttonRemove !== null) {
+  for (var t = 0; t < buttonRemove.length; t++) {
+    var buttonRemoveElement = buttonRemove[t];
+    buttonRemoveElement.addEventListener("click", function (e) {
+      e.stopPropagation();
+    });
+  }
 } //User boutton dropdown
 
 

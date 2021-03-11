@@ -1,0 +1,28 @@
+.article-remove {
+    position: absolute;
+    cursor: pointer;
+    top: 50%;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    transition: 0.2s width;
+    @include theme() {
+        background-color: theme-get('main-color-dark')
+    }
+    &:hover {
+        width: 40px;
+    }
+    button {
+        width: 30px;
+        height: 40px;
+        cursor: pointer;
+    }
+    i {
+        @include theme() {
+            color: theme-get('white');
+        }
+    }
+}

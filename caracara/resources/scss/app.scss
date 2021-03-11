@@ -28,17 +28,20 @@
 
 //Composants
 @import "components/options-sticky";
-@import "components/article-cards";
 @import "components/carousel";
 @import "components/sidebar";
 @import "components/tableaux";
-@import "components/article_modal_retweet";
+@import "components/modals";
 
 //Tableau
 @import "tableaux/_sidebarTableau";
 @import "tableaux/_liste_tableaux_prives";
 @import "tableaux/_liste_articles_sauvegardes";
 @import "tableaux/add_post";
+
+//Post
+@import "post/post";
+@import "post/post-remove";
 
 //Livewire change
 

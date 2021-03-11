@@ -40,7 +40,7 @@ class PostController extends Controller
      */
     public function store(PostRequest $request)
     {
-        
+
         $data = $request->validated();
 
         $post = new Post();
@@ -50,10 +50,7 @@ class PostController extends Controller
         $post->tableaux()->attach($data['tableau']); //plusieurs à plusieurs
 
         $user = Auth::user();
-        if(array_key_exists('created_from', $data))
-            return redirect()->route('tableau.show', ['tableau' => $data['created_from'], 'user' => $user]);
-        else
-            return redirect()->route('home');
+        return redirect()->route('tableau.show', ['tableau' => $data['created_from'], 'user' => $user]);
     }
 
     /**
@@ -119,6 +116,6 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         $post->delete();
-        return redirect()->route('post.index');
+        return redirect()->route('home');
     }
 }

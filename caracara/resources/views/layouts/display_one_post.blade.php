@@ -78,5 +78,14 @@
                 <a href="https://www.linkedin.com/shareArticle?url={{$post->url}}">LinkedIn</a>
             </div>
         </div>
+        <div class="article-remove">
+            <form action="{{ route('post.destroy', $post) }}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button type="submit"><i class="fas fa-trash" title="Supprimer le post"></i></button>
+            </form>
+        </div>
     </div>
 </article>
+
+@include('layouts/modal_retweet')
