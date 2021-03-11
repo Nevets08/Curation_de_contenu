@@ -40,7 +40,7 @@
             <h2>Tableaux privés</h2>
             <div class="tableaux_prives_slider slider ">
                 @foreach ($user->tableauxCrees as $tab)
-                    @if($tab->prive)
+                    @if($tab->prive && $tab->id != Auth::user()->tableauSaved->id)
                         <div onclick="window.location = '{{ route("tableau.show", $tab) }}'">
                             <img src="@if ($tab->url_icone)
                             {{ $tab->url_icone }}
