@@ -5,19 +5,36 @@
             <div class="tableaux_miniatures">
                 @foreach ($tableaux as $tableau)
                     @can('view', $tableau){{--Si on a bien accès au tableau--}}
-                        @if ($tableau->prive /*&& $tableau->id != Auth::user()->tableauSaved->id*/)
-                            <div>
-                                <a href="{{ route("tableau.show", $tableau) }}">
-                                    <img src="
-                                        @if ($tableau->url_icone)
-                                            {{ $tableau->url_icone }}
-                                        @else
-                                            {{ asset('img/rectangle_vide.png') }}
-                                        @endif" alt="">
-                                    <p>{{$tableau->nom}}</p>
-                                </a>
-                            </div>
+                        @if (Auth::user()->tableauSaved)
+                            @if ($tableau->prive && $tableau->id != Auth::user()->tableauSaved->id)
+                                <div>
+                                    <a href="{{ route("tableau.show", $tableau) }}">
+                                        <img src="
+                                            @if ($tableau->url_icone)
+                                                {{ $tableau->url_icone }}
+                                            @else
+                                                {{ asset('img/rectangle_vide.png') }}
+                                            @endif" alt="">
+                                        <p>{{$tableau->nom}}</p>
+                                    </a>
+                                </div>
+                            @endif
+                        @else
+                            @if ($tableau->prive)
+                                <div>
+                                    <a href="{{ route("tableau.show", $tableau) }}">
+                                        <img src="
+                                            @if ($tableau->url_icone)
+                                                {{ $tableau->url_icone }}
+                                            @else
+                                                {{ asset('img/rectangle_vide.png') }}
+                                            @endif" alt="">
+                                        <p>{{$tableau->nom}}</p>
+                                    </a>
+                                </div>
+                            @endif
                         @endif
+                        
                     @endcan
                 @endforeach
             </div>
