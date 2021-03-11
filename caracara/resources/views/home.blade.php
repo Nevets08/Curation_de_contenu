@@ -58,9 +58,10 @@
             @foreach ($posts as $post)
                 @can('abonnement', $post)
                     @include('layouts.display_one_post');
+                    @include('layouts/modal_retweet');
                 @endcan
             @endforeach
-            @include('layouts/modal_retweet');
+
         </section>
 
     </main>

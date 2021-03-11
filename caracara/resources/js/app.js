@@ -150,24 +150,38 @@ for (var j = 0; j < buttonLikes.length; j++) {
 //Modal Repost
 const retweetButton = document.querySelectorAll(".article-Retweet a");
 if (retweetButton !== null) {
-    for (var i = 0; i < retweetButton.length; i++) {
-        const retweetButtonElement = retweetButton[i];
-        retweetButtonElement.addEventListener("click", displayModalRetweet);
+    for (var k = 0; k < retweetButton.length; k++) {
+        const retweetButtonElement = retweetButton[k];
+        // retweetButtonElement.addEventListener("click", displayModalRetweet);
+        retweetButtonElement.addEventListener("click", function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            const modal = retweetButtonElement.closest("article").nextElementSibling;
+            console.log(modal);
+            modal.classList.add("show");
+
+            window.addEventListener("click", function () {
+                modal.classList.remove("show");
+            });
+            modal.firstElementChild.addEventListener("click", function (e) {
+                e.stopPropagation();
+            });
+        });
     }
 }
 
 
 
-function displayModalRetweet(e) {
-    e.preventDefault();
-    e.stopPropagation();
-    const modal = document.querySelector(".article-repost");
-    modal.classList.add("show");
-
-    window.addEventListener("click", function () {
-        modal.classList.remove("show");
-    });
-    modal.firstElementChild.addEventListener("click", function (e) {
-        e.stopPropagation();
-    });
-}
+// function displayModalRetweet(e) {
+//     e.preventDefault();
+//     e.stopPropagation();
+//     const modal = retwe
+//     modal.classList.add("show");
+//
+//     window.addEventListener("click", function () {
+//         modal.classList.remove("show");
+//     });
+//     modal.firstElementChild.addEventListener("click", function (e) {
+//         e.stopPropagation();
+//     });
+// }
