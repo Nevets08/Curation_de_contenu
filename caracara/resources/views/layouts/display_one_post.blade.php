@@ -71,8 +71,21 @@ $date = format_interval($difference);
             @endif
             <span></span>
         </div>
-        {{-- <a href=""><i style="margin-right: 5px;" class="far fa-heart"></i>605</a> --}}
-        {{-- <div class="article-favoris"><a href=""><i style="margin-right: 5px;" class="far fa-bookmark"></i>Ajouter aux favoris</a></div> --}}
+        
+        {{-- Sauvegarder la publication --}}
+        @if(isset(Auth::user()->tableauSaved))
+        <div class="article-favoris">
+            <form action="{{ route('post.update', $post) }}" method="post">
+                @csrf
+                @method('PUT')
+                    <select multiple required name="tableau[]" style="display: none">
+                        <option value={{ Auth::user()->tableauSaved->id }} selected></option>
+                    </select>
+                <button type="submit"><i style="margin-right: 5px;" class="far fa-bookmark"></i>Sauvegarder</button>
+            </form>
+        </div>
+        @endif
+
         <div class="article-Retweet"><a href=""><i style="margin-right: 5px;" class="fas fa-retweet"></i>Reposter</a>
         </div>
         <div class="article-partager">
