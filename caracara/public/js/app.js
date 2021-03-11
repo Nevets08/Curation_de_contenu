@@ -35405,6 +35405,16 @@ for (var j = 0; j < buttonLikes.length; j++) {
   buttonLikeElement.addEventListener("click", function (e) {
     e.stopPropagation();
   });
+} //Enlever lien sur article cards quand on save
+
+
+var buttonSave = document.querySelectorAll(".article-favoris form button");
+
+for (var o = 0; o < buttonLikes.length; o++) {
+  var buttonSaveElement = buttonSave[o];
+  buttonSaveElement.addEventListener("click", function (e) {
+    e.stopPropagation();
+  });
 } //Modal Repost
 
 
@@ -35412,8 +35422,7 @@ var retweetButton = document.querySelectorAll(".article-Retweet a");
 
 if (retweetButton !== null) {
   var _loop = function _loop() {
-    var retweetButtonElement = retweetButton[k]; // retweetButtonElement.addEventListener("click", displayModalRetweet);
-
+    var retweetButtonElement = retweetButton[k];
     retweetButtonElement.addEventListener("click", function (e) {
       e.preventDefault();
       e.stopPropagation();
@@ -35467,20 +35476,7 @@ if (membersManagementButton !== null) {
       e.stopPropagation();
     });
   });
-} // function DisplayModal(e) {
-//     e.preventDefault();
-//     e.stopPropagation();
-//
-//     const modal = document.querySelector(".modal");
-//     modal.classList.add("show");
-//
-//     window.addEventListener("click", function () {
-//         modal.classList.remove("show");
-//     });
-//     modal.firstElementChild.addEventListener("click", function (e) {
-//         e.stopPropagation();
-//     });
-// }
+}
 
 /***/ }),
 
