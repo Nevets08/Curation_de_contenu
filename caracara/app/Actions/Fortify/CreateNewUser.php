@@ -63,11 +63,15 @@ class CreateNewUser implements CreatesNewUsers
      */
     protected function createTableauSaved(User $user)
     {
-        $user->tableauSaved()->associate(Tableau::forceCreate([
+        Tableau::forceCreate([
             'nom' => "Publications sauvegardées de ".$user->name,
             'description' => "Vous pouvez reposter ici les publications que vous avez aimées, ou que vous souhaitez lire plus tard... Il est privé et vous seul y avez accès !",
             'prive' => 1,
             'user_id' => $user->id
-        ]));
+        ]);
+        
+        $tableauSaved = DB::table('tableaux')->where('user_id', '=', $user->id)->first();
+
+        $user->tableau()->associate($tableauSaved->id);
     }
 }
