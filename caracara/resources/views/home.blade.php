@@ -48,7 +48,7 @@
                 @endphp
                 @for ($i = 0; $i < $count; $i++)
                     @php
-                        $post=Auth::user()->posts[$i];
+                        $post=Auth::user()->tableauSaved->posts[$i];
                     @endphp
                     @include('layouts.article_miniature')
                 @endfor
