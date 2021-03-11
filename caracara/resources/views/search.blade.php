@@ -51,31 +51,6 @@
                         <input type="text" name="search_general" placeholder="Javascript..." required>
                     </div>
 
-                    {{-- <div class="inputs">
-                        <label for="">Dans quel tableau ?</label><br>
-                        <select name="" id="">
-                            <option value="">Tous</option>
-                            <option value="">Jean</option>
-                            <option value="">Jean</option>
-                            <option value="">Jean</option>
-                            <option value="">Jean</option>
-                            <option value="">Jean</option>
-                            <option value="">Jean</option>
-                        </select>
-                    </div>
-
-                    <div class="inputs">
-                        <label for="">Publié par :</label><br>
-                        <select name="" id="">
-                            <option value="">Tous</option>
-                            <option value="">Jean</option>
-                            <option value="">Jean</option>
-                            <option value="">Jean</option>
-                            <option value="">Jean</option>
-                            <option value="">Jean</option>
-                        </select>
-                    </div> --}}
-
                     <button type="submit">Rechercher</button>
                 </form>
             </div>
@@ -83,7 +58,13 @@
             @if (isset($tableaux))
 
                 <div class="result-container">
-                    <h2>Résultat pour la recherche : "{{ $search_text }}"</h2>
+                    <h2>{{ count($tableaux) }}
+
+                    @if (count($tableaux) >= 2) résultats @else résultat
+                        @endif
+
+                        pour la recherche : "{{ $search_text }}"
+                    </h2>
 
                     @if (count($tableaux) > 0)
 
@@ -112,9 +93,13 @@
                         <p>Pas de résultats trouvés</p>
                     @endif
 
+                    <div class="pagination-search">
+                        {{ $tableaux->appends(request()->input())->links('layouts.paginationlinks') }}
+                    </div>
+
                     <div class="new-search">
                         <h3>Effectuer une nouvelle recherche</h3>
-                        <a href="{{{ route('search') }}}">
+                        <a href="{{ route('search') }}">
                             <i class="far fa-arrow-alt-circle-up"></i>
                         </a>
                     </div>
