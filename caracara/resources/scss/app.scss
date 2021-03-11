@@ -37,11 +37,11 @@
 @import "tableaux/_sidebarTableau";
 @import "tableaux/_liste_tableaux_prives";
 @import "tableaux/_liste_articles_sauvegardes";
-@import "tableaux/add_post";
 
 //Post
 @import "post/post";
 @import "post/post-remove";
+@import "post/post-add";
 
 //Livewire change
 
