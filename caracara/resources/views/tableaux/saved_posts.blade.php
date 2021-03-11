@@ -15,7 +15,7 @@
 
         <div class="breadcrumb">
             <a href="{{ route('home') }}">Accueil</a>
-            <span>/ Vos tableaux privés</span>
+            <span>/ Vos publications sauvegardées</span>
         </div>
 
         <div class="posts">

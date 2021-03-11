@@ -55,7 +55,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/add_tableau', function ()
 })->name('add_tableau');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/all_private_tableaux', function () {
-    return view('tableaux/all_private_tableaux', ['tableaux' => Tableau::where('prive', 1)->get()]);
+    return view('tableaux/all_private_tableaux', ['tableaux' => Tableau::where('prive', 1)->where('id', '<>', Auth::user()->tableauSaved->id)->get()]);
 })->name('all_private_tableaux');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/all_public_tableaux', function () {

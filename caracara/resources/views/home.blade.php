@@ -5,7 +5,7 @@
             <div class="tableaux_miniatures">
                 @foreach ($tableaux as $tableau)
                     @can('view', $tableau){{--Si on a bien accès au tableau--}}
-                        @if ($tableau->prive)
+                        @if ($tableau->prive /*&& $tableau->id != Auth::user()->tableauSaved->id*/)
                             <div>
                                 <a href="{{ route("tableau.show", $tableau) }}">
                                     <img src="
@@ -23,19 +23,22 @@
             </div>
             <button><a href="{{ route("add_tableau") }}">Créer</a></button>
         </section>
-        <section>
-            <h2>Publications sauvegardées</h2>
-            @php
-                $count = count(Auth::user()->tableauSaved->posts)>3 ? 3 : count(Auth::user()->tableauSaved->posts);
-            @endphp
-            @for ($i = 0; $i < $count; $i++)
+        @if(isset(Auth::user()->tableauSaved))
+            <section>
+                <h2>Publications sauvegardées</h2>
                 @php
-                    $post=Auth::user()->posts[$i];
+                    $count = count(Auth::user()->tableauSaved->posts)>3 ? 3 : count(Auth::user()->tableauSaved->posts);
                 @endphp
-                @include('layouts.article_miniature')
-            @endfor
-            <p class="button"><a href="{{ route('saved_posts', ['tabID' => Auth::user()->tableauSaved->id]) }}">Voir toutes vos publications sauvegardées</a></p>
-        </section>
+                @for ($i = 0; $i < $count; $i++)
+                    @php
+                        $post=Auth::user()->posts[$i];
+                    @endphp
+                    @include('layouts.article_miniature')
+                @endfor
+                <p class="button"><a href="{{ route('saved_posts', ['tabID' => Auth::user()->tableauSaved->id]) }}">Voir toutes vos publications sauvegardées</a></p>
+            </section>
+        @endif
+        
     </aside>
     <main>
         <section>
