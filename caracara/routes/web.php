@@ -42,8 +42,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/private_posts', function 
     return view('tableaux/private_posts');
 })->name('private_posts');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/saved_posts', function () {
-    return view('tableaux/saved_posts');
+Route::middleware(['auth:sanctum', 'verified'])->get('/saved_posts/{tabID}', function ($tabID) {
+    return view('tableaux/saved_posts', ['tableau' => Tableau::find($tabID)]);
 })->name('saved_posts');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/add_post', function () {
