@@ -85,4 +85,9 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Tableau::class, 'abonnements', 'user_id', 'tableau_id');
     }
+
+    public function tableauSaved()
+    {
+        return $this->belongsTo(Tableau::class, 'tableau_id');
+    }
 }
