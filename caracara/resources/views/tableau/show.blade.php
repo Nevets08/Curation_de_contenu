@@ -84,7 +84,7 @@
             <h2>Paramètres du tableau</h2>
         </div>
         <img src="{{$tableau->url_icone}}" alt="">
-        <h2>Tableau {{ $tableau->name }}</h2>
+        <h2>{{ $tableau->nom }}</h2>
         <ul>
             <li>
                 <a href="#">
@@ -92,7 +92,7 @@
                     <p>Ajouter une publication</p>
                 </a>
             </li>
-            <li>
+            <li class="members-management-button">
                 <a href="#">
                     <i class="fas fa-users"></i>
                     <p>Gérer les membres</p>
@@ -138,8 +138,9 @@
             </li>
             @endif
         </ul>
-    </div>
 
+    </div>
+    @include('layouts/members_management')
 
 </x-app-layout>
 

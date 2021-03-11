@@ -1,6 +1,6 @@
 {
     "/js/app.js": "/js/app.js",
+    "/css/app.css": "/css/app.css",
     "/css/appLogin.css": "/css/appLogin.css",
-    "/js/initSlider.js": "/js/initSlider.js",
-    "/css/app.css": "/css/app.css"
+    "/js/initSlider.js": "/js/initSlider.js"
 }
