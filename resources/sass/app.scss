@@ -179,7 +179,7 @@ aside {
 }
 
 main {
-	width: 100%
+    width: 100%;
     margin-left: 5%;
     .title {
         display: flex;
@@ -339,6 +339,17 @@ button {
         margin-left: 10px;
         font-size: 20px;
         color: #000;
+    }
+}
+
+.pagination-search {
+    margin-top: 10px;
+    .pagination {
+        display: flex;
+        a {
+            margin-left: 15px;
+            color: black;
+        }
     }
 }
 

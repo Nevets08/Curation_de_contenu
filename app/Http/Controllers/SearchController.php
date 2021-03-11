@@ -11,7 +11,8 @@ class SearchController extends Controller
     {
         if (isset($_GET['search_general'])) {
             $search_text = $_GET['search_general'];
-            $tableaux = DB::table('tableaux')->where('nom', 'LIKE', '%' . $search_text . '%')->paginate(2);
+            $tableaux = DB::table('tableaux')->where('nom', 'LIKE', '%' . $search_text . '%')->paginate(25);
+            $tableaux->appends($request->all());
             return view('search', ['tableaux' => $tableaux, 'search_text' => $search_text]);
         } else {
             return view('search');

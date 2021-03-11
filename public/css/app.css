@@ -6333,6 +6333,7 @@ aside .members .members-line .more-members {
 }
 
 main {
+  width: 100%;
   margin-left: 5%;
 }
 
@@ -6489,6 +6490,19 @@ button {
   margin-left: 10px;
   font-size: 20px;
   color: #000;
+}
+
+.pagination-search {
+  margin-top: 10px;
+}
+
+.pagination-search .pagination {
+  display: flex;
+}
+
+.pagination-search .pagination a {
+  margin-left: 15px;
+  color: black;
 }
 
 .active-modal {
