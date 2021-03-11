@@ -166,12 +166,20 @@ for (var j = 0; j < buttonLikes.length; j++) {
     });
 }
 
+//Enlever lien sur article cards quand on save
+const buttonSave = document.querySelectorAll(".article-favoris form button");
+for (var o = 0; o < buttonLikes.length; o++) {
+    const buttonSaveElement = buttonSave[o];
+    buttonSaveElement.addEventListener("click", function(e) {
+        e.stopPropagation();
+    });
+}
+
 //Modal Repost
 const retweetButton = document.querySelectorAll(".article-Retweet a");
 if (retweetButton !== null) {
     for (var k = 0; k < retweetButton.length; k++) {
         const retweetButtonElement = retweetButton[k];
-        // retweetButtonElement.addEventListener("click", displayModalRetweet);
         retweetButtonElement.addEventListener("click", function (e) {
             e.preventDefault();
             e.stopPropagation();
@@ -197,7 +205,7 @@ if (seeMembersButton !== null) {
         e.preventDefault();
         e.stopPropagation();
 
-        const modal = document.querySelector(".modal");
+        const modal = document.querySelector(".modal.members-list");
         modal.classList.add("show");
 
         window.addEventListener("click", function () {
@@ -206,6 +214,23 @@ if (seeMembersButton !== null) {
         modal.firstElementChild.addEventListener("click", function (e) {
             e.stopPropagation();
         });
-    })
+    });
 }
 
+const membersManagementButton = document.querySelector(".members-management-button");
+if (membersManagementButton !== null) {
+    membersManagementButton.addEventListener("click", function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const modal = document.querySelector(".modal.members-management");
+        modal.classList.add("show");
+
+        window.addEventListener("click", function () {
+            modal.classList.remove("show");
+        });
+        modal.firstElementChild.addEventListener("click", function (e) {
+            e.stopPropagation();
+        });
+    });
+}

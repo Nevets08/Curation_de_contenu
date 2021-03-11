@@ -1,0 +1,50 @@
+.members-management {
+    td, h3 {
+        @include theme() {
+            color: theme-get('main-color-dark');
+        }
+    }
+    table {
+        border-collapse: collapse;
+        width: 100%;
+
+        tr:nth-child(2n + 1) {
+            @include theme() {
+                background-color: theme-get('grey-medium')
+            }
+        }
+
+        .change-statut-member {
+            button {
+                width: 90%;
+            }
+        }
+
+        .remove-member {
+            button {
+                padding: 8px 8px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+
+        button {
+            margin-top: 0;
+        }
+    }
+
+    table td {
+        &:nth-child(1) {
+            width: 50%;
+        }
+
+        &:nth-child(2) {
+            width: 35%;
+        }
+
+        &:nth-child(3) {
+            width: 15%;
+        }
+    }
+}
