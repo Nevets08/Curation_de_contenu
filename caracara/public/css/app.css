@@ -7978,6 +7978,7 @@ div.modal {
   right: 0;
   bottom: 0;
   background: rgba(0, 0, 0, 0.75);
+  z-index: 20;
 }
 
 div.modal > div {
@@ -7986,6 +7987,7 @@ div.modal > div {
   border-radius: 20px;
   max-width: 80vh;
   max-height: 80vh;
+  min-width: 250px;
   margin: auto;
 }
 

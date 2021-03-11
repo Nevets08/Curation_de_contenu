@@ -176,7 +176,7 @@ if (retweetButton !== null) {
             e.preventDefault();
             e.stopPropagation();
             const modal = retweetButtonElement.closest("article").nextElementSibling;
-            console.log(modal);
+            // console.log(modal);
             modal.classList.add("show");
 
             window.addEventListener("click", function () {
@@ -190,11 +190,48 @@ if (retweetButton !== null) {
 }
 
 
+//Modal liste membres
+const seeMembersButton = document.querySelector(".members button");
+if (seeMembersButton !== null) {
+    seeMembersButton.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
 
-// function displayModalRetweet(e) {
+        const modal = document.querySelector(".modal.members-list");
+        modal.classList.add("show");
+
+        window.addEventListener("click", function () {
+            modal.classList.remove("show");
+        });
+        modal.firstElementChild.addEventListener("click", function (e) {
+            e.stopPropagation();
+        });
+    });
+}
+
+const membersManagementButton = document.querySelector(".members-management-button");
+if (membersManagementButton !== null) {
+    membersManagementButton.addEventListener("click", function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const modal = document.querySelector(".modal.members-management");
+        modal.classList.add("show");
+
+        window.addEventListener("click", function () {
+            modal.classList.remove("show");
+        });
+        modal.firstElementChild.addEventListener("click", function (e) {
+            e.stopPropagation();
+        });
+    });
+}
+
+// function DisplayModal(e) {
 //     e.preventDefault();
 //     e.stopPropagation();
-//     const modal = retwe
+//
+//     const modal = document.querySelector(".modal");
 //     modal.classList.add("show");
 //
 //     window.addEventListener("click", function () {

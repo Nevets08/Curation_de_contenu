@@ -35417,8 +35417,8 @@ if (retweetButton !== null) {
     retweetButtonElement.addEventListener("click", function (e) {
       e.preventDefault();
       e.stopPropagation();
-      var modal = retweetButtonElement.closest("article").nextElementSibling;
-      console.log(modal);
+      var modal = retweetButtonElement.closest("article").nextElementSibling; // console.log(modal);
+
       modal.classList.add("show");
       window.addEventListener("click", function () {
         modal.classList.remove("show");
@@ -35432,10 +35432,46 @@ if (retweetButton !== null) {
   for (var k = 0; k < retweetButton.length; k++) {
     _loop();
   }
-} // function displayModalRetweet(e) {
+} //Modal liste membres
+
+
+var seeMembersButton = document.querySelector(".members button");
+
+if (seeMembersButton !== null) {
+  seeMembersButton.addEventListener("click", function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+    var modal = document.querySelector(".modal.members-list");
+    modal.classList.add("show");
+    window.addEventListener("click", function () {
+      modal.classList.remove("show");
+    });
+    modal.firstElementChild.addEventListener("click", function (e) {
+      e.stopPropagation();
+    });
+  });
+}
+
+var membersManagementButton = document.querySelector(".members-management-button");
+
+if (membersManagementButton !== null) {
+  membersManagementButton.addEventListener("click", function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+    var modal = document.querySelector(".modal.members-management");
+    modal.classList.add("show");
+    window.addEventListener("click", function () {
+      modal.classList.remove("show");
+    });
+    modal.firstElementChild.addEventListener("click", function (e) {
+      e.stopPropagation();
+    });
+  });
+} // function DisplayModal(e) {
 //     e.preventDefault();
 //     e.stopPropagation();
-//     const modal = retwe
+//
+//     const modal = document.querySelector(".modal");
 //     modal.classList.add("show");
 //
 //     window.addEventListener("click", function () {
