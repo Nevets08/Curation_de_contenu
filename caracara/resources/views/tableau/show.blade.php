@@ -92,7 +92,7 @@
                     <p>Ajouter une publication</p>
                 </a>
             </li>
-            <li>
+            <li class="members-management-button">
                 <a href="#">
                     <i class="fas fa-users"></i>
                     <p>Gérer les membres</p>
@@ -138,7 +138,9 @@
             </li>
             @endif
         </ul>
+
     </div>
+    @include('layouts/members_management')
 
 
 </x-app-layout>

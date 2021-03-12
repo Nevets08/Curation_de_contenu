@@ -8085,6 +8085,7 @@ div.modal button {
 
 div.modal.show {
   visibility: initial;
+  z-index: 10;
 }
 
 .sidebarTableau {
@@ -8395,6 +8396,56 @@ div.modal.show {
   text-decoration: underline;
 }
 
+.lightTheme .members-management td,
+.lightTheme .members-management h3 {
+  color: #12142c;
+}
+
+.darkTheme .members-management td,
+.darkTheme .members-management h3 {
+  color: #F8F8F8;
+}
+
+.members-management table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.lightTheme .members-management table tr:nth-child(2n+1) {
+  background-color: #F8F8F8;
+}
+
+.darkTheme .members-management table tr:nth-child(2n+1) {
+  background-color: #252527;
+}
+
+.members-management table .change-statut-member button {
+  width: 90%;
+}
+
+.members-management table .remove-member button {
+  padding: 8px 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.members-management table button {
+  margin-top: 0;
+}
+
+.members-management table td:nth-child(1) {
+  width: 50%;
+}
+
+.members-management table td:nth-child(2) {
+  width: 35%;
+}
+
+.members-management table td:nth-child(3) {
+  width: 15%;
+}
+
 .article-card {
   padding: 20px;
   margin-bottom: 30px;
@@ -8497,6 +8548,7 @@ div.modal.show {
 .article-card .article-footer {
   margin-top: 20px;
   display: flex;
+  align-items: center;
 }
 
 @media (max-width: 480px) {
@@ -8551,14 +8603,6 @@ div.modal.show {
 @media (max-width: 325px) {
   .article-card .article-footer div.article-partager {
     margin-left: 0;
-  }
-}
-
-@media (max-width: 480px) {
-  .article-card .article-footer div.article-partager {
-    width: 100%;
-    margin-left: -297px;
-    margin-top: 31px;
   }
 }
 

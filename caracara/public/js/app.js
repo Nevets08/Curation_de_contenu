@@ -35432,6 +35432,42 @@ if (retweetButton !== null) {
   for (var k = 0; k < retweetButton.length; k++) {
     _loop();
   }
+} //Modal liste membres
+
+
+var seeMembersButton = document.querySelector(".members button");
+
+if (seeMembersButton !== null) {
+  seeMembersButton.addEventListener("click", function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+    var modal = document.querySelector(".modal.members-list");
+    modal.classList.add("show");
+    window.addEventListener("click", function () {
+      modal.classList.remove("show");
+    });
+    modal.firstElementChild.addEventListener("click", function (e) {
+      e.stopPropagation();
+    });
+  });
+} //Modal Gerer les membres
+
+
+var membersManagementButton = document.querySelector(".members-management-button");
+
+if (membersManagementButton !== null) {
+  membersManagementButton.addEventListener("click", function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+    var modal = document.querySelector(".modal.members-management");
+    modal.classList.add("show");
+    window.addEventListener("click", function () {
+      modal.classList.remove("show");
+    });
+    modal.firstElementChild.addEventListener("click", function (e) {
+      e.stopPropagation();
+    });
+  });
 } // function displayModalRetweet(e) {
 //     e.preventDefault();
 //     e.stopPropagation();

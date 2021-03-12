@@ -71,7 +71,7 @@
     .article-footer {
         margin-top: 20px;
         display: flex;
-
+        align-items: center;
         > div {
             @media (max-width: $breakpoint-mobile) {
                 flex-shrink: 0;

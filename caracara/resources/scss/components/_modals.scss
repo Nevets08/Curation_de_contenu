@@ -34,4 +34,5 @@ div.modal {
 
 div.modal.show {
     visibility: initial;
+    z-index: 10;
 }
