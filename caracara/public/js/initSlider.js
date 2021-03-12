@@ -154,7 +154,7 @@ $(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /var/www/vhosts/christ.etu.mmi-unistra.fr/master-projet-tutore.christ.etu.mmi-unistra.fr/caracara/resources/js/initSlider.js */"./resources/js/initSlider.js");
+module.exports = __webpack_require__(/*! /var/www/vhosts/roberts.etu.mmi-unistra.fr/master-caracara.roberts.etu.mmi-unistra.fr/Curation_de_contenu/caracara/resources/js/initSlider.js */"./resources/js/initSlider.js");
 
 
 /***/ })

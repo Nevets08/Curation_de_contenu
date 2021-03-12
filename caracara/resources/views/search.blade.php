@@ -10,12 +10,6 @@
 </head>
 
 <body>
-    <div class="menu-right-fixed">
-        <i class="fas fa-plus"></i>
-        <i class="fas fa-envelope-open-text"></i>
-        <i class="far fa-moon"></i>
-    </div>
-
     <div class="main-container">
         <aside>
             <nav>
@@ -51,7 +45,7 @@
                     @if (count($tableaux) >= 2) résultats @else résultat
                         @endif
 
-                        pour la recherche : "{{ $search_text }}"
+                        pour la recherche dans <strong>les tableaux</strong> : "{{ $search_text }}"
                     </h2>
 
                     @if (count($tableaux) > 0)

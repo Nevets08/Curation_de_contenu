@@ -28,15 +28,9 @@
                 <div class="search-bar">
                     <i class="fas fa-search"></i>
 
-                    {{-- <form id="search-form" action="{{ route('search') }}" method="GET">
-                        <input id="search-toggle" type="search" placeholder="Rechercher">
-                    </form> --}}
-
                     <form action="{{ route('search') }}" method="GET" role="search" id="search-form">
                         @csrf
-
                         <input type="text" id="search-toggle" name="search_general" placeholder="Rechercher" required>
-                        {{-- <button type="submit">Rechercher</button> --}}
                     </form>
                 </div>
             </div>
