@@ -5,57 +5,32 @@
             <div class="tableaux_miniatures">
                 @foreach ($tableaux as $tableau)
                     @can('view', $tableau){{--Si on a bien accès au tableau--}}
-                        @if (Auth::user()->tableauSaved)
-                            @if ($tableau->prive && $tableau->id != Auth::user()->tableauSaved->id)
-                                <div>
-                                    <a href="{{ route("tableau.show", $tableau) }}">
-                                        <img src="
-                                            @if ($tableau->url_icone)
-                                                {{ $tableau->url_icone }}
-                                            @else
-                                                {{ asset('img/rectangle_vide.png') }}
-                                            @endif" alt="">
-                                        <p>{{$tableau->nom}}</p>
-                                    </a>
-                                </div>
-                            @endif
-                        @else
-                            @if ($tableau->prive)
-                                <div>
-                                    <a href="{{ route("tableau.show", $tableau) }}">
-                                        <img src="
-                                            @if ($tableau->url_icone)
-                                                {{ $tableau->url_icone }}
-                                            @else
-                                                {{ asset('img/rectangle_vide.png') }}
-                                            @endif" alt="">
-                                        <p>{{$tableau->nom}}</p>
-                                    </a>
-                                </div>
-                            @endif
+                        @if ($tableau->prive)
+                            <div>
+                                <a href="{{ route("tableau.show", $tableau) }}">
+                                    <img src="
+                                        @if ($tableau->url_icone)
+                                            {{ $tableau->url_icone }}
+                                        @else
+                                            {{ asset('img/rectangle_vide.png') }}
+                                        @endif" alt="">
+                                    <p>{{$tableau->nom}}</p>
+                                </a>
+                            </div>
                         @endif
-                        
                     @endcan
                 @endforeach
             </div>
             <button><a href="{{ route("add_tableau") }}">Créer</a></button>
         </section>
-        @if(isset(Auth::user()->tableauSaved))
-            <section>
-                <h2>Publications sauvegardées</h2>
-                @php
-                    $count = count(Auth::user()->tableauSaved->posts)>3 ? 3 : count(Auth::user()->tableauSaved->posts);
-                @endphp
-                @for ($i = 0; $i < $count; $i++)
-                    @php
-                        $post=Auth::user()->tableauSaved->posts[$i];
-                    @endphp
-                    @include('layouts.article_miniature')
-                @endfor
-                <p class="button"><a href="{{ route('saved_posts', ['tabID' => Auth::user()->tableauSaved->id]) }}">Voir toutes vos publications sauvegardées</a></p>
-            </section>
-        @endif
-        
+        <section>
+            <h2>Publications sauvegardées</h2>
+            <article class="article-miniature">
+                <img src="{{ asset('img/carre_vide.png') }}" alt="">
+                <p class="article-miniature-headline">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.</p>
+                <p class="article-miniature-infos">Par <a href="#">Nom Prénom</a> dans <a href="#">Anglais</a></p>
+            </article>
+        </section>
     </aside>
     <main>
         <section>

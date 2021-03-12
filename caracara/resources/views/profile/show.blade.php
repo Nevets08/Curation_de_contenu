@@ -40,7 +40,7 @@
             <h2>Tableaux privés</h2>
             <div class="tableaux_prives_slider slider ">
                 @foreach ($user->tableauxCrees as $tab)
-                    @if($tab->prive && $tab->id != Auth::user()->tableauSaved->id)
+                    @if($tab->prive)
                         <div onclick="window.location = '{{ route("tableau.show", $tab) }}'">
                             <img src="@if ($tab->url_icone)
                             {{ $tab->url_icone }}
@@ -68,25 +68,56 @@
         <section class="publications_sauvegardees">
             <h2>Publications sauvegardées</h2>
             <div class="publications_sauvegardees_slider slider slider_articles_miniatures">
-                @php
-                    $count = count($user->tableauSaved->posts)>6 ? 6 : count($user->tableauSaved->posts);
-                @endphp
-                @for ($i = 0; $i < $count; $i++)
-                    @if($i%2===0)
-                        <div>
-                    @endif
-                    
-                    @php
-                        $post=$user->tableauSaved->posts[$i];
-                    @endphp
-                    @include('layouts.article_miniature')
-
-                    @if($i%2!==0 || $i===$count-1)
-                        </div>
-                    @endif
-                @endfor
+                <div>
+                    <article class="article-miniature">
+                        <img src="{{ asset('img/carre_vide.png') }}" alt="">
+                        <p class="article-miniature-headline">Excepteur sint occaecat cupidatat non proident, sunt in
+                            culpa qui officia.</p>
+                        <p class="article-miniature-infos">Par <a href="#">Nom Prénom</a> dans <a href="#">Anglais</a>
+                        </p>
+                    </article>
+                    <article class="article-miniature">
+                        <img src="{{ asset('img/carre_vide.png') }}" alt="">
+                        <p class="article-miniature-headline">Excepteur sint occaecat cupidatat non proident, sunt in
+                            culpa qui officia.</p>
+                        <p class="article-miniature-infos">Par <a href="#">Nom Prénom</a> dans <a href="#">Anglais</a>
+                        </p>
+                    </article>
+                </div>
+                <div>
+                    <article class="article-miniature">
+                        <img src="{{ asset('img/carre_vide.png') }}" alt="">
+                        <p class="article-miniature-headline">Excepteur sint occaecat cupidatat non proident, sunt in
+                            culpa qui officia.</p>
+                        <p class="article-miniature-infos">Par <a href="#">Nom Prénom</a> dans <a href="#">Anglais</a>
+                        </p>
+                    </article>
+                    <article class="article-miniature">
+                        <img src="{{ asset('img/carre_vide.png') }}" alt="">
+                        <p class="article-miniature-headline">Excepteur sint occaecat cupidatat non proident, sunt in
+                            culpa qui officia.</p>
+                        <p class="article-miniature-infos">Par <a href="#">Nom Prénom</a> dans <a href="#">Anglais</a>
+                        </p>
+                    </article>
+                </div>
+                <div>
+                    <article class="article-miniature">
+                        <img src="{{ asset('img/carre_vide.png') }}" alt="">
+                        <p class="article-miniature-headline">Excepteur sint occaecat cupidatat non proident, sunt in
+                            culpa qui officia.</p>
+                        <p class="article-miniature-infos">Par <a href="#">Nom Prénom</a> dans <a href="#">Anglais</a>
+                        </p>
+                    </article>
+                    <article class="article-miniature">
+                        <img src="{{ asset('img/carre_vide.png') }}" alt="">
+                        <p class="article-miniature-headline">Excepteur sint occaecat cupidatat non proident, sunt in
+                            culpa qui officia.</p>
+                        <p class="article-miniature-infos">Par <a href="#">Nom Prénom</a> dans <a href="#">Anglais</a>
+                        </p>
+                    </article>
+                </div>
             </div>
-            <p class="button"><a href="{{ route('saved_posts', ['tabID' => Auth::user()->tableauSaved->id]) }}">Voir toutes vos publications sauvegardées</a></p>
+            <p class="button"><a href="#">Voir toutes les publications sauvegardés</a></p>
         </section>
 
         <section class="derniers_posts">
@@ -103,14 +134,14 @@
                     @php
                         $post=$user->posts[$i];
                     @endphp
-                    @include('layouts.article_miniature')
+                    @include('layouts.article_miniature');
 
                     @if($i%2!==0 || $i===$count-1)
                         </div>
                     @endif
                 @endfor
             </div>
-            {{-- <p class="button"><a href="#">Voir tous les derniers posts</a></p> --}}
+            <p class="button"><a href="#">Voir tous les derniers posts</a></p>
         </section>
 
         <div class="sidebar sidebarProfile">

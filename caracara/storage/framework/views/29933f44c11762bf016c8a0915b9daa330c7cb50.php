@@ -37,8 +37,6 @@
             <?php if(Route::has('password.request')): ?>
                 <a style="text-align: center; margin-top: 40px; color: #646464;" href="<?php echo e(route('password.request')); ?>">Mot de passe oublié ?</a>
             <?php endif; ?>
-
-            <p style="text-align: center; margin-top: 0; color: #646464;">Pas encore inscrit ? <a style="color: #646464; text-decoration: underline" href="<?php echo e(route('register')); ?>">Inscrivez-vous</a></p>
         </form>
     </main>
  <?php if (isset($__componentOriginalc3251b308c33b100480ddc8862d4f9c79f6df015)): ?>

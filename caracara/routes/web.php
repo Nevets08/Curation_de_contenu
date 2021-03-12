@@ -1,12 +1,13 @@
 <?php
 
-use App\Http\Controllers\PostController;
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\TableauController;
 use App\Models\Post;
-use App\Models\Tableau;
 use App\Models\User;
+use App\Models\Tableau;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\SearchController;
+use App\Http\Controllers\TableauController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +32,8 @@ Route::resource('/tableau', TableauController::class);
 
 Route::resource('/post', PostController::class);
 
+Route::get('/search', [SearchController::class, 'search'])->name('search');
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/', function () {
     return view('home', ['tableaux' => Tableau::all(), 'posts' => Post::orderBy('created_at', 'desc')->get()]);
 })->name('home');
@@ -39,8 +42,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/private_posts', function 
     return view('tableaux/private_posts');
 })->name('private_posts');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/saved_posts/{tabID}', function ($tabID) {
-    return view('tableaux/saved_posts', ['tableau' => Tableau::find($tabID), 'tableaux' => Tableau::all()]);
+Route::middleware(['auth:sanctum', 'verified'])->get('/saved_posts', function () {
+    return view('tableaux/saved_posts');
 })->name('saved_posts');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/add_post', function () {
@@ -52,7 +55,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/add_tableau', function ()
 })->name('add_tableau');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/all_private_tableaux', function () {
-    return view('tableaux/all_private_tableaux', ['tableaux' => Tableau::where('prive', 1)->where('id', '<>', Auth::user()->tableauSaved->id)->get()]);
+    return view('tableaux/all_private_tableaux', ['tableaux' => Tableau::where('prive', 1)->get()]);
 })->name('all_private_tableaux');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/all_public_tableaux', function () {

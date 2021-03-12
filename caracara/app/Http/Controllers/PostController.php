@@ -8,7 +8,6 @@ use App\Models\Tableau;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
-use Illuminate\Validation\Rule;
 
 class PostController extends Controller
 {
@@ -93,11 +92,7 @@ class PostController extends Controller
         $data = $request->validate([
             'user' => 'sometimes|required | exists:users,id',
             'like' => 'sometimes|required | boolean',
-            'tableau.*' => 'exists:tableaux,id',
-            'tableauSavedID' => 'exists:tableaux,id'
-            // Rule::exists('post_tableau')->where(function ($query, $post) {
-            //     return $query->where('post_id', $post->id);
-            // })
+            'tableau.*' => 'exists:tableaux,id'
         ]);
 
         //Likes
@@ -111,9 +106,6 @@ class PostController extends Controller
         //Reposts
         if(array_key_exists('tableau', $data))
             $post->tableaux()->attach($data['tableau']);
-
-        if(array_key_exists('tableauSavedID', $data))
-            $post->tableaux()->detach($data['tableauSavedID']);
 
         $user = Auth::user();
         // return redirect()->route('post.index', ['posts' => Post::orderBy('created_at', 'desc')->get(), 'user' => $user]);
