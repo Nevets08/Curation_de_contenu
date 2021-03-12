@@ -33,8 +33,9 @@
                     <span>Trier par : Nouveautés</span>
 
                     <div>
-                        <a class="btnAction" href="{{ route('add_post') }}"><i class="fas fa-plus-circle"></i>Ajouter
-                            une publication</a>
+                        @can('addPost', $tableau)
+                            <a class="btnAction" href="{{ route('add_post', ['tabID' => $tableau->id]) }}"><i class="fas fa-plus-circle"></i>Ajouter une publication</a>
+                        @endcan
 
                         @php
                             $userDejaAbo = false;
