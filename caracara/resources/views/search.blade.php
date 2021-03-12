@@ -1,29 +1,9 @@
-<!DOCTYPE html>
-<html lang="fr">
-
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Caracara - Vos publications sauvegardées</title>
-    <link rel="stylesheet" href="{{ asset(mix('css/app.css')) }}" />
-</head>
-
-<body>
-    <div class="main-container">
+<x-app-layout title="Recherche">
         <aside>
-            <nav>
-                <h3>menu</h3>
-                <div class="border"></div>
-                <ul>
-                    <li><a href="{{ route('home') }}">Retourner à l'accueil <i class="fas fa-home"></i></a></li>
-                    <li><a href="{{ route('private_posts') }}">Tableaux privés</a></li>
-                    <li><a href="">Tableaux publics</a></li>
-                    <li><a href="{{ route('saved_posts') }}">Vos publications sauvegardées</a></li>
-                </ul>
-            </nav>
-            <div class="members">
-            </div>
+            <section>
+                <h2>MENU</h2>
+                @include('layouts.secondary_menu')
+            </section>
         </aside>
 
         <main>
@@ -87,6 +67,5 @@
                     </div>
             @endif
         </main>
-</body>
 
-</html>
+</x-app-layout>
