@@ -72,6 +72,6 @@ class CreateNewUser implements CreatesNewUsers
         
         $tableauSaved = DB::table('tableaux')->where('user_id', '=', $user->id)->first();
 
-        $user->tableau()->associate($tableauSaved->id);
+        $user->tableauSaved()->associate($tableauSaved->id);
     }
 }
