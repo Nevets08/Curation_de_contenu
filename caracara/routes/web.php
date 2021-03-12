@@ -1,12 +1,13 @@
 <?php
 
-use App\Http\Controllers\PostController;
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\TableauController;
 use App\Models\Post;
-use App\Models\Tableau;
 use App\Models\User;
+use App\Models\Tableau;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\SearchController;
+use App\Http\Controllers\TableauController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +31,8 @@ use Illuminate\Support\Facades\Auth;
 Route::resource('/tableau', TableauController::class);
 
 Route::resource('/post', PostController::class);
+
+Route::get('/search', [SearchController::class, 'search'])->name('search');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/', function () {
     return view('home', ['tableaux' => Tableau::all(), 'posts' => Post::orderBy('created_at', 'desc')->get()]);

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }} ">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,7 +9,7 @@
     <title>{{ $attributes->get('title') }} - {{ config('app.name', 'Caracara') }}</title>
 
     <!-- Styles -->
-    <link rel="stylesheet" href="{{ asset(mix('css/app.css'))}}">
+    <link rel="stylesheet" href="{{ asset(mix('css/app.css')) }}">
 
     <!-- Scripts -->
     <script src="{{ asset(mix('js/app.js')) }}" defer></script>
@@ -16,18 +17,28 @@
 </head>
 
 <body class="{{ $attributes->get('title') }} lightTheme">
-<header>
-    <nav class="container">
-        <div class="left_elements">
-            <a href="{{ route('home') }}"><img class="logo" src="{{ asset('img/Logo.png') }}" alt="Logo de notre site."></a>
-        </div>
+    <header>
+        <nav class="container">
+            <div class="left_elements">
+                <a href="{{ route('home') }}"><img class="logo" src="{{ asset('img/Logo.png') }}"
+                        alt="Logo de notre site."></a>
+            </div>
 
-        <div class="right_elements">
-            <div class="search-bar">
-                <i class="fas fa-search"></i>
-                <form id="search-form">
-                    <input id="search-toggle" type="search" placeholder="Rechercher">
-                </form>
+            <div class="right_elements">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+
+                    {{-- <form id="search-form" action="{{ route('search') }}" method="GET">
+                        <input id="search-toggle" type="search" placeholder="Rechercher">
+                    </form> --}}
+
+                    <form action="{{ route('search') }}" method="GET" role="search" id="search-form">
+                        @csrf
+
+                        <input type="text" id="search-toggle" name="search_general" placeholder="Rechercher" required>
+                        {{-- <button type="submit">Rechercher</button> --}}
+                    </form>
+                </div>
             </div>
 
             <div class="user">
@@ -56,18 +67,19 @@
                     </ul>
                 </div>
             </div>
-        </div>
-    </nav>
-</header>
+            </div>
+        </nav>
+    </header>
 
-<div class="container site-global">
-    <!-- Page Content -->
-    {{ $slot }}
-</div>
-<div class="menu-right-fixed">
-    <a href="{{ route('add_post') }}"><i title="Ajouter un post" class="fas fa-plus"></i></a>
-    <i title="Passer en mode nuit" class="far fa-lightbulb"></i>
-</div>
-@livewireScripts
+    <div class="container site-global">
+        <!-- Page Content -->
+        {{ $slot }}
+    </div>
+    <div class="menu-right-fixed">
+        <a href="{{ route('add_post') }}"><i title="Ajouter un post" class="fas fa-plus"></i></a>
+        <i title="Passer en mode nuit" class="far fa-lightbulb"></i>
+    </div>
+    @livewireScripts
 </body>
+
 </html>
