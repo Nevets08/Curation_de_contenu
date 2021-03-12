@@ -130,11 +130,11 @@
                     @if($i%2===0)
                         <div>
                     @endif
-                    
+
                     @php
                         $post=$user->posts[$i];
                     @endphp
-                    @include('layouts.article_miniature');
+                    @include('layouts.article_miniature')
 
                     @if($i%2!==0 || $i===$count-1)
                         </div>

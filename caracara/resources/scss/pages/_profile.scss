@@ -27,6 +27,7 @@ ul.liens_menu_aside {
 main.page_profile {
     section {
         @include cards;
+        vertical-align: top;
     }
 
     section.infos {

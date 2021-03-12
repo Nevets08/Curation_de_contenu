@@ -7122,6 +7122,7 @@ main.page_profile section {
   padding: 20px;
   margin-bottom: 30px;
   border-radius: 20px;
+  vertical-align: top;
 }
 
 .lightTheme main.page_profile section {
@@ -8022,6 +8023,7 @@ div.modal > div {
   max-width: 80vh;
   max-height: 80vh;
   margin: auto;
+  overflow-y: auto;
 }
 
 .lightTheme div.modal > div {

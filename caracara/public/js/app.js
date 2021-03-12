@@ -35443,8 +35443,10 @@ if (seeMembersButton !== null) {
     e.stopPropagation();
     var modal = document.querySelector(".modal.members-list");
     modal.classList.add("show");
+    document.body.style.overflow = "hidden";
     window.addEventListener("click", function () {
       modal.classList.remove("show");
+      document.body.style.overflow = "initial";
     });
     modal.firstElementChild.addEventListener("click", function (e) {
       e.stopPropagation();
@@ -35461,8 +35463,10 @@ if (membersManagementButton !== null) {
     e.stopPropagation();
     var modal = document.querySelector(".modal.members-management");
     modal.classList.add("show");
+    document.body.style.overflow = "hidden";
     window.addEventListener("click", function () {
       modal.classList.remove("show");
+      document.body.style.overflow = "initial";
     });
     modal.firstElementChild.addEventListener("click", function (e) {
       e.stopPropagation();
