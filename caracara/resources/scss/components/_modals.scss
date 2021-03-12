@@ -17,6 +17,7 @@ div.modal {
         max-width: 80vh;
         max-height: 80vh;
         margin: auto;
+        overflow-y: auto;
     }
 
     label, select {
@@ -34,4 +35,5 @@ div.modal {
 
 div.modal.show {
     visibility: initial;
+    z-index: 10;
 }

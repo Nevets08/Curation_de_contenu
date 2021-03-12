@@ -35432,6 +35432,46 @@ if (retweetButton !== null) {
   for (var k = 0; k < retweetButton.length; k++) {
     _loop();
   }
+} //Modal liste membres
+
+
+var seeMembersButton = document.querySelector(".members button");
+
+if (seeMembersButton !== null) {
+  seeMembersButton.addEventListener("click", function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+    var modal = document.querySelector(".modal.members-list");
+    modal.classList.add("show");
+    document.body.style.overflow = "hidden";
+    window.addEventListener("click", function () {
+      modal.classList.remove("show");
+      document.body.style.overflow = "initial";
+    });
+    modal.firstElementChild.addEventListener("click", function (e) {
+      e.stopPropagation();
+    });
+  });
+} //Modal Gerer les membres
+
+
+var membersManagementButton = document.querySelector(".members-management-button");
+
+if (membersManagementButton !== null) {
+  membersManagementButton.addEventListener("click", function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+    var modal = document.querySelector(".modal.members-management");
+    modal.classList.add("show");
+    document.body.style.overflow = "hidden";
+    window.addEventListener("click", function () {
+      modal.classList.remove("show");
+      document.body.style.overflow = "initial";
+    });
+    modal.firstElementChild.addEventListener("click", function (e) {
+      e.stopPropagation();
+    });
+  });
 } // function displayModalRetweet(e) {
 //     e.preventDefault();
 //     e.stopPropagation();
@@ -35511,9 +35551,9 @@ window.$ = window.jQuery = $ = __webpack_require__(/*! jquery */ "./node_modules
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /var/www/vhosts/roberts.etu.mmi-unistra.fr/master-caracara.roberts.etu.mmi-unistra.fr/Curation_de_contenu/caracara/resources/js/app.js */"./resources/js/app.js");
-__webpack_require__(/*! /var/www/vhosts/roberts.etu.mmi-unistra.fr/master-caracara.roberts.etu.mmi-unistra.fr/Curation_de_contenu/caracara/resources/scss/app.scss */"./resources/scss/app.scss");
-module.exports = __webpack_require__(/*! /var/www/vhosts/roberts.etu.mmi-unistra.fr/master-caracara.roberts.etu.mmi-unistra.fr/Curation_de_contenu/caracara/resources/scss/appLogin.scss */"./resources/scss/appLogin.scss");
+__webpack_require__(/*! /var/www/vhosts/christ.etu.mmi-unistra.fr/master-projet-tutore.christ.etu.mmi-unistra.fr/caracara/resources/js/app.js */"./resources/js/app.js");
+__webpack_require__(/*! /var/www/vhosts/christ.etu.mmi-unistra.fr/master-projet-tutore.christ.etu.mmi-unistra.fr/caracara/resources/scss/app.scss */"./resources/scss/app.scss");
+module.exports = __webpack_require__(/*! /var/www/vhosts/christ.etu.mmi-unistra.fr/master-projet-tutore.christ.etu.mmi-unistra.fr/caracara/resources/scss/appLogin.scss */"./resources/scss/appLogin.scss");
 
 
 /***/ })

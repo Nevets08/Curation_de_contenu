@@ -15,9 +15,9 @@ class SearchController extends Controller
                 ->orWhere('description', 'LIKE', '%' . $search_text . '%')
                 ->paginate(25);
             $tableaux->appends($request->all());
-            return view('search', ['tableaux' => $tableaux, 'search_text' => $search_text]);
+            return view('search.index', ['tableaux' => $tableaux, 'search_text' => $search_text]);
         } else {
-            return view('search');
+            return view('search.index');
         }
     }
 }

@@ -99,7 +99,7 @@
                     @if($i%2===0)
                         <div>
                     @endif
-                    
+
                     @php
                         $post=$user->posts[$i];
                     @endphp

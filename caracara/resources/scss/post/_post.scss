@@ -71,7 +71,7 @@
     .article-footer {
         margin-top: 20px;
         display: flex;
-
+        align-items: center;
         > div {
             @media (max-width: $breakpoint-mobile) {
                 flex-shrink: 0;
@@ -109,11 +109,6 @@
             position: relative;
             @media (max-width: $breakpoint-mini-mobile) {
                 margin-left: 0;
-            }
-            @media (max-width: $breakpoint-mobile) {
-                width: 100%;
-                margin-left: -297px;
-                margin-top: 31px;
             }
 
             a.article-partager {

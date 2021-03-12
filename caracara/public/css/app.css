@@ -7122,6 +7122,7 @@ main.page_profile section {
   padding: 20px;
   margin-bottom: 30px;
   border-radius: 20px;
+  vertical-align: top;
 }
 
 .lightTheme main.page_profile section {
@@ -7355,54 +7356,8 @@ button {
   outline: none;
 }
 
-.form-search .inputs {
-  margin-bottom: 20px;
-}
-
-.form-search label {
-  font-size: 20px;
-  margin-bottom: 50px;
-}
-
-.form-search input {
-  border: none;
-  border-bottom: 2px solid #000;
-}
-
-.form-search input,
-.form-search select {
-  width: 50%;
-  margin-top: 10px;
-}
-
-.form-search button {
-  background-color: #000;
-  color: #fff;
-  border-radius: 20px;
-  font-size: 20px;
-  width: 30%;
-}
-
 .result-container {
   margin-top: 40px;
-}
-
-.result-container .post {
-  display: flex;
-  align-items: center;
-}
-
-.result-container .post .left-post {
-  margin-right: 20px;
-}
-
-.result-container .post .right-post .title {
-  display: flex;
-  justify-content: space-between;
-}
-
-.result-container .post .right-post .title i {
-  color: #94cad1;
 }
 
 .new-search {
@@ -7614,7 +7569,7 @@ header .user button#userButton span {
 
 @media (min-width: 768px) {
   header .user button#userButton:after {
-    content: url(../images/down-chevron.svg?3fc898075b85bba3248d2e735ffece52);
+    content: url(../images/down-chevron.svg?1e99c84d8c0860ddf6982e8cb74d75c1);
     width: 10px;
     height: -10px;
     margin-left: 10px;
@@ -8068,6 +8023,7 @@ div.modal > div {
   max-width: 80vh;
   max-height: 80vh;
   margin: auto;
+  overflow-y: auto;
 }
 
 .lightTheme div.modal > div {
@@ -8131,6 +8087,7 @@ div.modal button {
 
 div.modal.show {
   visibility: initial;
+  z-index: 10;
 }
 
 .sidebarTableau {
@@ -8441,6 +8398,56 @@ div.modal.show {
   text-decoration: underline;
 }
 
+.lightTheme .members-management td,
+.lightTheme .members-management h3 {
+  color: #12142c;
+}
+
+.darkTheme .members-management td,
+.darkTheme .members-management h3 {
+  color: #F8F8F8;
+}
+
+.members-management table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.lightTheme .members-management table tr:nth-child(2n+1) {
+  background-color: #F8F8F8;
+}
+
+.darkTheme .members-management table tr:nth-child(2n+1) {
+  background-color: #252527;
+}
+
+.members-management table .change-statut-member button {
+  width: 90%;
+}
+
+.members-management table .remove-member button {
+  padding: 8px 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.members-management table button {
+  margin-top: 0;
+}
+
+.members-management table td:nth-child(1) {
+  width: 50%;
+}
+
+.members-management table td:nth-child(2) {
+  width: 35%;
+}
+
+.members-management table td:nth-child(3) {
+  width: 15%;
+}
+
 .article-card {
   padding: 20px;
   margin-bottom: 30px;
@@ -8543,6 +8550,7 @@ div.modal.show {
 .article-card .article-footer {
   margin-top: 20px;
   display: flex;
+  align-items: center;
 }
 
 @media (max-width: 480px) {
@@ -8597,14 +8605,6 @@ div.modal.show {
 @media (max-width: 325px) {
   .article-card .article-footer div.article-partager {
     margin-left: 0;
-  }
-}
-
-@media (max-width: 480px) {
-  .article-card .article-footer div.article-partager {
-    width: 100%;
-    margin-left: -297px;
-    margin-top: 31px;
   }
 }
 

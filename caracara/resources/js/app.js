@@ -189,6 +189,45 @@ if (retweetButton !== null) {
     }
 }
 
+//Modal liste membres
+const seeMembersButton = document.querySelector(".members button");
+if (seeMembersButton !== null) {
+    seeMembersButton.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const modal = document.querySelector(".modal.members-list");
+        modal.classList.add("show");
+        document.body.style.overflow = "hidden";
+        window.addEventListener("click", function () {
+            modal.classList.remove("show");
+            document.body.style.overflow = "initial";
+        });
+        modal.firstElementChild.addEventListener("click", function (e) {
+            e.stopPropagation();
+        });
+    });
+}
+
+//Modal Gerer les membres
+var membersManagementButton = document.querySelector(".members-management-button");
+
+if (membersManagementButton !== null) {
+    membersManagementButton.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var modal = document.querySelector(".modal.members-management");
+        modal.classList.add("show");
+        document.body.style.overflow = "hidden";
+        window.addEventListener("click", function () {
+            modal.classList.remove("show");
+            document.body.style.overflow = "initial";
+        });
+        modal.firstElementChild.addEventListener("click", function (e) {
+            e.stopPropagation();
+        });
+    });
+}
 
 
 // function displayModalRetweet(e) {
