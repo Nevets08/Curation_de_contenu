@@ -93,18 +93,21 @@
                     <p>Ajouter une publication</p>
                 </a>
             </li>
-            <li class="members-management-button">
-                <a href="#">
-                    <i class="fas fa-users"></i>
-                    <p>Gérer les membres</p>
-                </a>
-            </li>
-            <li class="edit_tableau-button">
-                <a href="#">
-                    <i class="fas fa-pen"></i>
-                    <p>Editer le tableau</p>
-                </a>
-            </li>
+            @if (Auth::user()->id == $tableau->user->id)
+                <li class="members-management-button">
+                    <a href="#">
+                        <i class="fas fa-users"></i>
+                        <p>Gérer les membres</p>
+                    </a>
+                </li>
+                <li class="edit_tableau-button">
+                    <a href="#">
+                        <i class="fas fa-pen"></i>
+                        <p>Editer le tableau</p>
+                    </a>
+                </li>
+            @endif
+            
 {{--            <li>--}}
 {{--                <a href="">--}}
 {{--                    <i class="fas fa-book"></i>--}}
@@ -125,17 +128,14 @@
             </li>
             @if($tableau->prive and Auth::user()->id != $tableau->user->id)
                 <li>
-                    <a href="#">
-                        <i class="far fa-times-circle"></i>
-                        <form action="{{ route('tableau.update', $tableau) }}" method="post">
-                            @csrf
-                            @method('PUT')
-                            <input type="hidden" name="userToUpdate" value="{{$user->id}}">
-                            <input type="hidden" name="quit" value="1">
+                    <form action="{{ route('tableau.update', $tableau) }}" method="post">
+                        @csrf
+                        @method('PUT')
+                        <input type="hidden" name="userToUpdate" value="{{$user->id}}">
+                        <input type="hidden" name="quit" value="1">
 
-                            <button type="submit">Quitter le tableau</button>
-                        </form>
-                    </a>
+                        <button type="submit"><i class="far fa-times-circle"></i><br>Quitter le tableau</button>
+                    </form>
                 </li>
             @endif
         </ul>
