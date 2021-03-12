@@ -63,6 +63,8 @@ class TableauController extends Controller
         $tableau->user()->associate($data['user_id']); //un à plusieurs
         $tableau->save();
 
+        $tableau->abonnes()->attach($data['user_id']); //abonner le créateur
+
         if(array_key_exists ( 'user' , $data )){
             $tableau->users()->attach($data['user']); //plusieurs à plusieurs
         }

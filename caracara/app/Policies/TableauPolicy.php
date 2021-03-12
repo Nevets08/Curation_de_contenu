@@ -98,11 +98,15 @@ class TableauPolicy
     //J'ajoute une fonction : vérifier si on peut poster sur un tableau (si on est collaborateur)
     public function addPost(User $user, Tableau $tableau)
     {
-        if( (!$tableau->prive)
-            || ($tableau->user == $user)
-            || ($tableau->users->isNotEmpty()
-                && $tableau->users->contains($user)
-                && $tableau->users->first()->pivot->contributeur
+        if(
+            ($tableau->id != $user->tableauSaved->id)
+            &&(
+                ($tableau->user->id == $user->id)
+                || (
+                    $tableau->users->isNotEmpty()
+                    && $tableau->users->contains($user)
+                    && $tableau->users->find($user->id)->pivot->contributeur
+                )
             )
         )
             return true;

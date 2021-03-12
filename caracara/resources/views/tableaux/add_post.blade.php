@@ -5,14 +5,6 @@
             <h2>MENU</h2>
             @include('layouts.secondary_menu')
         </section>
-
-        @if (isset($tableau))
-            <section class="members">
-                <h2>Membres du tableau</h2>
-                @include('layouts.members_posts')
-            </section>
-        @endif
-        
     </aside>
 
     <main class="add_post">

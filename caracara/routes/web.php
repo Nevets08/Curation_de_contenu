@@ -46,8 +46,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/saved_posts/{tabID}', fun
     return view('tableaux/saved_posts', ['tableau' => Tableau::find($tabID), 'tableaux' => Tableau::all()]);
 })->name('saved_posts');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/add_post', function () {
-    return view('tableaux/add_post', ['user' => Auth::user(), 'allTableaux' => Tableau::all(), 'allUsers' => User::all()]);
+Route::middleware(['auth:sanctum', 'verified'])->get('/add_post/{tabID?}', function ($tabID = null) {
+    return view('tableaux/add_post', ['user' => Auth::user(), 'allTableaux' => Tableau::all(), 'allUsers' => User::all(), 'tableau' => Tableau::find($tabID)]);
 })->name('add_post');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/add_tableau', function () {
