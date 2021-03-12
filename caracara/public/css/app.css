@@ -7355,54 +7355,8 @@ button {
   outline: none;
 }
 
-.form-search .inputs {
-  margin-bottom: 20px;
-}
-
-.form-search label {
-  font-size: 20px;
-  margin-bottom: 50px;
-}
-
-.form-search input {
-  border: none;
-  border-bottom: 2px solid #000;
-}
-
-.form-search input,
-.form-search select {
-  width: 50%;
-  margin-top: 10px;
-}
-
-.form-search button {
-  background-color: #000;
-  color: #fff;
-  border-radius: 20px;
-  font-size: 20px;
-  width: 30%;
-}
-
 .result-container {
   margin-top: 40px;
-}
-
-.result-container .post {
-  display: flex;
-  align-items: center;
-}
-
-.result-container .post .left-post {
-  margin-right: 20px;
-}
-
-.result-container .post .right-post .title {
-  display: flex;
-  justify-content: space-between;
-}
-
-.result-container .post .right-post .title i {
-  color: #94cad1;
 }
 
 .new-search {
@@ -7614,7 +7568,7 @@ header .user button#userButton span {
 
 @media (min-width: 768px) {
   header .user button#userButton:after {
-    content: url(../images/down-chevron.svg?3fc898075b85bba3248d2e735ffece52);
+    content: url(../images/down-chevron.svg?1e99c84d8c0860ddf6982e8cb74d75c1);
     width: 10px;
     height: -10px;
     margin-left: 10px;
