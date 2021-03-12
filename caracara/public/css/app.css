@@ -8121,7 +8121,8 @@ div.modal.show {
   border: 1px solid #3e8f93;
 }
 
-.sidebarTableau h2 {
+.sidebarTableau h2 + p {
+  margin-top: 0;
   margin-bottom: 50px;
 }
 
@@ -8446,6 +8447,12 @@ div.modal.show {
 
 .members-management table td:nth-child(3) {
   width: 15%;
+}
+
+.edit-tableau label {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
 }
 
 .article-card {

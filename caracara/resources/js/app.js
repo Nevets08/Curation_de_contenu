@@ -229,17 +229,22 @@ if (membersManagementButton !== null) {
     });
 }
 
+//Modal Editer un tableau
+var editerTableauButton = document.querySelector(".edit_tableau-button");
 
-// function displayModalRetweet(e) {
-//     e.preventDefault();
-//     e.stopPropagation();
-//     const modal = retwe
-//     modal.classList.add("show");
-//
-//     window.addEventListener("click", function () {
-//         modal.classList.remove("show");
-//     });
-//     modal.firstElementChild.addEventListener("click", function (e) {
-//         e.stopPropagation();
-//     });
-// }
+if (editerTableauButton !== null) {
+    editerTableauButton.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var modal = document.querySelector(".modal.edit-tableau");
+        modal.classList.add("show");
+        document.body.style.overflow = "hidden";
+        window.addEventListener("click", function () {
+            modal.classList.remove("show");
+            document.body.style.overflow = "initial";
+        });
+        modal.firstElementChild.addEventListener("click", function (e) {
+            e.stopPropagation();
+        });
+    });
+}

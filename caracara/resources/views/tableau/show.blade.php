@@ -76,7 +76,6 @@
             @endforeach
 
 
-
         </div>
     </main>
 
@@ -85,7 +84,8 @@
             <h2>Paramètres du tableau</h2>
         </div>
         <img src="{{$tableau->url_icone}}" alt="">
-        <h2>Tableau {{ $tableau->name }}</h2>
+        <h2>{{ $tableau->nom }}</h2>
+        <p>{{ $tableau->description }}</p>
         <ul>
             <li>
                 <a href="#">
@@ -99,24 +99,24 @@
                     <p>Gérer les membres</p>
                 </a>
             </li>
-            <li>
+            <li class="edit_tableau-button">
                 <a href="#">
-                    <i class="fas fa-chart-pie"></i>
-                    <p>Voir les statistiques</p>
+                    <i class="fas fa-pen"></i>
+                    <p>Editer le tableau</p>
                 </a>
             </li>
-            <li>
-                <a href="">
-                    <i class="fas fa-book"></i>
-                    <p>Générer une bibliographie</p>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="far fa-comment-alt"></i>
-                    <p>Proposer un lien à ajouter</p>
-                </a>
-            </li>
+{{--            <li>--}}
+{{--                <a href="">--}}
+{{--                    <i class="fas fa-book"></i>--}}
+{{--                    <p>Générer une bibliographie</p>--}}
+{{--                </a>--}}
+{{--            </li>--}}
+{{--            <li>--}}
+{{--                <a href="#">--}}
+{{--                    <i class="far fa-comment-alt"></i>--}}
+{{--                    <p>Proposer un lien à ajouter</p>--}}
+{{--                </a>--}}
+{{--            </li>--}}
             <li>
                 <a href="#">
                     <i class="fas fa-search"></i>
@@ -124,25 +124,25 @@
                 </a>
             </li>
             @if($tableau->prive and Auth::user()->id != $tableau->user->id)
-            <li>
-                <a href="#">
-                    <i class="far fa-times-circle"></i>
-                    <form action="{{ route('tableau.update', $tableau) }}" method="post">
-                        @csrf
-                        @method('PUT')
-                        <input type="hidden" name="userToUpdate" value="{{$user->id}}">
-                        <input type="hidden" name="quit" value="1">
+                <li>
+                    <a href="#">
+                        <i class="far fa-times-circle"></i>
+                        <form action="{{ route('tableau.update', $tableau) }}" method="post">
+                            @csrf
+                            @method('PUT')
+                            <input type="hidden" name="userToUpdate" value="{{$user->id}}">
+                            <input type="hidden" name="quit" value="1">
 
-                        <button type="submit">Quitter le tableau</button>
-                    </form>
-                </a>
-            </li>
+                            <button type="submit">Quitter le tableau</button>
+                        </form>
+                    </a>
+                </li>
             @endif
         </ul>
 
     </div>
     @include('layouts/members_management')
-
+    @include('layouts/modal_editer_tableau')
 
 </x-app-layout>
 
