@@ -22,7 +22,7 @@
 
         <div class="breadcrumb">
             <a href="{{ route('home') }}">Accueil</a>
-            <span>/ Vos tableaux privés</span>
+            <span>/ Vos tableaux @if ($tableau->prive) privés @else publics @endif</span>
         </div>
 
         <div class="posts">

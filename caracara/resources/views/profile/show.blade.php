@@ -33,7 +33,7 @@
                     </div>
                 @endforeach
             </div>
-            <p class="buttonAdd"><a href="#">Proposer un article</a></p>
+            {{-- <p class="buttonAdd"><a href="#">Proposer un article</a></p> --}}
         </section>
 
         <section class="tableaux_prives">
