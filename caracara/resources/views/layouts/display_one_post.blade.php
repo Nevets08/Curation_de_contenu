@@ -35,7 +35,7 @@ $date = format_interval($difference);
     <div class="article-infos">
         <p class="article-auteur"><a href="#"><img class="article-auteur-image"
                     src="{{ $post->user->profile_photo_url }}" alt="">{{ $post->user->name }}</a>&nbspdans&nbsp<a
-                href="#">{{ $post->tableaux[0]->nom }}</a></p>
+                href="{{ route("tableau.show", $post->tableaux[0]) }}">{{ $post->tableaux[0]->nom }}</a></p>
         <p class="article-date">{{ $date }}</p>
     </div>
     <h2>{{ $title }}</h2>
