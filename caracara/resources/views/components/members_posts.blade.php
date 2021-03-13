@@ -10,4 +10,4 @@
 
 <button><i class="fas fa-users"></i>Liste des membres</button>
 
-@include('layouts/modal_members_list')
+@include('components/modals/modal_members_list')

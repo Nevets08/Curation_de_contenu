@@ -28,7 +28,6 @@
     $second_date = new DateTime(date('d-m-Y H:i:s', strtotime($post->created_at)));
     $difference = $first_date->diff($second_date);
     $date = format_interval($difference);
-
 @endphp
 
 <article class="article-card" onclick="window.open('{{ $post->url }}')">
@@ -126,4 +125,4 @@
     </div>
 </article>
 
-@include('layouts/modal_retweet')
+@include('components/modals/modal_retweet')

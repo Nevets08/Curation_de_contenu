@@ -106,7 +106,9 @@ class TableauController extends Controller
      */
     public function edit(Tableau $tableau)
     {
-        //
+        return view('tableau.edit', [
+            'tableau' => $tableau,
+        ]);
     }
 
     /**

@@ -7,13 +7,13 @@
             @method('PUT')
             <label>
                 Nom du tableau :
-                <input type="text" placeholder="Nom du tableau" name="nom" required value="{{$tableau->nom}}">
+                <input type="text" placeholder="Nom du tableau" name="nom" required value="{{old('tableau', $tableau->nom)}}">
             </label>
 
             <label>
                 Description :
                 <textarea name="description" cols="30" rows="2"
-                          placeholder="Description du tableau...">{{$tableau->description}}</textarea>
+                          placeholder="Description du tableau...">{{old('tableau', $tableau->description)}}</textarea>
             </label>
 
             <label>

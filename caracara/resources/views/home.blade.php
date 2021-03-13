@@ -50,7 +50,7 @@
                     @php
                         $post=Auth::user()->tableauSaved->posts[$i];
                     @endphp
-                    @include('layouts.article_miniature')
+                    @include('post.show_maniature')
                 @endfor
                 <p class="button"><a href="{{ route('saved_posts', ['tabID' => Auth::user()->tableauSaved->id]) }}">Voir toutes vos publications sauvegardées</a></p>
             </section>
@@ -79,7 +79,7 @@
             </div>
         </section>
         <section>
-            @include('layouts.declare_format_interval')
+            @include('components.others.declare_format_interval')
             @foreach ($posts as $post)
                 @can('abonnement', $post)
                     @include('post.show')

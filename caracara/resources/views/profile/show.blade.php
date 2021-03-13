@@ -79,7 +79,7 @@
                     @php
                         $post=$user->tableauSaved->posts[$i];
                     @endphp
-                    @include('layouts.article_miniature')
+                    @include('post.show_maniature')
 
                     @if($i%2!==0 || $i===$count-1)
                         </div>
@@ -103,7 +103,7 @@
                     @php
                         $post=$user->posts[$i];
                     @endphp
-                    @include('layouts.article_miniature')
+                    @include('post.show_maniature')
 
                     @if($i%2!==0 || $i===$count-1)
                         </div>

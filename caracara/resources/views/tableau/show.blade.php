@@ -9,7 +9,7 @@
         @if ($tableau->prive)
             <section class="members">
                 <h2>Membres du tableau</h2>
-                @include('layouts.members_posts')
+                @include('components.members_posts')
             </section>
         @endif
     </aside>
@@ -70,7 +70,7 @@
 
                 </div>
             </div>
-            @include('layouts.declare_format_interval')
+            @include('components.others.declare_format_interval')
 
             @foreach ($tableau->posts as $post)
                 @include('post.show')
@@ -145,8 +145,8 @@
         </ul>
 
     </div>
-    @include('layouts/members_management')
-    @include('layouts/modal_editer_tableau')
+    @include('components/modals/modal_edit_members')
+    @include('tableau/edit')
 
 </x-app-layout>
 
