@@ -19,7 +19,7 @@
 
         <form action="{{ route('post.store') }}" method="post">
             @csrf
-            <label>A quel tableau voulez-vous l'ajouter ?
+            <label>A quel(s) tableau(x) voulez-vous l'ajouter ?
                 <select multiple required name="tableau[]">
                     @foreach ($allTableaux as $tab)
                         @can('addPost', $tab)

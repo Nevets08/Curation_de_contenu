@@ -7,7 +7,7 @@
 
             <label>
                 A quel(s) tableau(x) souhaitez-vous l'ajouter ? <br>
-                (Astuce : vous pouvez selectionner plusieurs tableaux avec ctrl.)
+                (Astuce : vous pouvez selectionner plusieurs tableaux avec ctrl)
                 <select multiple required name="tableau[]">
                     @foreach ($tableaux as $tab)
                         @can('addPost', $tab)
