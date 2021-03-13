@@ -34,11 +34,11 @@
                                 </div>
                             @endif
                         @endif
-                        
+
                     @endcan
                 @endforeach
             </div>
-            <button><a href="{{ route("add_tableau") }}">Créer</a></button>
+            <button><a href="{{ route("tableau.create") }}">Créer</a></button>
         </section>
         @if(isset(Auth::user()->tableauSaved))
             <section>
@@ -55,7 +55,7 @@
                 <p class="button"><a href="{{ route('saved_posts', ['tabID' => Auth::user()->tableauSaved->id]) }}">Voir toutes vos publications sauvegardées</a></p>
             </section>
         @endif
-        
+
     </aside>
     <main>
         <section>
@@ -82,7 +82,7 @@
             @include('layouts.declare_format_interval')
             @foreach ($posts as $post)
                 @can('abonnement', $post)
-                    @include('layouts.display_one_post')
+                    @include('post.show')
                 @endcan
             @endforeach
 

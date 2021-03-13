@@ -81,7 +81,7 @@
                                 value={{ $optionUser->id }}
                                 @if ( $optionUser->id === $user->id )
                                     disabled
-                                    style="display: none"
+                                style="display: none"
                                 @endif
                             >
                                 {{ $optionUser->name }}

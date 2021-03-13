@@ -21,7 +21,12 @@ class TableauController extends Controller
     public function index()
     {
         $user = Auth::user();
-        return view('home', ['tableaux' => Tableau::all(), 'user' => $user, 'allUsers' => User::all(), 'posts' => Post::orderBy('created_at', 'desc')->get()]);
+        return view('home', [
+            'tableaux' => Tableau::all(),
+            'user' => $user,
+            'allUsers' => User::all(),
+            'posts' => Post::orderBy('created_at', 'desc')->get()
+        ]);
     }
 
     /**
@@ -31,7 +36,10 @@ class TableauController extends Controller
      */
     public function create()
     {
-        //
+        return view('tableau.create', [
+            'user' => Auth::user(),
+            'allUsers' => User::all()
+        ]);
     }
 
     /**
@@ -82,7 +90,12 @@ class TableauController extends Controller
     public function show(Tableau $tableau)
     {
         $user = Auth::user();
-        return view('tableau.show', ['tableau' => $tableau, 'user' => $user, 'tableaux' => Tableau::all(), 'allUsers' => User::all()]);
+        return view('tableau.show', [
+            'tableau' => $tableau,
+            'user' => $user,
+            'tableaux' => Tableau::all(),
+            'allUsers' => User::all(),
+        ]);
     }
 
     /**

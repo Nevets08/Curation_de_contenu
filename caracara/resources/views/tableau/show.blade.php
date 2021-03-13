@@ -34,7 +34,8 @@
 
                     <div>
                         @can('addPost', $tableau)
-                            <a class="btnAction" href="{{ route('add_post', ['tabID' => $tableau->id]) }}"><i class="fas fa-plus-circle"></i>Ajouter une publication</a>
+                            <a class="btnAction" href="{{ route('post.create', ['tabID' => $tableau->id]) }}"><i class="fas fa-plus-circle"></i>Ajouter une publication</a>
+{{--                            <a class="btnAction" href="{{ route('post.create', $tableau->id) }}"><i class="fas fa-plus-circle"></i>Ajouter une publication</a>--}}
                         @endcan
 
                         @php
@@ -72,7 +73,7 @@
             @include('layouts.declare_format_interval')
 
             @foreach ($tableau->posts as $post)
-                @include('layouts.display_one_post')
+                @include('post.show')
             @endforeach
 
 
@@ -89,7 +90,8 @@
         <ul>
             @can('addPost', $tableau)
             <li>
-                <a href="{{ route('add_post', ['tabID' => $tableau->id]) }}">
+                <a href="{{ route('post.create', ['tabID' => $tableau->id]) }}">
+{{--                <a href="{{ route('post.create', $tableau->id) }}">--}}
                     <i class="fas fa-plus"></i>
                     <p>Ajouter une publication</p>
                 </a>
@@ -109,7 +111,7 @@
                     </a>
                 </li>
             @endif
-            
+
 {{--            <li>--}}
 {{--                <a href="">--}}
 {{--                    <i class="fas fa-book"></i>--}}

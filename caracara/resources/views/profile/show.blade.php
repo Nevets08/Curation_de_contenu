@@ -62,7 +62,7 @@
                     </div>
                 @endforeach
             </div>
-            <p class="buttonAdd"><a href="{{ route('add_tableau') }}">Créer un tableau privé</a></p>
+            <p class="buttonAdd"><a href="{{ route('tableau.create') }}">Créer un tableau privé</a></p>
         </section>
 
         <section class="publications_sauvegardees">
@@ -75,7 +75,7 @@
                     @if($i%2===0)
                         <div>
                     @endif
-                    
+
                     @php
                         $post=$user->tableauSaved->posts[$i];
                     @endphp

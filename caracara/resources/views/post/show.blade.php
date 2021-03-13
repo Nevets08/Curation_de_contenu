@@ -1,40 +1,40 @@
 @php
-//Recuperer titre, description et image d'un article
-$public = public_path('php/OpenGraph.php');
+    //Recuperer titre, description et image d'un article
+    $public = public_path('php/OpenGraph.php');
 
-require_once $public;
-$url = $post->url;
-$graph = OpenGraph::fetch($url);
-if($graph){
-    foreach ($graph as $key => $value) {
-        if ($key === 'title') {
-            $title = $value;
+    require_once $public;
+    $url = $post->url;
+    $graph = OpenGraph::fetch($url);
+    if($graph){
+        foreach ($graph as $key => $value) {
+            if ($key === 'title') {
+                $title = $value;
+            }
+            if ($key === 'description') {
+                $description = $value;
+            }
+            if ($key === 'image') {
+                $image = $value;
+            }
         }
-        if ($key === 'description') {
-            $description = $value;
-        }
-        if ($key === 'image') {
-            $image = $value;
-        }
+    } else {
+        $title = "Article Invalide";
+        $description = "Oups ! On dirait que l'article n'existe pas ! Cela peut être dû à une url invalide par exemple.";
     }
-} else {
-    $title = "Article Invalide";
-    $description = "Oups ! On dirait que l'article n'existe pas ! Cela peut être dû à une url invalide par exemple.";
-}
 
 
-//Recuperer la différence entre la date de création et maintenant
-$first_date = new DateTime('now');
-$second_date = new DateTime(date('d-m-Y H:i:s', strtotime($post->created_at)));
-$difference = $first_date->diff($second_date);
-$date = format_interval($difference);
+    //Recuperer la différence entre la date de création et maintenant
+    $first_date = new DateTime('now');
+    $second_date = new DateTime(date('d-m-Y H:i:s', strtotime($post->created_at)));
+    $difference = $first_date->diff($second_date);
+    $date = format_interval($difference);
 
 @endphp
 
 <article class="article-card" onclick="window.open('{{ $post->url }}')">
     <div class="article-infos">
         <p class="article-auteur"><a href="#"><img class="article-auteur-image"
-                    src="{{ $post->user->profile_photo_url }}" alt="">{{ $post->user->name }}</a>&nbspdans&nbsp<a
+                                                   src="{{ $post->user->profile_photo_url }}" alt="">{{ $post->user->name }}</a>&nbspdans&nbsp<a
                 href="{{ route("tableau.show", $post->tableaux[0]) }}">{{ $post->tableaux[0]->nom }}</a></p>
         <p class="article-date">{{ $date }}</p>
     </div>
@@ -71,13 +71,13 @@ $date = format_interval($difference);
                     <input type="hidden" name="like" value="0">
 
                     <button type="submit"><i style="margin-right: 5px;"
-                            class="fas fa-heart"></i>{{ count($post->likes) }}
+                                             class="fas fa-heart"></i>{{ count($post->likes) }}
                     </button>
                 </form>
             @endif
             <span></span>
         </div>
-        
+
         {{-- Sauvegarder la publication --}}
         @if(isset(Auth::user()->tableauSaved))
             @if (Auth::user()->tableauSaved->posts->contains($post))
@@ -85,7 +85,7 @@ $date = format_interval($difference);
                     <form action="{{ route('post.update', $post) }}" method="post">
                         @csrf
                         @method('PUT')
-                            <input type="hidden" name="tableauSavedID" value={{Auth::user()->tableauSaved->id}}>
+                        <input type="hidden" name="tableauSavedID" value={{Auth::user()->tableauSaved->id}}>
                         <button type="submit"><i style="margin-right: 5px;" class="fas fa-bookmark"></i>Supprimer des publications sauvegardées</button>
                     </form>
                 </div>
@@ -94,14 +94,14 @@ $date = format_interval($difference);
                     <form action="{{ route('post.update', $post) }}" method="post">
                         @csrf
                         @method('PUT')
-                            <select multiple required name="tableau[]" style="display: none">
-                                <option value={{ Auth::user()->tableauSaved->id }} selected></option>
-                            </select>
+                        <select multiple required name="tableau[]" style="display: none">
+                            <option value={{ Auth::user()->tableauSaved->id }} selected></option>
+                        </select>
                         <button type="submit"><i style="margin-right: 5px;" class="far fa-bookmark"></i>Sauvegarder</button>
                     </form>
                 </div>
             @endif
-        
+
         @endif
 
         <div class="article-Retweet"><a href=""><i style="margin-right: 5px;" class="fas fa-retweet"></i>Reposter</a>

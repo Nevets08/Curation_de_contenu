@@ -44,7 +44,7 @@
                             value={{ $optionUser->id }}
                             @if ( $optionUser->id === $user->id )
                                 disabled
-                                style="display: none"
+                            style="display: none"
                             @endif
                         >
                             {{ $optionUser->name }}
@@ -67,8 +67,8 @@
             </div>
 
             {{-- <div class="group_buttons"> --}}
-                {{-- <a class="retour_creationPost" href="#">Revenir en arrière</a> --}}
-                <button type="submit">Créer le tableau</button>
+            {{-- <a class="retour_creationPost" href="#">Revenir en arrière</a> --}}
+            <button type="submit">Créer le tableau</button>
             {{-- </div> --}}
 
         </form>

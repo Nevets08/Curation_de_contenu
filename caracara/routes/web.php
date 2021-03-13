@@ -32,6 +32,14 @@ Route::resource('/tableau', TableauController::class);
 
 Route::resource('/post', PostController::class);
 
+Route::middleware(['auth:sanctum', 'verified'])->get('/create/{tabID?}', function ($tabID = null) {
+    return view('post/create', [
+        'user' => Auth::user(),
+        'allTableaux' => Tableau::all(),
+        'allUsers' => User::all(),
+        'tableau' => Tableau::find($tabID)]);
+})->name('post.create');
+
 Route::get('/search', [SearchController::class, 'search'])->name('search');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/', function () {
@@ -46,13 +54,9 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/saved_posts/{tabID}', fun
     return view('tableaux/saved_posts', ['tableau' => Tableau::find($tabID), 'tableaux' => Tableau::all()]);
 })->name('saved_posts');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/add_post/{tabID?}', function ($tabID = null) {
-    return view('tableaux/add_post', ['user' => Auth::user(), 'allTableaux' => Tableau::all(), 'allUsers' => User::all(), 'tableau' => Tableau::find($tabID)]);
-})->name('add_post');
-
-Route::middleware(['auth:sanctum', 'verified'])->get('/add_tableau', function () {
-    return view('tableaux/add_tableau', ['user' => Auth::user(), 'allUsers' => User::all()]);
-})->name('add_tableau');
+//Route::middleware(['auth:sanctum', 'verified'])->get('/add_tableau', function () {
+//    return view('tableaux/add_tableau', ['user' => Auth::user(), 'allUsers' => User::all()]);
+//})->name('add_tableau');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/all_private_tableaux', function () {
     return view('tableaux/all_private_tableaux', ['tableaux' => Tableau::where('prive', 1)->where('id', '<>', Auth::user()->tableauSaved->id)->get()]);

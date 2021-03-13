@@ -47,8 +47,8 @@
                         <li>
                             <hr>
                         </li>
-                        <li><a href="{{ route('add_post') }}">Ajouter un article</a></li>
-                        <li><a href="{{ route('add_tableau') }}">Créer un tableau</a></li>
+                        <li><a href="{{ route('post.create') }}">Ajouter un article</a></li>
+                        <li><a href="{{ route('tableau.create') }}">Créer un tableau</a></li>
                         <li>
                             <hr>
                         </li>
@@ -70,7 +70,7 @@
         {{ $slot }}
     </div>
     <div class="menu-right-fixed">
-        <a href="{{ route('add_post') }}"><i title="Ajouter un post" class="fas fa-plus"></i></a>
+        <a href="{{ route('post.create') }}"><i title="Ajouter un post" class="fas fa-plus"></i></a>
         <i title="Passer en mode nuit" class="far fa-lightbulb"></i>
     </div>
     @livewireScripts
