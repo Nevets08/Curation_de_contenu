@@ -87,12 +87,14 @@
         <h2>{{ $tableau->nom }}</h2>
         <p>{{ $tableau->description }}</p>
         <ul>
+            @can('addPost', $tableau)
             <li>
-                <a href="#">
+                <a href="{{ route('add_post', ['tabID' => $tableau->id]) }}">
                     <i class="fas fa-plus"></i>
                     <p>Ajouter une publication</p>
                 </a>
             </li>
+            @endcan
             @if (Auth::user()->id == $tableau->user->id)
                 <li class="members-management-button">
                     <a href="#">
