@@ -5,11 +5,6 @@
             <h2>MENU</h2>
             @include('layouts.secondary_menu')
         </section>
-
-        {{-- <section class="members">
-            <h2>Membres du tableau</h2>
-            @include('layouts.members_posts')
-        </section> --}}
     </aside>
 
     <main class="add_post">
@@ -71,10 +66,10 @@
                 <input type="hidden" name="user_id" value="@if($user) {{$user->id}} @endif">
             </div>
 
-            <div class="group_buttons">
-                <a class="retour_creationPost" href="#">Revenir en arrière</a>
+            {{-- <div class="group_buttons"> --}}
+                {{-- <a class="retour_creationPost" href="#">Revenir en arrière</a> --}}
                 <button type="submit">Créer le tableau</button>
-            </div>
+            {{-- </div> --}}
 
         </form>
 
