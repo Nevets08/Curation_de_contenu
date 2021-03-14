@@ -134,12 +134,15 @@ class TableauController extends Controller
         //Pour stocker l'image
         if(array_key_exists ( 'icone' , $data )){
             //si il y en avait une avant, on la suppr
-            /*if($tableau->url_icone)
+            if($tableau->url_icone)
             {
-                preg_match('/laravel\.bukal\.etu\.mmi-unistra\.fr\/Curation_de_contenu\/caracara\/storage\/app\/public\/icones\/(.*)/', $tableau->url_icone, $matches);
+                /*preg_match('/laravel\.bukal\.etu\.mmi-unistra\.fr\/Curation_de_contenu\/caracara\/storage\/app\/public\/icones\/(.*)/', $tableau->url_icone, $matches);
                 $filename=$matches[1];
-                Storage::delete('/public/icones/'.$filename);
-            }*/
+                Storage::delete('/public/icones/'.$filename);*/
+
+                $filename = basename($tableau->url_icone);
+                unlink(public_path().'/icones/'.$filename);
+            }
 
             $extension = $data['icone']->extension();
             $name = Str::random(25);
@@ -197,9 +200,8 @@ class TableauController extends Controller
     {
         if($tableau->url_icone)
         {
-            preg_match('/laravel\.bukal\.etu\.mmi-unistra\.fr\/Curation_de_contenu\/caracara\/storage\/app\/public\/icones\/(.*)/', $tableau->url_icone, $matches);
-            $filename=$matches[1];
-            Storage::delete('/public/icones/'.$filename);
+            $filename = basename($tableau->url_icone);
+            unlink(public_path().'/icones/'.$filename);
         }
         $tableau->delete();
         return redirect()->route('tableau.index');
