@@ -35238,9 +35238,8 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 __webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/alpine.js");
 
-__webpack_require__(/*! slick-carousel */ "./node_modules/slick-carousel/slick/slick.js");
+__webpack_require__(/*! slick-carousel */ "./node_modules/slick-carousel/slick/slick.js"); //Bouton partage
 
-console.log(url); //Bouton partage
 
 var button_partage = document.querySelectorAll(".article-card a.article-partager");
 

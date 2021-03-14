@@ -4,7 +4,6 @@ require('alpinejs');
 
 require('slick-carousel');
 
-console.log(url);
 //Bouton partage
 const button_partage = document.querySelectorAll(".article-card a.article-partager");
 if (button_partage !== null) {
