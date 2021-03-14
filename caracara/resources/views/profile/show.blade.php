@@ -27,7 +27,7 @@
                         <img src="@if ($tab->url_icone)
                             {{ $tab->url_icone }}
                         @else
-                            {{ asset('img/rond_vide.png') }}
+                            {{ asset('img/tableauWithoutIcon.png') }}
                         @endif" alt="{{$tab->nom}}">
                         <p>{{$tab->nom}}</p>
                     </div>
@@ -45,7 +45,7 @@
                             <img src="@if ($tab->url_icone)
                             {{ $tab->url_icone }}
                         @else
-                            {{ asset('img/rectangle_vide.png') }}
+                            {{ asset('img/tableauWithoutIcon.png') }}
                         @endif" alt="{{ $tab->nom }}">
                             <p>{{$tab->nom}}</p>
                         </div>
@@ -56,7 +56,7 @@
                         <img src="@if ($tab->url_icone)
                         {{ $tab->url_icone }}
                     @else
-                        {{ asset('img/rectangle_vide.png') }}
+                        {{ asset('img/tableauWithoutIcon.png') }}
                     @endif" alt="{{$tab->nom}}">
                         <p>{{$tab->nom}}</p>
                     </div>

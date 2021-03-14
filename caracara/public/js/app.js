@@ -35258,7 +35258,6 @@ function ClickButtonPartage(e) {
 
 
 var elements = document.querySelectorAll('.article-remove form button, .article-likes form button, .article-favoris form button, .article-card div.article-partager-liens a');
-console.log(elements);
 
 if (elements !== null) {
   for (var i = 0; i < elements.length; i++) {
@@ -35400,7 +35399,6 @@ if (retweetButton !== null) {
       e.preventDefault();
       e.stopPropagation();
       var modal = retweetButtonElement.closest("article").nextElementSibling;
-      console.log(modal);
       modal.classList.add("show");
       window.addEventListener("click", function () {
         modal.classList.remove("show");

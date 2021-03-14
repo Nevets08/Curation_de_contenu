@@ -37,8 +37,9 @@
 
             <div class="user">
                 <button id="userButton">
-                    <img src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}"><span
-                        class="hidden md">{{ Auth::user()->name }}</span>
+                    <img src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}">
+                    <span class="hidden md">{{ Auth::user()->name }}</span>
+                    <i class="fas fa-chevron-down"></i>
                 </button>
 
                 <div id="userMenu">

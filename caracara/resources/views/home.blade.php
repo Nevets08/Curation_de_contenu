@@ -13,7 +13,7 @@
                                             @if ($tableau->url_icone)
                                                 {{ $tableau->url_icone }}
                                             @else
-                                                {{ asset('img/rectangle_vide.png') }}
+                                                {{ asset('img/tableauWithoutIcon.png') }}
                                             @endif" alt="">
                                         <p>{{$tableau->nom}}</p>
                                     </a>
@@ -27,7 +27,7 @@
                                             @if ($tableau->url_icone)
                                                 {{ $tableau->url_icone }}
                                             @else
-                                                {{ asset('img/rectangle_vide.png') }}
+                                                {{ asset('img/tableauWithoutIcon.png') }}
                                             @endif" alt="">
                                         <p>{{$tableau->nom}}</p>
                                     </a>
@@ -69,7 +69,7 @@
                             @if ($tableau->url_icone)
                                 {{ $tableau->url_icone }}
                             @else
-                                {{ asset('img/rond_vide.png') }}
+                                {{ asset('img/tableauWithoutIcon.png') }}
                             @endif" alt="">
                             <p>{{$tableau->nom}}</p>
                         </div>

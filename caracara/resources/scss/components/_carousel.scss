@@ -28,7 +28,11 @@
         overflow: hidden;
     }
     img {
-        width: 50px
+        width: 50px;
+        border-radius: 10px;
+        @include theme() {
+            border: 1px solid theme-get('main-color');
+        }
     }
     p {
         white-space: nowrap;
@@ -50,6 +54,11 @@
     img {
         width: 70px;
         height: 70px;
+        border-radius: 50px;
+        @include theme() {
+            background-color: theme-get('white');
+            border: 1px solid theme-get('main-color');
+        }
     }
     p {
         white-space: nowrap

@@ -24,7 +24,14 @@
 @endphp
 
 <article class="article-miniature">
-    <img src="@if(isset($image)){{ $image }} @else{{ asset('img/carre_vide.png') }}@endif" alt="{{$title}}">
-    <p class="article-miniature-headline"><a href="{{$post->url}}" target="_blank">@isset($title){{ $title }} @endisset</a></p>
-    <p class="article-miniature-infos">Dans <a href="{{ route("tableau.show", $post->tableaux[0]) }}">{{$post->tableaux[0]->nom}}</a></p>
+    @if(isset($image))
+        <img src="{{ $image }}" alt="{{$title}}">
+    @endif
+
+    <p class="article-miniature-headline">
+        <a href="{{$post->url}}" target="_blank">@isset($title){{ $title }} @endisset</a>
+    </p>
+    <p class="article-miniature-infos">
+        Dans <a href="{{ route("tableau.show", $post->tableaux[0]) }}">{{$post->tableaux[0]->nom}}</a>
+    </p>
 </article>

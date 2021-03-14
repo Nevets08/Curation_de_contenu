@@ -25,7 +25,7 @@
                         @if ($tableau->url_icone)
                             {{$tableau->url_icone}}
                         @else
-                            {{ asset('img/rectangle_vide.png') }}
+                            {{ asset('img/tableauWithoutIcon.png') }}
                         @endif
                     " alt="">
                     <h2>{{$tableau->nom}}</h2>
