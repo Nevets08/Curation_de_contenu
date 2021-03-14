@@ -13,7 +13,7 @@
                                             @if ($tableau->url_icone)
                                                 {{ $tableau->url_icone }}
                                             @else
-                                                {{ asset('img/rectangle_vide.png') }}
+                                                {{ asset('img/tableauWithoutIcon.png') }}
                                             @endif" alt="">
                                         <p>{{$tableau->nom}}</p>
                                     </a>
@@ -27,18 +27,18 @@
                                             @if ($tableau->url_icone)
                                                 {{ $tableau->url_icone }}
                                             @else
-                                                {{ asset('img/rectangle_vide.png') }}
+                                                {{ asset('img/tableauWithoutIcon.png') }}
                                             @endif" alt="">
                                         <p>{{$tableau->nom}}</p>
                                     </a>
                                 </div>
                             @endif
                         @endif
-                        
+
                     @endcan
                 @endforeach
             </div>
-            <button><a href="{{ route("add_tableau") }}">Créer</a></button>
+            <button><a href="{{ route("tableau.create") }}">Créer</a></button>
         </section>
         @if(isset(Auth::user()->tableauSaved))
             <section>
@@ -50,12 +50,12 @@
                     @php
                         $post=Auth::user()->tableauSaved->posts[$i];
                     @endphp
-                    @include('layouts.article_miniature')
+                    @include('post.show_maniature')
                 @endfor
                 <p class="button"><a href="{{ route('saved_posts', ['tabID' => Auth::user()->tableauSaved->id]) }}">Voir toutes vos publications sauvegardées</a></p>
             </section>
         @endif
-        
+
     </aside>
     <main>
         <section>
@@ -69,7 +69,7 @@
                             @if ($tableau->url_icone)
                                 {{ $tableau->url_icone }}
                             @else
-                                {{ asset('img/rond_vide.png') }}
+                                {{ asset('img/tableauWithoutIcon.png') }}
                             @endif" alt="">
                             <p>{{$tableau->nom}}</p>
                         </div>
@@ -79,10 +79,10 @@
             </div>
         </section>
         <section>
-            @include('layouts.declare_format_interval')
+            @include('components.others.declare_format_interval')
             @foreach ($posts as $post)
                 @can('abonnement', $post)
-                    @include('layouts.display_one_post')
+                    @include('post.show')
                 @endcan
             @endforeach
 

@@ -21,7 +21,8 @@
 
             <div class="result-container">
                 <h2>{{ count($tableaux) }}
-                    @if (count($tableaux) >= 2) résultats @else résultat @endif pour : "{{ $search_text }}"
+                    @if (count($tableaux) >= 2) résultats @else résultat @endif pour :
+                    "{{ $search_text }}"
                 </h2>
 
                 @if (count($tableaux) > 0)
@@ -29,16 +30,16 @@
 
                         <div class="tableaux">
                             <div>
-                                <img src="
-                                        @if ($tableau->url_icone){{$tableau->url_icone}}
-                                @else{{ asset('img/rectangle_vide.png') }}
-                                @endif
+                                <a href="{{ route('tableau.show', $tableau) }}">
+                                    <img src="
+                                        @if ($tableau->url_icone) {{ $tableau->url_icone }}
+                                    @else{{ asset('img/tableauWithoutIcon.png') }} @endif
                                     " alt="">
 
-                                <h2>{{ $tableau->nom }}</h2>
-                                <p>{{ $tableau->description }}</p>
-                                {{-- <p>Créé par <a href="#">{{ $tableau->user->name }}</a></p> --}}
-
+                                    <h2>{{ $tableau->nom }}</h2>
+                                    <p>{{ $tableau->description }}</p>
+                                    <p>Créé par <a href="#">{{ $tableau->user->name }}</a></p>
+                                </a>
                             </div>
                         </div>
 
@@ -51,12 +52,12 @@
                     {{ $tableaux->appends(request()->input())->links('search.paginationlinks') }}
                 </div>
 
-{{--                <div class="new-search">--}}
-{{--                    <h3>Effectuer une nouvelle recherche</h3>--}}
-{{--                    <a href="{{ route('search') }}">--}}
-{{--                        <i class="far fa-arrow-alt-circle-up"></i>--}}
-{{--                    </a>--}}
-{{--                </div>--}}
+                {{-- <div class="new-search"> --}}
+                {{-- <h3>Effectuer une nouvelle recherche</h3> --}}
+                {{-- <a href="{{ route('search') }}"> --}}
+                {{-- <i class="far fa-arrow-alt-circle-up"></i> --}}
+                {{-- </a> --}}
+                {{-- </div> --}}
         @endif
     </main>
 

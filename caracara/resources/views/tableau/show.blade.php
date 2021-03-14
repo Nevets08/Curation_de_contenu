@@ -9,7 +9,7 @@
         @if ($tableau->prive)
             <section class="members">
                 <h2>Membres du tableau</h2>
-                @include('layouts.members_posts')
+                @include('components.members_posts')
             </section>
         @endif
     </aside>
@@ -34,7 +34,8 @@
 
                     <div>
                         @can('addPost', $tableau)
-                            <a class="btnAction" href="{{ route('add_post', ['tabID' => $tableau->id]) }}"><i class="fas fa-plus-circle"></i>Ajouter une publication</a>
+                            <a class="btnAction" href="{{ route('post.create', ['tabID' => $tableau->id]) }}"><i class="fas fa-plus-circle"></i>Ajouter une publication</a>
+{{--                            <a class="btnAction" href="{{ route('post.create', $tableau->id) }}"><i class="fas fa-plus-circle"></i>Ajouter une publication</a>--}}
                         @endcan
 
                         @php
@@ -69,10 +70,10 @@
 
                 </div>
             </div>
-            @include('layouts.declare_format_interval')
+            @include('components.others.declare_format_interval')
 
             @foreach ($tableau->posts as $post)
-                @include('layouts.display_one_post')
+                @include('post.show')
             @endforeach
 
 
@@ -89,7 +90,8 @@
         <ul>
             @can('addPost', $tableau)
             <li>
-                <a href="{{ route('add_post', ['tabID' => $tableau->id]) }}">
+                <a href="{{ route('post.create', ['tabID' => $tableau->id]) }}">
+{{--                <a href="{{ route('post.create', $tableau->id) }}">--}}
                     <i class="fas fa-plus"></i>
                     <p>Ajouter une publication</p>
                 </a>
@@ -109,7 +111,7 @@
                     </a>
                 </li>
             @endif
-            
+
 {{--            <li>--}}
 {{--                <a href="">--}}
 {{--                    <i class="fas fa-book"></i>--}}
@@ -143,8 +145,8 @@
         </ul>
 
     </div>
-    @include('layouts/members_management')
-    @include('layouts/modal_editer_tableau')
+    @include('components/modals/modal_edit_members')
+    @include('tableau/edit')
 
 </x-app-layout>
 

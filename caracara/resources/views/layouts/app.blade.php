@@ -28,7 +28,7 @@
                 <div class="search-bar">
                     <i class="fas fa-search"></i>
 
-                    <form action="{{ route('search') }}" method="GET" role="search" id="search-form">
+                    <form action="{{ route('search.index') }}" method="GET" role="search" id="search-form">
                         @csrf
                         <input type="text" id="search-toggle" name="search_general" placeholder="Rechercher" required>
                     </form>
@@ -37,8 +37,9 @@
 
             <div class="user">
                 <button id="userButton">
-                    <img src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}"><span
-                        class="hidden md">{{ Auth::user()->name }}</span>
+                    <img src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}">
+                    <span class="hidden md">{{ Auth::user()->name }}</span>
+                    <i class="fas fa-chevron-down"></i>
                 </button>
 
                 <div id="userMenu">
@@ -47,8 +48,8 @@
                         <li>
                             <hr>
                         </li>
-                        <li><a href="{{ route('add_post') }}">Ajouter un article</a></li>
-                        <li><a href="{{ route('add_tableau') }}">Créer un tableau</a></li>
+                        <li><a href="{{ route('post.create') }}">Ajouter un article</a></li>
+                        <li><a href="{{ route('tableau.create') }}">Créer un tableau</a></li>
                         <li>
                             <hr>
                         </li>
@@ -70,7 +71,7 @@
         {{ $slot }}
     </div>
     <div class="menu-right-fixed">
-        <a href="{{ route('add_post') }}"><i title="Ajouter un post" class="fas fa-plus"></i></a>
+        <a href="{{ route('post.create') }}"><i title="Ajouter un post" class="fas fa-plus"></i></a>
         <i title="Passer en mode nuit" class="far fa-lightbulb"></i>
     </div>
     @livewireScripts

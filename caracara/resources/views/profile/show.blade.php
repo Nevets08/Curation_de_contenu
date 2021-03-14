@@ -27,7 +27,7 @@
                         <img src="@if ($tab->url_icone)
                             {{ $tab->url_icone }}
                         @else
-                            {{ asset('img/rond_vide.png') }}
+                            {{ asset('img/tableauWithoutIcon.png') }}
                         @endif" alt="{{$tab->nom}}">
                         <p>{{$tab->nom}}</p>
                     </div>
@@ -45,7 +45,7 @@
                             <img src="@if ($tab->url_icone)
                             {{ $tab->url_icone }}
                         @else
-                            {{ asset('img/rectangle_vide.png') }}
+                            {{ asset('img/tableauWithoutIcon.png') }}
                         @endif" alt="{{ $tab->nom }}">
                             <p>{{$tab->nom}}</p>
                         </div>
@@ -56,13 +56,13 @@
                         <img src="@if ($tab->url_icone)
                         {{ $tab->url_icone }}
                     @else
-                        {{ asset('img/rectangle_vide.png') }}
+                        {{ asset('img/tableauWithoutIcon.png') }}
                     @endif" alt="{{$tab->nom}}">
                         <p>{{$tab->nom}}</p>
                     </div>
                 @endforeach
             </div>
-            <p class="buttonAdd"><a href="{{ route('add_tableau') }}">Créer un tableau privé</a></p>
+            <p class="buttonAdd"><a href="{{ route('tableau.create') }}">Créer un tableau privé</a></p>
         </section>
 
         <section class="publications_sauvegardees">
@@ -75,11 +75,11 @@
                     @if($i%2===0)
                         <div>
                     @endif
-                    
+
                     @php
                         $post=$user->tableauSaved->posts[$i];
                     @endphp
-                    @include('layouts.article_miniature')
+                    @include('post.show_maniature')
 
                     @if($i%2!==0 || $i===$count-1)
                         </div>
@@ -103,7 +103,7 @@
                     @php
                         $post=$user->posts[$i];
                     @endphp
-                    @include('layouts.article_miniature')
+                    @include('post.show_maniature')
 
                     @if($i%2!==0 || $i===$count-1)
                         </div>

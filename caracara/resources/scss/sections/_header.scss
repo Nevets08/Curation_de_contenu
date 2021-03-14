@@ -14,6 +14,12 @@ header {
         justify-content: space-between;
     }
 
+    .left_elements {
+        @media (max-width: $breakpoint-tablet) {
+            margin-right: auto;
+        }
+    }
+
     .right_elements {
         display: flex;
         flex-direction: row;
@@ -67,6 +73,10 @@ header {
                 }
             }
 
+            @media (max-width: $breakpoint-mobile) {
+                top: 80px;
+            }
+
             input#search-toggle {
                  @include theme() {
                      background-color: theme-get('grey-medium')
@@ -111,16 +121,11 @@ header {
                 }
             }
 
-            &:after {
-                @media (min-width: $breakpoint-tablet) {
-                    content: url("../../img/down-chevron.svg");
-                    width: 10px;
-                    height: -10px;
-                    margin-left: 10px;
-                    //color: $black;
-                    @include theme() {
-                        color: theme-get('black')
-                    }
+            i {
+                margin-left: 10px;
+                margin-top: 5px;
+                @media (max-width: $breakpoint-tablet) {
+                    margin-left: 0;
                 }
             }
         }
