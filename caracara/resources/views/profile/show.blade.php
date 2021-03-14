@@ -1,4 +1,4 @@
-<x-app-layout title="profil">
+<x-app-layout title="Profil">
     <aside>
         <section>
             <h2>MENU</h2>

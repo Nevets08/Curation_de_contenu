@@ -1,4 +1,4 @@
-<x-app-layout title="home">
+<x-app-layout title="Caracara">
     <aside>
         <section>
             <h2>Tableau privés</h2>

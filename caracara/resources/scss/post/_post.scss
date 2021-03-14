@@ -72,8 +72,8 @@
         margin-top: 20px;
         display: flex;
         align-items: center;
-        .article-likes {
-            margin-right: 5px;
+        .article-likes, .article-favoris {
+            margin-right: 15px;
         }
         > div {
             @media (max-width: $breakpoint-mobile) {
@@ -82,7 +82,7 @@
             }
         }
 
-        @media (max-width: $breakpoint-mini-mobile) {
+        @media (max-width: $breakpoint-mobile) {
             flex-direction: column;
         }
 
@@ -91,7 +91,6 @@
                 color: theme-get('black');
             }
             display: flex;
-            margin: 0 10px;
             justify-content: center;
             font-size: 1.6rem;
             align-items: center;

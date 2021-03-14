@@ -1,4 +1,4 @@
-<x-app-layout title="tableau favoris">
+<x-app-layout title="Tableau favoris">
 
     <aside>
         <section>

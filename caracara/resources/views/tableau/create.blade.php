@@ -1,4 +1,4 @@
-<x-app-layout title="tableau">
+<x-app-layout title="Créer un tableau">
 
     <aside>
         <section>

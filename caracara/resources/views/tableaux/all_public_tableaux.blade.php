@@ -1,4 +1,4 @@
-<x-app-layout title="tableau">
+<x-app-layout title="Tableau public">
 
     <aside>
         <section>
