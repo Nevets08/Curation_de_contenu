@@ -3,33 +3,33 @@
         <section>
             <h2>Tableau privés</h2>
             <div class="tableaux_miniatures">
-                @foreach ($tableaux as $tableau)
-                    @can('view', $tableau){{--Si on a bien accès au tableau--}}
+                @foreach ($tableaux as $tab)
+                    @can('view', $tab){{--Si on a bien accès au tableau--}}
                         @if (Auth::user()->tableauSaved)
-                            @if ($tableau->prive && $tableau->id != Auth::user()->tableauSaved->id)
+                            @if ($tab->prive && $tab->id != Auth::user()->tableauSaved->id)
                                 <div>
-                                    <a href="{{ route("tableau.show", $tableau) }}">
+                                    <a href="{{ route("tableau.show", $tab) }}">
                                         <img src="
-                                            @if ($tableau->url_icone)
-                                                {{ $tableau->url_icone }}
+                                            @if ($tab->url_icone)
+                                                {{ $tab->url_icone }}
                                             @else
                                                 {{ asset('img/tableauWithoutIcon.png') }}
                                             @endif" alt="">
-                                        <p>{{$tableau->nom}}</p>
+                                        <p>{{$tab->nom}}</p>
                                     </a>
                                 </div>
                             @endif
                         @else
-                            @if ($tableau->prive)
+                            @if ($tab->prive)
                                 <div>
-                                    <a href="{{ route("tableau.show", $tableau) }}">
+                                    <a href="{{ route("tableau.show", $tab) }}">
                                         <img src="
-                                            @if ($tableau->url_icone)
-                                                {{ $tableau->url_icone }}
+                                            @if ($tab->url_icone)
+                                                {{ $tab->url_icone }}
                                             @else
                                                 {{ asset('img/tableauWithoutIcon.png') }}
                                             @endif" alt="">
-                                        <p>{{$tableau->nom}}</p>
+                                        <p>{{$tab->nom}}</p>
                                     </a>
                                 </div>
                             @endif
@@ -61,17 +61,17 @@
         <section>
             <h2>Mes tableaux publics</h2>
             <div class="tableaux_publics">
-                @foreach ($tableaux as $tableau)
-                    @can('view', $tableau){{--Si on a bien accès au tableau--}}
-                    @if (!$tableau->prive)
-                        <div onclick="window.location = '{{ route("tableau.show", $tableau) }}'">
+                @foreach ($tableaux as $tab)
+                    @can('view', $tab){{--Si on a bien accès au tableau--}}
+                    @if (!$tab->prive)
+                        <div onclick="window.location = '{{ route("tableau.show", $tab) }}'">
                             <img src="
-                            @if ($tableau->url_icone)
-                                {{ $tableau->url_icone }}
+                            @if ($tab->url_icone)
+                                {{ $tab->url_icone }}
                             @else
                                 {{ asset('img/tableauWithoutIcon.png') }}
                             @endif" alt="">
-                            <p>{{$tableau->nom}}</p>
+                            <p>{{$tab->nom}}</p>
                         </div>
                     @endif
                     @endcan
