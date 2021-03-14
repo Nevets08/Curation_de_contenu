@@ -17,23 +17,7 @@
             <span>/ Vos tableaux privés</span>
         </div>
 
-        <div class="tableaux">
-            @foreach ($tableaux as $tableau)
-            @can('view', $tableau)
-                <div onclick="window.location = '{{ route("tableau.show", $tableau) }}'">
-                    <img src="
-                        @if ($tableau->url_icone)
-                            {{$tableau->url_icone}}
-                        @else
-                            {{ asset('img/tableauWithoutIcon.png') }}
-                        @endif
-                    " alt="">
-                    <h2>{{$tableau->nom}}</h2>
-                    <p>Créé par <a href="#">{{$tableau->user->name}}</a></p>
-                </div>
-                @endcan
-            @endforeach
-        </div>
+        @include('tableau.show_miniature')
     </main>
 
 </x-app-layout>
