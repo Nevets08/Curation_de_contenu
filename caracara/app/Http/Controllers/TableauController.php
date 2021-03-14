@@ -10,6 +10,7 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\URL;
 
 class TableauController extends Controller
 {
@@ -56,11 +57,13 @@ class TableauController extends Controller
         if(array_key_exists ( 'icone' , $data )){
             $extension = $data['icone']->extension();
             $name = Str::random(25);
-            $data['icone']->storeAs('/public/icones', $name.".".$extension);
+            $filename = $name.".".$extension;
+            $data['icone']->storeAs('/public/icones', $filename);
 
             //ATTENTION !!! ALERTE CODE PAS PROPRE (mais qui marche donc pour l'instant je touche pas)
-            $url = 'https://laravel.bukal.etu.mmi-unistra.fr/Curation_de_contenu/caracara/storage/app/public/icones/'.$name.".".$extension; //ATTENTION ICI IL FAUDRA CHANGER LE CHEMIN !!!
+            // $url = 'https://laravel.bukal.etu.mmi-unistra.fr/Curation_de_contenu/caracara/storage/app/public/icones/'.$name.".".$extension; //ATTENTION ICI IL FAUDRA CHANGER LE CHEMIN !!!
             //ATTENTION !!!
+            $url = URL::asset('icones/'.$filename);
 
             $data['url_icone'] = $url;
             unset($data['icone']);
@@ -130,20 +133,22 @@ class TableauController extends Controller
         //Pour stocker l'image
         if(array_key_exists ( 'icone' , $data )){
             //si il y en avait une avant, on la suppr
-            if($tableau->url_icone)
+            /*if($tableau->url_icone)
             {
                 preg_match('/laravel\.bukal\.etu\.mmi-unistra\.fr\/Curation_de_contenu\/caracara\/storage\/app\/public\/icones\/(.*)/', $tableau->url_icone, $matches);
                 $filename=$matches[1];
                 Storage::delete('/public/icones/'.$filename);
-            }
+            }*/
 
             $extension = $data['icone']->extension();
             $name = Str::random(25);
-            $data['icone']->storeAs('/public/icones', $name.".".$extension);
+            $filename = $name.".".$extension;
+            $data['icone']->storeAs('/public/icones', $filename);
 
             //ATTENTION !!! ALERTE CODE PAS PROPRE (mais qui marche donc pour l'instant je touche pas)
-            $url = 'https://laravel.bukal.etu.mmi-unistra.fr/Curation_de_contenu/caracara/storage/app/public/icones/'.$name.".".$extension; //ATTENTION ICI IL FAUDRA CHANGER LE CHEMIN !!!
+            // $url = 'https://laravel.bukal.etu.mmi-unistra.fr/Curation_de_contenu/caracara/storage/app/public/icones/'.$name.".".$extension; //ATTENTION ICI IL FAUDRA CHANGER LE CHEMIN !!!
             //ATTENTION !!!
+            $url = URL::asset('icones/'.$filename);
 
             $data['url_icone'] = $url;
             unset($data['icone']);
