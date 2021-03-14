@@ -110,9 +110,8 @@ class PostPolicy
     {
         foreach ($post->tableaux as $tableau){
             foreach ($tableau->abonnes as $item){
-                if (isset($item->id) && $item->id === $user->id)
+                if ($item->id === $user->id)
                     return true;
-                break;
             }
         }
     }
