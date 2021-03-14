@@ -108,9 +108,9 @@
         <div class="article-partager">
             <a class="article-partager" href="#">Partager</a>
             <div class="article-partager-liens">
-                <a href="https://www.facebook.com/sharer/sharer.php?u={{ $post->url }}">Facebook</a>
-                <a href="https://twitter.com/intent/tweet?text={{ $post->url }}">Twitter</a>
-                <a href="https://www.linkedin.com/shareArticle?url={{ $post->url }}">LinkedIn</a>
+                <a href="https://www.facebook.com/sharer/sharer.php?u={{ $post->url }}" target="_blank">Facebook</a>
+                <a href="https://twitter.com/intent/tweet?text={{ $post->url }}" target="_blank">Twitter</a>
+                <a href="https://www.linkedin.com/shareArticle?url={{ $post->url }}" target="_blank">LinkedIn</a>
             </div>
         </div>
         @if ($post->user->id == $user->id)

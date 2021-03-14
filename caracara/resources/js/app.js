@@ -18,22 +18,15 @@ function ClickButtonPartage(e) {
     this.nextElementSibling.classList.toggle("show");
     e.preventDefault();
     e.stopPropagation();
-    const liens = this.nextElementSibling.childNodes;
-    for (var y = 0; y < liens.length; y++) {
-        const unLien = liens[y];
-        console.log(unLien);
-        unLien.addEventListener("click", function (e) {
-            e.stopPropagation();
-        });
-    }
 }
 
-//Click button remove post
-const buttonRemove = document.querySelectorAll(".article-remove form button");
-if (buttonRemove !== null) {
-    for (var t = 0; t < buttonRemove.length; t++) {
-        const buttonRemoveElement = buttonRemove[t];
-        buttonRemoveElement.addEventListener("click", function (e) {
+//Stop propagation sur liens d'un post
+const elements = document.querySelectorAll('.article-remove form button, .article-likes form button, .article-favoris form button, .article-card div.article-partager-liens a');
+console.log(elements);
+if (elements !== null) {
+    for (var i = 0; i < elements.length; i++) {
+        const element = elements[i];
+        element.addEventListener("click", function (e) {
             e.stopPropagation();
         });
     }
@@ -157,14 +150,6 @@ function removeSideBarCreationTableau(e) {
     document.querySelector(".sidebar").classList.remove("showSideBar");
 }
 
-//Enlever lien sur article cards quand on like
-const buttonLikes = document.querySelectorAll(".article-likes form button");
-for (var j = 0; j < buttonLikes.length; j++) {
-    const buttonLikeElement = buttonLikes[j];
-    buttonLikeElement.addEventListener("click", function(e) {
-        e.stopPropagation();
-    });
-}
 
 //Modal Repost
 const retweetButton = document.querySelectorAll(".article-Retweet a");
@@ -211,7 +196,6 @@ if (seeMembersButton !== null) {
 
 //Modal Gerer les membres
 var membersManagementButton = document.querySelector(".members-management-button");
-
 if (membersManagementButton !== null) {
     membersManagementButton.addEventListener("click", function (e) {
         e.preventDefault();
@@ -231,7 +215,6 @@ if (membersManagementButton !== null) {
 
 //Modal Editer un tableau
 var editerTableauButton = document.querySelector(".edit_tableau-button");
-
 if (editerTableauButton !== null) {
     editerTableauButton.addEventListener("click", function (e) {
         e.preventDefault();

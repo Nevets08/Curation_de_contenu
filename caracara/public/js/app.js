@@ -35254,24 +35254,16 @@ function ClickButtonPartage(e) {
   this.nextElementSibling.classList.toggle("show");
   e.preventDefault();
   e.stopPropagation();
-  var liens = this.nextElementSibling.childNodes;
-
-  for (var y = 0; y < liens.length; y++) {
-    var unLien = liens[y];
-    console.log(unLien);
-    unLien.addEventListener("click", function (e) {
-      e.stopPropagation();
-    });
-  }
-} //Click button remove post
+} //Stop propagation sur liens d'un post
 
 
-var buttonRemove = document.querySelectorAll(".article-remove form button");
+var elements = document.querySelectorAll('.article-remove form button, .article-likes form button, .article-favoris form button, .article-card div.article-partager-liens a');
+console.log(elements);
 
-if (buttonRemove !== null) {
-  for (var t = 0; t < buttonRemove.length; t++) {
-    var buttonRemoveElement = buttonRemove[t];
-    buttonRemoveElement.addEventListener("click", function (e) {
+if (elements !== null) {
+  for (var i = 0; i < elements.length; i++) {
+    var element = elements[i];
+    element.addEventListener("click", function (e) {
       e.stopPropagation();
     });
   }
@@ -35395,16 +35387,6 @@ function displaySideBarCreationTableau(e) {
 function removeSideBarCreationTableau(e) {
   e.preventDefault();
   document.querySelector(".sidebar").classList.remove("showSideBar");
-} //Enlever lien sur article cards quand on like
-
-
-var buttonLikes = document.querySelectorAll(".article-likes form button");
-
-for (var j = 0; j < buttonLikes.length; j++) {
-  var buttonLikeElement = buttonLikes[j];
-  buttonLikeElement.addEventListener("click", function (e) {
-    e.stopPropagation();
-  });
 } //Modal Repost
 
 
