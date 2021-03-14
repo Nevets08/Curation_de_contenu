@@ -75,6 +75,7 @@ class TableauController extends Controller
 
         if(array_key_exists ( 'user' , $data )){
             $tableau->users()->attach($data['user']); //plusieurs à plusieurs
+            $tableau->abonnes()->attach($data['user']);
         }
 
         $user = Auth::user();
@@ -151,8 +152,10 @@ class TableauController extends Controller
         $tableau->fill($data);
         $tableau->save();
 
-        if(array_key_exists ( 'user' , $data ))
+        if(array_key_exists ( 'user' , $data )){
             $tableau->users()->attach($data['user']); //plusieurs à plusieurs (attach pour ajouter et non-pas remplacer)
+            $tableau->abonnes()->attach($data['user']);
+        }
 
         //Gestions des utilisateurs (contributeur/lecteur/virer)
         if(array_key_exists ( 'userToUpdate' , $data )){
