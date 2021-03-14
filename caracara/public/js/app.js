@@ -35238,8 +35238,9 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 __webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/alpine.js");
 
-__webpack_require__(/*! slick-carousel */ "./node_modules/slick-carousel/slick/slick.js"); //Bouton partage
+__webpack_require__(/*! slick-carousel */ "./node_modules/slick-carousel/slick/slick.js");
 
+console.log(url); //Bouton partage
 
 var button_partage = document.querySelectorAll(".article-card a.article-partager");
 
@@ -35257,7 +35258,7 @@ function ClickButtonPartage(e) {
 } //Stop propagation sur liens d'un post
 
 
-var elements = document.querySelectorAll('.article-remove form button, .article-likes form button, .article-favoris form button, .article-card div.article-partager-liens a');
+var elements = document.querySelectorAll('.article-remove form button, .article-likes form button, .article-favoris form button, .article-card div.article-partager-liens a, .article-card .article-auteur a');
 
 if (elements !== null) {
   for (var i = 0; i < elements.length; i++) {
@@ -35326,7 +35327,7 @@ function DisplaySideBar() {
 
 var DarkModeSwitchButton = document.querySelector(".menu-right-fixed > i");
 var body = document.body;
-var logo = document.querySelector("img.logo"); // const iconNuit = document.querySelector(".menu-right-fixed > i")
+var logo = document.querySelector("img.logo");
 
 if (DarkModeSwitchButton !== null) {
   DarkModeSwitchButton.addEventListener("click", DarkMode);
@@ -35339,48 +35340,24 @@ function DarkMode() {
     localStorage.setItem('darkTheme', 'yes');
   }
 
-  if (localStorage.getItem('darkTheme') === "yes") {
-    body.classList.replace("lightTheme", "darkTheme");
-    logo.src = "/caracara/public/img/Logo-DarkMode.png";
-    DarkModeSwitchButton.classList.replace("far", "fas");
-  } else {
-    body.classList.replace("darkTheme", "lightTheme");
-    logo.src = "/caracara/public/img/Logo.png";
-    DarkModeSwitchButton.classList.replace("fas", "far");
-  }
+  DarkModeLogo();
 }
 
 (function () {
+  DarkModeLogo();
+})();
+
+function DarkModeLogo() {
   if (localStorage.getItem('darkTheme') === "yes") {
     body.classList.replace("lightTheme", "darkTheme");
-    logo.src = "/caracara/public/img/Logo-DarkMode.png";
+    logo.src = url + "/Logo-DarkMode.png";
     DarkModeSwitchButton.classList.replace("far", "fas");
   } else {
     body.classList.replace("darkTheme", "lightTheme");
-    logo.src = "/caracara/public/img/Logo.png";
+    logo.src = url + "/Logo.png";
     DarkModeSwitchButton.classList.replace("fas", "far");
   }
-})(); //Slide création de post
-// const lien = document.querySelector(".createTableau");
-// const lienRetour = document.querySelector(".retour_creationPost");
-//
-// if (lien !== null) {
-//     lien.addEventListener("click", displaySideBarCreationTableau);
-// }
-// if (lienRetour !== null) {
-//     lienRetour.addEventListener("click", removeSideBarCreationTableau);
-// }
-//
-// function displaySideBarCreationTableau(e) {
-//     e.preventDefault();
-//     document.querySelector(".sidebar").classList.add("showSideBar");
-// }
-//
-// function removeSideBarCreationTableau(e) {
-//     e.preventDefault();
-//     document.querySelector(".sidebar").classList.remove("showSideBar");
-// }
-//Modal creation tableau
+} //Modal creation tableau
 
 
 var lienCreateTableau = document.querySelector(".createTableau");

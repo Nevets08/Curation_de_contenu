@@ -12,6 +12,10 @@
     <link rel="stylesheet" href="{{ asset(mix('css/app.css')) }}">
 
     <!-- Scripts -->
+    <script type="text/javascript">
+        var url = '{{ URL::asset('/img/') }}';
+    </script>
+
     <script src="{{ asset(mix('js/app.js')) }}" defer></script>
     <script src="{{ asset(mix('js/initSlider.js')) }}" defer></script>
 </head>
@@ -48,6 +52,14 @@
                         <li>
                             <hr>
                         </li>
+                        <li><a href="{{ route('all_private_tableaux') }}">Tableaux privés</a></li>
+                        <li><a href="{{ route('all_public_tableaux') }}">Tableaux publics</a></li>
+                        @if(isset(Auth::user()->tableauSaved))
+                            <li><a href="{{ route('saved_posts', ['tabID' => Auth::user()->tableauSaved->id]) }}">Vos publications sauvegardées</a></li>
+                        @endif
+                        <li>
+                            <hr>
+                        </li>
                         <li><a href="{{ route('post.create') }}">Ajouter un article</a></li>
                         <li><a href="{{ route('tableau.create') }}">Créer un tableau</a></li>
                         <li>
@@ -75,6 +87,7 @@
         <i title="Passer en mode nuit" class="far fa-lightbulb"></i>
     </div>
     @livewireScripts
+
 </body>
 
 </html>

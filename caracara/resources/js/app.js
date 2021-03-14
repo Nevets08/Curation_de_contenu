@@ -4,7 +4,7 @@ require('alpinejs');
 
 require('slick-carousel');
 
-
+console.log(url);
 //Bouton partage
 const button_partage = document.querySelectorAll(".article-card a.article-partager");
 if (button_partage !== null) {
@@ -21,7 +21,7 @@ function ClickButtonPartage(e) {
 }
 
 //Stop propagation sur liens d'un post
-const elements = document.querySelectorAll('.article-remove form button, .article-likes form button, .article-favoris form button, .article-card div.article-partager-liens a');
+const elements = document.querySelectorAll('.article-remove form button, .article-likes form button, .article-favoris form button, .article-card div.article-partager-liens a, .article-card .article-auteur a');
 if (elements !== null) {
     for (var i = 0; i < elements.length; i++) {
         const element = elements[i];
@@ -89,7 +89,7 @@ function DisplaySideBar() {
 const DarkModeSwitchButton = document.querySelector(".menu-right-fixed > i");
 const body = document.body;
 const logo = document.querySelector("img.logo");
-// const iconNuit = document.querySelector(".menu-right-fixed > i")
+
 if (DarkModeSwitchButton !== null) {
     DarkModeSwitchButton.addEventListener("click", DarkMode);
 }
@@ -100,50 +100,24 @@ function DarkMode() {
     } else if (body.classList.contains("lightTheme")) {
         localStorage.setItem('darkTheme', 'yes');
     }
-    if (localStorage.getItem('darkTheme') === "yes") {
-        body.classList.replace("lightTheme", "darkTheme");
-        logo.src = "/caracara/public/img/Logo-DarkMode.png";
-        DarkModeSwitchButton.classList.replace("far", "fas");
-    } else {
-        body.classList.replace("darkTheme", "lightTheme");
-        logo.src = "/caracara/public/img/Logo.png";
-        DarkModeSwitchButton.classList.replace("fas", "far");
-    }
+    DarkModeLogo();
 }
 
 (function () {
+    DarkModeLogo();
+}());
+
+function DarkModeLogo() {
     if (localStorage.getItem('darkTheme') === "yes") {
         body.classList.replace("lightTheme", "darkTheme");
-        logo.src = "/caracara/public/img/Logo-DarkMode.png";
+        logo.src = url + "/Logo-DarkMode.png";
         DarkModeSwitchButton.classList.replace("far", "fas");
     } else {
         body.classList.replace("darkTheme", "lightTheme");
-        logo.src = "/caracara/public/img/Logo.png";
+        logo.src = url + "/Logo.png";
         DarkModeSwitchButton.classList.replace("fas", "far");
     }
-}());
-
-
-//Slide création de post
-// const lien = document.querySelector(".createTableau");
-// const lienRetour = document.querySelector(".retour_creationPost");
-//
-// if (lien !== null) {
-//     lien.addEventListener("click", displaySideBarCreationTableau);
-// }
-// if (lienRetour !== null) {
-//     lienRetour.addEventListener("click", removeSideBarCreationTableau);
-// }
-//
-// function displaySideBarCreationTableau(e) {
-//     e.preventDefault();
-//     document.querySelector(".sidebar").classList.add("showSideBar");
-// }
-//
-// function removeSideBarCreationTableau(e) {
-//     e.preventDefault();
-//     document.querySelector(".sidebar").classList.remove("showSideBar");
-// }
+}
 
 //Modal creation tableau
 const lienCreateTableau = document.querySelector(".createTableau");
