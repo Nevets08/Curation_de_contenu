@@ -58,7 +58,7 @@ class TableauController extends Controller
             $extension = $data['icone']->extension();
             $name = Str::random(25);
             $filename = $name.".".$extension;
-            $data['icone']->storeAs('/public/icones', $filename);
+            // $data['icone']->storeAs('/public/icones', $filename);
             $data['icone']->move(public_path('icones'), $filename);
             $url = URL::asset('icones/'.$filename);
 
