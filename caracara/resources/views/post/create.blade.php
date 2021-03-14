@@ -51,6 +51,7 @@
             <button type="submit">Envoyer !</button>
         </form>
 
+
         @include('components/modals/modal_create_tableau')
 
     </main>

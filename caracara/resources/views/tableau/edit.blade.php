@@ -17,7 +17,7 @@
             </label>
 
             <label>
-                Nouvelle icône :
+                Nouvelle icône (1MB max):
                 <input type="file" name="icone" accept="image/png, image/jpeg">
             </label>
 

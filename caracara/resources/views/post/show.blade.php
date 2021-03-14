@@ -28,13 +28,35 @@
     $second_date = new DateTime(date('d-m-Y H:i:s', strtotime($post->created_at)));
     $difference = $first_date->diff($second_date);
     $date = format_interval($difference);
+
+    //Afficher le bon tableau
+    $tableauAafficher = '';
+    if(isset($tableau) && $tableau->id != Auth::user()->tableauSaved->id){ // 1) Est-ce qu'on est sur la page d'un tableau, si oui on affiche celui-là
+        $tableauAafficher = $tableau;
+    } else {
+        foreach ($post->tableaux as $postTableau) {
+            if(Auth::user()->can('view', $postTableau)){ // 2) Est-ce qu'on a accès au tableau ?
+                $tableauAafficher = $postTableau;
+            }
+            
+            foreach ($postTableau->abonnes as $item){
+                if ($item->id === Auth::user()->id){ // 3) Est-ce qu'on est abonné au tableau ?
+                    $tableauAafficher = $postTableau;
+                    $k=true; //Variable qui me permet de sortir deux fois de la boucle
+                    break;
+                }
+            }
+            if(isset($k))
+                break;
+        }
+    }
 @endphp
 
 <article class="article-card" onclick="window.open('{{ $post->url }}')">
     <div class="article-infos">
         <p class="article-auteur"><a href="#"><img class="article-auteur-image"
                                                    src="{{ $post->user->profile_photo_url }}" alt="">{{ $post->user->name }}</a>&nbspdans&nbsp<a
-                href="{{ route("tableau.show", $post->tableaux[0]) }}">{{ $post->tableaux[0]->nom }}</a></p>
+                href="{{ route("tableau.show", $tableauAafficher) }}">{{ $tableauAafficher->nom }}</a></p>
         <p class="article-date">{{ $date }}</p>
     </div>
     <h2>{{ $title }}</h2>
