@@ -72,6 +72,9 @@
         margin-top: 20px;
         display: flex;
         align-items: center;
+        .article-likes {
+            margin-right: 5px;
+        }
         > div {
             @media (max-width: $breakpoint-mobile) {
                 flex-shrink: 0;

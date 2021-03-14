@@ -12,6 +12,10 @@
     <link rel="stylesheet" href="{{ asset(mix('css/app.css')) }}">
 
     <!-- Scripts -->
+    <script type="text/javascript">
+        var url = '{{ URL::asset('/img/') }}';
+    </script>
+
     <script src="{{ asset(mix('js/app.js')) }}" defer></script>
     <script src="{{ asset(mix('js/initSlider.js')) }}" defer></script>
 </head>
@@ -75,6 +79,7 @@
         <i title="Passer en mode nuit" class="far fa-lightbulb"></i>
     </div>
     @livewireScripts
+
 </body>
 
 </html>
