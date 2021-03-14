@@ -18,6 +18,8 @@
 ### Clé d’encryption
 - ```php artisan key:generate```
 
+###APP_URL
+- Dans le .env, changer le APP_URL
 
 ## Utilisation
 

@@ -72,7 +72,9 @@
         margin-top: 20px;
         display: flex;
         align-items: center;
-        .article-likes, .article-favoris {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        .article-likes, .article-favoris, .article-Retweet {
             margin-right: 15px;
         }
         > div {
@@ -80,10 +82,6 @@
                 flex-shrink: 0;
                 width: auto;
             }
-        }
-
-        @media (max-width: $breakpoint-mobile) {
-            flex-direction: column;
         }
 
         > div a {
@@ -94,8 +92,8 @@
             justify-content: center;
             font-size: 1.6rem;
             align-items: center;
+            margin: 0;
             @media (max-width: $breakpoint-mobile) {
-                margin: 10px;
                 justify-content: left;
             }
 
