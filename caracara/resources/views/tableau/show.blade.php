@@ -110,6 +110,15 @@
                         <p>Editer le tableau</p>
                     </a>
                 </li>
+                <li class="destroy_tableau-button">
+
+                    <form action="{{ route('tableau.destroy', $tableau) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit"><i class="far fa-times-circle"></i><br>Supprimer le tableau</button>
+                    </form>
+                </li>
+
             @endif
 
 {{--            <li>--}}

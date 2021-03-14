@@ -101,7 +101,9 @@ header {
 
     .user {
         position: relative;
-
+        @media (max-width: $breakpoint-tablet) {
+            position: initial;
+        }
         button#userButton {
             display: flex;
             align-items: center;
@@ -118,6 +120,9 @@ header {
                 font-weight: bold;
                 @include theme() {
                     color: theme-get('main-color-dark')
+                }
+                @media (max-width: $breakpoint-tablet) {
+                    display: none;
                 }
             }
 
@@ -142,7 +147,10 @@ header {
             right: 0;
             padding: 10px;
             z-index: 20;
-
+            @media (max-width: $breakpoint-tablet) {
+                left: 0;
+                margin-top: 15px;
+            }
             li {
                 margin: 5px 0;
 
@@ -155,6 +163,10 @@ header {
                             color: theme-get('main-color');
                         }
                     }
+                }
+
+                button.deconnexion {
+                    padding: 0;
                 }
             }
 

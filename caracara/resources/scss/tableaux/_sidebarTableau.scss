@@ -39,24 +39,23 @@
         }
 
         li {
-            a {
-                i {
-                    font-size: xx-large;
-                    @include theme() {
-                        background-color: theme-get('main-color-light')
-                    }
-                    padding: 10px;
-                    border-radius: 100px;
-                    width: 75px;
-                    height: 75px;
-                    line-height: 50px;
-                    @media (max-width: $breakpoint-tablet) {
-                        font-size: large;
-                        width: 45px;
-                        height: 45px;
-                        line-height: 30px;
-                    }
+            i {
+                font-size: xx-large;
+                @include theme() {
+                    background-color: theme-get('main-color-light')
                 }
+                padding: 10px;
+                border-radius: 100px;
+                width: 75px;
+                height: 75px;
+                line-height: 50px;
+                @media (max-width: $breakpoint-tablet) {
+                    font-size: large;
+                    width: 45px;
+                    height: 45px;
+                    line-height: 30px;
+                }
+
             }
         }
     }

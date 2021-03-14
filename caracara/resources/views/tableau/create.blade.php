@@ -33,6 +33,7 @@
             </label>
 
             <label class="booleanChoice row">
+                Votre tableau sera t-il :
                 <label>Privé <input type="radio" name = "prive" value="1" checked></label>
                 <label>Public <input type="radio" name = "prive" value="0"></label>
             </label>

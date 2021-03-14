@@ -31,6 +31,16 @@ div.modal {
     button {
         @include button;
     }
+
+    li {
+        img {
+            margin-right: 10px;
+            border-radius: 50px;
+        }
+        @include theme {
+            color: theme-get('main-color-dark');
+        }
+    }
 }
 
 div.modal.show {

@@ -523,7 +523,6 @@ div.site-global {
   overflow-x: hidden;
   display: flex;
   margin-top: 50px;
-  min-height: calc(100vh - 113px);
 }
 
 @media (max-width: 768px) {
@@ -568,12 +567,34 @@ div.site-global aside section {
 
 div.site-global main {
   width: calc(100% - 25% - 50px);
-  min-height: 100vh;
+  min-height: 50vh;
 }
 
 @media (max-width: 768px) {
   div.site-global main {
     width: 100%;
+  }
+}
+
+div.site-global main section:first-of-type {
+  padding: 20px;
+  margin-bottom: 30px;
+  border-radius: 20px;
+}
+
+.lightTheme div.site-global main section:first-of-type {
+  box-shadow: 0 3px 6px #DFDFDF;
+  background-color: #F8F8F8;
+}
+
+.darkTheme div.site-global main section:first-of-type {
+  box-shadow: 0 3px 6px #323234;
+  background-color: #252527;
+}
+
+@media (max-width: 768px) {
+  div.site-global main section:first-of-type {
+    padding: 10px;
   }
 }
 

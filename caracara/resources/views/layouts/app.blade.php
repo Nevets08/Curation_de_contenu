@@ -38,7 +38,7 @@
             <div class="user">
                 <button id="userButton">
                     <img src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}">
-                    <span class="hidden md">{{ Auth::user()->name }}</span>
+                    <span>{{ Auth::user()->name }}</span>
                     <i class="fas fa-chevron-down"></i>
                 </button>
 
@@ -56,7 +56,7 @@
                         <li>
                             <form action="{{ route('logout') }}" method="post">
                                 @csrf
-                                <button type="submit">Déconnexion</button>
+                                <button class="deconnexion" type="submit">Déconnexion</button>
                             </form>
                         </li>
                     </ul>

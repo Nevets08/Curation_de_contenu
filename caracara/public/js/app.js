@@ -35273,11 +35273,7 @@ var userButton = document.querySelector("header #userButton");
 userButton.addEventListener("click", ClickUserButton);
 
 function ClickUserButton() {
-  if (window.matchMedia("(min-width: 768px)").matches) {
-    document.querySelector("#userMenu").classList.toggle("showUserMenu");
-  } else {
-    window.location.href = "/caracara/public/user/profile";
-  }
+  document.querySelector("#userMenu").classList.toggle("showUserMenu");
 } //SearchBar
 
 
@@ -35365,27 +35361,44 @@ function DarkMode() {
     DarkModeSwitchButton.classList.replace("fas", "far");
   }
 })(); //Slide création de post
+// const lien = document.querySelector(".createTableau");
+// const lienRetour = document.querySelector(".retour_creationPost");
+//
+// if (lien !== null) {
+//     lien.addEventListener("click", displaySideBarCreationTableau);
+// }
+// if (lienRetour !== null) {
+//     lienRetour.addEventListener("click", removeSideBarCreationTableau);
+// }
+//
+// function displaySideBarCreationTableau(e) {
+//     e.preventDefault();
+//     document.querySelector(".sidebar").classList.add("showSideBar");
+// }
+//
+// function removeSideBarCreationTableau(e) {
+//     e.preventDefault();
+//     document.querySelector(".sidebar").classList.remove("showSideBar");
+// }
+//Modal creation tableau
 
 
-var lien = document.querySelector(".createTableau");
-var lienRetour = document.querySelector(".retour_creationPost");
+var lienCreateTableau = document.querySelector(".createTableau");
 
-if (lien !== null) {
-  lien.addEventListener("click", displaySideBarCreationTableau);
-}
-
-if (lienRetour !== null) {
-  lienRetour.addEventListener("click", removeSideBarCreationTableau);
-}
-
-function displaySideBarCreationTableau(e) {
-  e.preventDefault();
-  document.querySelector(".sidebar").classList.add("showSideBar");
-}
-
-function removeSideBarCreationTableau(e) {
-  e.preventDefault();
-  document.querySelector(".sidebar").classList.remove("showSideBar");
+if (lienCreateTableau !== null) {
+  // retweetButtonElement.addEventListener("click", displayModalRetweet);
+  lienCreateTableau.addEventListener("click", function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+    var modal = document.querySelector(".modal.create-tableau");
+    modal.classList.add("show");
+    window.addEventListener("click", function () {
+      modal.classList.remove("show");
+    });
+    modal.firstElementChild.addEventListener("click", function (e) {
+      e.stopPropagation();
+    });
+  });
 } //Modal Repost
 
 
