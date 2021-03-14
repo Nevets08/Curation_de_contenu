@@ -33,6 +33,8 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
 
     Route::resource('/post', PostController::class);
 
+    Route::resource('/search', SearchController::class);
+
     Route::get('/create/{tabID?}', function ($tabID = null) {
         return view('post/create', [
             'user' => Auth::user(),
@@ -40,8 +42,6 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
             'allUsers' => User::all(),
             'tableau' => Tableau::find($tabID)]);
     })->name('post.create');
-
-    Route::get('/search', [SearchController::class, 'search'])->name('search');
 
     Route::get('/saved_posts/{tabID}', function ($tabID) {
         return view('tableaux/saved_posts', ['tableau' => Tableau::find($tabID), 'tableaux' => Tableau::all()]);

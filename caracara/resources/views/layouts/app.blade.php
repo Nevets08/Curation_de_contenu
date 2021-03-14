@@ -28,7 +28,7 @@
                 <div class="search-bar">
                     <i class="fas fa-search"></i>
 
-                    <form action="{{ route('search') }}" method="GET" role="search" id="search-form">
+                    <form action="{{ route('search.index') }}" method="GET" role="search" id="search-form">
                         @csrf
                         <input type="text" id="search-toggle" name="search_general" placeholder="Rechercher" required>
                     </form>

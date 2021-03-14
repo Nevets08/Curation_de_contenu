@@ -30,7 +30,7 @@
 
                         <div class="tableaux">
                             <div>
-                                <a href="{{ route('search.show', $tableau) }}">
+                                <a href="{{ route('tableau.show', $tableau) }}">
                                     <img src="
                                         @if ($tableau->url_icone) {{ $tableau->url_icone }}
                                     @else{{ asset('img/rectangle_vide.png') }} @endif
