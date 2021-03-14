@@ -26,24 +26,7 @@
                 </h2>
 
                 @if (count($tableaux) > 0)
-                    @foreach ($tableaux as $tableau)
-
-                        <div class="tableaux">
-                            <div>
-                                <a href="{{ route('tableau.show', $tableau) }}">
-                                    <img src="
-                                        @if ($tableau->url_icone) {{ $tableau->url_icone }}
-                                    @else{{ asset('img/tableauWithoutIcon.png') }} @endif
-                                    " alt="">
-
-                                    <h2>{{ $tableau->nom }}</h2>
-                                    <p>{{ $tableau->description }}</p>
-                                    <p>Créé par <a href="#">{{ $tableau->user->name }}</a></p>
-                                </a>
-                            </div>
-                        </div>
-
-                    @endforeach
+                    @include('tableau.show_miniature')
                 @else
                     <p>Pas de résultats trouvés</p>
                 @endif

@@ -17,21 +17,7 @@
             <span>/ Vos tableaux publics</span>
         </div>
 
-        <div class="tableaux">
-            @foreach ($tableaux as $tableau)
-                <div onclick="window.location = '{{ route("tableau.show", $tableau) }}'">
-                    <img src="
-                        @if ($tableau->url_icone)
-                            {{$tableau->url_icone}}
-                        @else
-                            {{ asset('img/tableauWithoutIcon.png') }}
-                        @endif
-                    " alt="">
-                    <h2>{{$tableau->nom}}</h2>
-                    <p>Créé par <a href="#">{{$tableau->user->name}}</a></p>
-                </div>
-            @endforeach
-        </div>
+        @include('tableau.show_miniature')
     </main>
 
 </x-app-layout>
