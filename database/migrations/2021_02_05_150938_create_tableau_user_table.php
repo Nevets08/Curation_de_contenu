@@ -19,7 +19,7 @@ class CreateTableauUserTable extends Migration
         $table->primary(['tableau_id', 'user_id']);
         $table->foreign('tableau_id')->references('id')->on('tableaux')->cascadeOnDelete()->cascadeOnUpdate();
         $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete()->cascadeOnUpdate();
-        $table->boolean('contributeur');
+        $table->boolean('contributeur')->default(0);
     });
 }
 
