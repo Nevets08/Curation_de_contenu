@@ -110,8 +110,10 @@ header {
 
             img {
                 width: 45px;
+                height: 45px;
                 border-radius: 30px;
                 margin-right: 10px;
+                object-fit: cover;
             }
 
             span {

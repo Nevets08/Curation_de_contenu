@@ -36,10 +36,18 @@ div.modal {
         img {
             margin-right: 10px;
             border-radius: 50px;
+            width: 45px;
+            height: 45px;
+            object-fit: cover;
         }
         @include theme {
             color: theme-get('main-color-dark');
         }
+    }
+
+    .members-list li {
+        display: flex;
+        align-items: center;
     }
 }
 
